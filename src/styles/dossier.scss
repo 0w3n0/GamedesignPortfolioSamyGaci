@@ -1,0 +1,57 @@
+.dossier {
+  background: #fdfcf7; // papier clair
+  border: 2px solid #d4cbb7;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: "TintinTalking", sans-serif;
+  color: #2b2b2b;
+  box-shadow: 6px 8px 14px rgba(0, 0, 0, 0.2);
+  position: relative;
+
+  // En-tête du dossier
+  .dossier-header {
+    border-bottom: 2px solid #c5b89c;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+
+    h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  // Contenu du dossier
+  .dossier-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  // Bulle d’annotation façon post-it
+  .bubble {
+    position: absolute;
+    right: -20px;
+    bottom: 20px;
+    background: #fff3c4;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-style: italic;
+    border: 1px solid #e0c97f;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 15px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent #fff3c4 transparent transparent;
+    }
+  }
+}

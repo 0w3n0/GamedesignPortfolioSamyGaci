@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'TintinTalking';
+  src: url('../assets/fonts/tintin_talking.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chandler42_Regular';
+  src: url('../assets/fonts/Chandler42_Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #e0e0e0;
+  font-family: 'TintinTalking', sans-serif;
+}

@@ -1,0 +1,23 @@
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tab {
+  font-family: "TintinTalking", sans-serif;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #444;
+  color: #eee;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.tab:hover {
+  transform: scale(1.1);
+}
+.tab.active {
+  background: #ff4d4d;
+  color: white;
+}/*# sourceMappingURL=tabs.css.map */

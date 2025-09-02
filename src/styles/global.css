@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "TintinTalking";
+  src: url("../assets/fonts/tintin_talking.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #e0e0e0;
+  font-family: "TintinTalking", sans-serif;
+}/*# sourceMappingURL=global.css.map */

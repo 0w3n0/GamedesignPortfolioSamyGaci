@@ -1,0 +1,78 @@
+.mini-dossier {
+  width: 200px;
+  height: 150px;
+  cursor: grab;
+  position: relative;
+}
+.mini-dossier .background-layer {
+  width: 100%;
+  height: 100%;
+  background-color: #9e9593;
+  border-radius: 0px 20px 20px 20px;
+  position: absolute;
+  z-index: 1;
+}
+.mini-dossier .background-layer .navbar {
+  top: -20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: start;
+  gap: 5px;
+}
+.mini-dossier .background-layer .navbar .nav-item {
+  color: #222;
+  font-size: 1rem;
+  line-height: 20px;
+  width: 50px;
+  text-align: center;
+  background-color: #9e9593;
+  border-radius: 10px 10px 0 0;
+}
+.mini-dossier .middle-layer {
+  width: 92%;
+  height: 92%;
+  background-color: #e8dcda;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 0;
+  margin-left: 4%;
+  z-index: 2;
+}
+.mini-dossier .front-layer {
+  width: 100%;
+  height: 89%;
+  background-color: #cec4c2;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.mini-dossier .front-layer h1 {
+  font-size: 1.5rem;
+  color: #222;
+  font-weight: 100;
+}
+.mini-dossier .front-layer h1 .h1-bold {
+  font-weight: bold;
+}
+.mini-dossier .full-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: auto;
+}
+.mini-dossier .full-content .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+}/*# sourceMappingURL=dossierMini.css.map */

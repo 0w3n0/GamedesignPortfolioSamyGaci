@@ -1,0 +1,28 @@
+[
+  {
+    "title": "1. Publicité & Communication",
+    "content": "Ce dossier contient toutes les campagnes de publicité et projets de communication.",
+    "note": "N'oubliez pas : cliquez sur certaines images pour révéler plus d'informations !"
+  },
+  {
+    "title": "2. Identité Visuelle",
+    "content": "Exploration des logos, chartes graphiques et déclinaisons visuelles."
+  },
+  {
+    "title": "3. Projets Interactifs",
+    "content": "Dossiers concernant les sites web, expériences interactives et prototypes 3D."
+  },
+    {
+        "title": "4. Autres Projets",
+        "content": "Divers projets ne rentrant pas dans les catégories précédentes."
+    },
+    {
+        "title": "5. À propos de moi",
+        "content": "Un aperçu de mon parcours, compétences et contact."
+    },
+    {
+        "title": "6. Contact",
+        "content": "Comment me joindre pour des collaborations ou questions."
+    }
+  
+]
