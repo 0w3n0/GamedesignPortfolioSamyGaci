@@ -7,6 +7,7 @@ import Section1 from "./Section1";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
 import Section4 from "./Section4";
+import Notes from "./Notes";
 import crossClose from "../../assets/images/png/cross-close.png";
 
 const Sections: React.FC = () => {
@@ -121,7 +122,10 @@ const Sections: React.FC = () => {
             className="sections-wrapper"
             style={{ position: "relative", width: "100%", height: "100%" }}
         >
-            <div className="sections-row" style={{ position: "relative", width: "100%", height: "100%" }}>
+            <div
+                className="sections-row"
+                style={{ position: "relative", width: "100%", height: "100%" }}
+            >
                 {dossiers.map((dossier, index) => (
                     <div
                         key={index}
@@ -141,7 +145,6 @@ const Sections: React.FC = () => {
                             top={dossier.top}
                             left={dossier.left}
                             contentComponent={dossier.component}
-                            // onMiniClick déclenche les anims parentales
                             onMiniClick={() => handleMiniClick(index, dossier.component)}
                         />
                     </div>
@@ -164,7 +167,6 @@ const Sections: React.FC = () => {
                         overflow: "auto",
                         pointerEvents: "auto",
                     }}
-                    // empêcher les clicks de "tomber" aux éléments sous-jacents
                     onClick={(e) => {
                         e.stopPropagation();
                     }}
@@ -172,12 +174,15 @@ const Sections: React.FC = () => {
                     <button
                         type="button"
                         className="close-btn clickable"
-                        onClick={(e) => { e.stopPropagation(); handleCloseSection(); }}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleCloseSection();
+                        }}
                         style={{
                             position: "absolute",
                             bottom: 20,
-                            left: "50%",             // centre horizontalement
-                            transform: "translateX(-50%)", // ajuste pour être exactement au centre
+                            left: "50%",
+                            transform: "translateX(-50%)",
                             zIndex: 10000,
                             background: "transparent",
                             border: "none",
@@ -189,8 +194,15 @@ const Sections: React.FC = () => {
                     </button>
 
                     <div>{activeSection}</div>
+
+                    {/* Bloc notes affiché en mode "ouvert" dans une section */}
+                    
+                    <Notes />
                 </div>
             )}
+
+            {/* Bloc notes affiché en mode bouton flottant sinon */}
+            {!activeSection && <Notes forceOpen />}
         </div>
     );
 };
