@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .navbar {
@@ -48,6 +49,7 @@
     border-radius: 0px 20px 20px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     position: absolute;
+    perspective: 1000px; /* IMPORTANT pour 3D */
     z-index: 1;
 }
 
@@ -76,6 +78,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    transform-origin: bottom center; /* pivot en haut */
+    transform-style: preserve-3d;
 
     h1 {
     font-size: 5rem;

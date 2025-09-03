@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Cube from "./components/ExpandingBox";
 import Section1 from "./components/Sections/Section1";
 import dossiers from "./data/dossiers.json";
+import CustomCursor from "./components/CustomCursor";
 import gsap from "gsap";
 import "./styles/global.scss"; // ← Import global ici
 
@@ -25,7 +26,8 @@ function App() {
 
   return (
     <div className="app">
-      <Home/>
+      <CustomCursor />
+      <Home />
       {/* <Tabs
         dossiers={dossiers}
         activeIndex={activeIndex}

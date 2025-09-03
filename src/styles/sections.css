@@ -8,4 +8,25 @@
   justify-content: center;
   align-items: center;
   transform: translateX(-100%);
+}
+
+.h1-bold {
+  font-weight: bold;
+  color: black;
+}
+
+p {
+  color: #222;
+  padding: 90px 40px 20px 20px;
+  font-size: 0.9vw;
+}
+
+.important {
+  color: red;
+  font-weight: bold;
+}
+
+.span-important {
+  font-weight: 700;
+  font-size: 1vw;
 }/*# sourceMappingURL=sections.css.map */

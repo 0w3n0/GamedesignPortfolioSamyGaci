@@ -2,20 +2,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import DossierMini from "../DossierMini";
+import Section0 from "./Section0";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
 import Section4 from "./Section4";
+import crossClose from "../../assets/images/png/cross-close.png";
 
 const Sections: React.FC = () => {
     const [activeSection, setActiveSection] = useState<React.ReactNode | null>(null);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     const dossiers = [
-        { title: "Section 1", component: <Section1 />, top: 100, left: 100 },
-        { title: "Section 2", component: <Section2 />, top: 100, left: 400 },
-        { title: "Section 3", component: <Section3 />, top: 300, left: 250 },
-        { title: "Section 4", component: <Section4 />, top: 300, left: 600 },
+        { title: "Section 0", component: <Section0 />, top: 100, left: 100 },
+        { title: "Section 1", component: <Section1 />, top: 100, left: 400 },
+        { title: "Section 2", component: <Section2 />, top: 300, left: 250 },
+        { title: "Section 3", component: <Section3 />, top: 300, left: 600 },
+        { title: "Section 4", component: <Section4 />, top: 100, left: 800 },
     ];
 
     const wrapperRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -125,7 +128,7 @@ const Sections: React.FC = () => {
                         ref={(el) => {
                             wrapperRefs.current[index] = el;
                         }}
-                        className="mini-wrapper"
+                        className="mini-wrapper clickable"
                         style={{
                             position: "absolute",
                             top: dossier.top,
@@ -168,14 +171,21 @@ const Sections: React.FC = () => {
                 >
                     <button
                         type="button"
-                        className="close-btn"
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            handleCloseSection();
+                        className="close-btn clickable"
+                        onClick={(e) => { e.stopPropagation(); handleCloseSection(); }}
+                        style={{
+                            position: "absolute",
+                            bottom: 20,
+                            left: "50%",             // centre horizontalement
+                            transform: "translateX(-50%)", // ajuste pour être exactement au centre
+                            zIndex: 10000,
+                            background: "transparent",
+                            border: "none",
+                            padding: 0,
+                            cursor: "none",
                         }}
-                        style={{ position: "absolute", top: 20, right: 20, zIndex: 10000 }}
                     >
-                        Fermer
+                        <img src={crossClose} alt="Fermer" width={64} />
                     </button>
 
                     <div>{activeSection}</div>

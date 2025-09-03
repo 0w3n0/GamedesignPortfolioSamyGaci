@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import "../../styles/sections.scss";
 import "../../styles/home.scss";
 import { gsap } from "gsap";
+import PresentationSection from "./PresentationSection";
 
 const Section1: React.FC = () => {
     const navRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -81,7 +82,7 @@ const Section1: React.FC = () => {
         <div className="home-container">
             <div className="background-layer">
                 <div className="navbar">
-                    {Array.from({ length: 6 }).map((_, i) => (
+                    {Array.from({ length: 1 }).map((_, i) => (
                         <div
                             key={i}
                             className="nav-item"
@@ -96,64 +97,15 @@ const Section1: React.FC = () => {
                 </div>
 
                 <div className="middle-layer">
-                    {/* Contenus ciblés */}
-                    <h1>
-                        <span className="h1-bold">
-                            {activeDiv !== null && (
-                                <>
-                                    {activeDiv + 1}. {[
-                                        "Publicité et Communication",
-                                        "Design Graphique",
-                                        "Web Development",
-                                        "Marketing Digital",
-                                        "Photographie",
-                                        "Vidéo & Motion"
-                                    ][activeDiv]}
-                                </>
-                            )}
-                        </span>
-                    </h1>
-
-                    {Array.from({ length: 6 }).map((_, i) => (
-                        <div
-                            key={i}
-                            ref={(el) => { contentRefs.current[i] = el; }}
-                            style={{ display: activeDiv === i ? "block" : "none" }}
-                        >
-                            <p>Contenu du projet {i + 1}… ici tu peux mettre texte, images, vidéos etc.</p>
-                        </div>
-                    ))}
+                    <PresentationSection />
                 </div>
                     
 
                 <div className="front-layer" ref={frontRef} onClick={handleOpen}>
                     <h1>
-                        <span className="h1-bold">1. Publicité et Communication
-                            {/* {activeDiv !== null && (
-                                <>
-                                    {activeDiv + 1}. {[
-                                        "Publicité et Communication",
-                                        "Design Graphique",
-                                        "Web Development",
-                                        "Marketing Digital",
-                                        "Photographie",
-                                        "Vidéo & Motion"
-                                    ][activeDiv]}
-                                </>
-                            )} */}
+                        <span className="h1-bold">0. Présentation
                         </span>
                     </h1>
-
-                    {/* Contenus ciblés */}
-                    {/* {Array.from({ length: 6 }).map((_, i) => (
-                        <div
-                            key={i}
-                            ref={(el) => { contentRefs.current[i] = el; }}
-                            style={{ display: activeDiv === i ? "block" : "none" }}
-                        >
-                            <p>Contenu du projet {i + 1}… ici tu peux mettre texte, images, vidéos etc.</p>
-                        </div>
-                    ))} */}
                 </div>
             </div>
         </div>

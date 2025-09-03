@@ -33,7 +33,7 @@ const DossierMini: React.FC<DossierMiniProps> = ({ title, onMiniClick }) => {
     };
 
     return (
-        <Draggable nodeRef={backgroundRef}><div ref={backgroundRef} className="mini-dossier" style={{ cursor: "pointer" }}>
+        <Draggable nodeRef={backgroundRef}><div ref={backgroundRef} className="mini-dossier" style={{ cursor: "none" }}>
             <div className="background-layer" onClick={onMiniClick}>
                 <div className="navbar">
                     <div className="nav-item">Home</div>
