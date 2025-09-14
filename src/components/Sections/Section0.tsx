@@ -99,7 +99,7 @@ const Section1: React.FC = () => {
                 <div className="middle-layer">
                     <PresentationSection />
                 </div>
-                    
+
 
                 <div className="front-layer" ref={frontRef} onClick={handleOpen}>
                     <h1>

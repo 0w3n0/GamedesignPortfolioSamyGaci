@@ -1,6 +1,6 @@
-// Sections.tsx
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import Draggable from "gsap/Draggable";
 import DossierMini from "../DossierMini";
 import Section0 from "./Section0";
 import Section1 from "./Section1";
@@ -9,10 +9,19 @@ import Section3 from "./Section3";
 import Section4 from "./Section4";
 import Notes from "./Notes";
 import crossClose from "../../assets/images/png/cross-close.png";
+import myPhoto from "../../assets/images/png/photo_cv.png"; // ⚠️ remplace par ta vraie photo
+
+gsap.registerPlugin(Draggable);
 
 const Sections: React.FC = () => {
     const [activeSection, setActiveSection] = useState<React.ReactNode | null>(null);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+    const wrapperRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const sectionRef = useRef<HTMLDivElement | null>(null);
+
+    const cardRef = useRef<HTMLDivElement | null>(null);
+    const photoRef = useRef<HTMLImageElement | null>(null);
 
     const dossiers = [
         { title: "Section 0", component: <Section0 />, top: 100, left: 100 },
@@ -21,9 +30,6 @@ const Sections: React.FC = () => {
         { title: "Section 3", component: <Section3 />, top: 300, left: 600 },
         { title: "Section 4", component: <Section4 />, top: 100, left: 800 },
     ];
-
-    const wrapperRefs = useRef<(HTMLDivElement | null)[]>([]);
-    const sectionRef = useRef<HTMLDivElement | null>(null);
 
     const disableWrappersPointer = (disable = true) => {
         wrapperRefs.current.forEach((r) => {
@@ -35,17 +41,15 @@ const Sections: React.FC = () => {
     const handleMiniClick = (index: number, component: React.ReactNode) => {
         setActiveIndex(index);
 
-        // 1) Le cliqué part vers la droite
         const clicked = wrapperRefs.current[index];
         if (clicked) {
             gsap.to(clicked, {
-                x: window.innerWidth + 200, // suffisamment pour sortir
+                x: window.innerWidth + 200,
                 duration: 0.55,
                 ease: "power2.inOut",
             });
         }
 
-        // 2) Les autres montent vers le haut + fade out
         wrapperRefs.current.forEach((ref, i) => {
             if (!ref || i === index) return;
             gsap.to(ref, {
@@ -56,10 +60,7 @@ const Sections: React.FC = () => {
             });
         });
 
-        // 3) empêcher toute interaction sur minidossiers pendant l'overlay
         disableWrappersPointer(true);
-
-        // 4) afficher la section (animation d'entrée gérée par useEffect)
         setActiveSection(component);
     };
 
@@ -73,28 +74,22 @@ const Sections: React.FC = () => {
                 onComplete: () => {
                     setActiveSection(null);
                     setActiveIndex(null);
-
-                    // remettre les mini-dossiers à leur position initiale
                     wrapperRefs.current.forEach((ref, i) => {
                         if (!ref) return;
 
                         const dossier = dossiers[i];
-                        // réapplique top & left
                         gsap.set(ref, {
                             position: "absolute",
                             top: dossier.top,
                             left: dossier.left,
-                            clearProps: "transform,opacity" // on garde top/left
+                            clearProps: "transform,opacity"
                         });
-
-                        // petite anim de retour clean
                         gsap.fromTo(
                             ref,
                             { y: -20, opacity: 0 },
                             { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }
                         );
                     });
-
                     disableWrappersPointer(false);
                 },
             });
@@ -105,8 +100,6 @@ const Sections: React.FC = () => {
         }
     };
 
-
-    // animation d'entrée : la section arrive depuis la gauche
     useEffect(() => {
         if (activeSection && sectionRef.current) {
             gsap.fromTo(
@@ -116,6 +109,43 @@ const Sections: React.FC = () => {
             );
         }
     }, [activeSection]);
+
+    // --- init draggable pour la carte bleue
+    useEffect(() => {
+        if (cardRef.current) {
+            Draggable.create(cardRef.current, {
+                type: "x,y",
+                inertia: true
+            });
+        }
+    }, []);
+
+    // --- hover photo
+    useEffect(() => {
+        if (!photoRef.current) return;
+        const el = photoRef.current;
+
+        const enter = () => {
+            gsap.to(el, { rotation: 45, duration: 0.4, ease: "power2.out" });
+        };
+        const leave = () => {
+            gsap.to(el, { rotation: 0, duration: 0.4, ease: "power2.out" });
+        };
+
+        el.addEventListener("mouseenter", enter);
+        el.addEventListener("mouseleave", leave);
+
+        return () => {
+            el.removeEventListener("mouseenter", enter);
+            el.removeEventListener("mouseleave", leave);
+        };
+    }, []);
+
+    // --- anim flèche
+    useEffect(() => {
+        const tl = gsap.timeline({ repeat: -1, yoyo: true });
+        tl.to(".arrow", { y: 10, duration: 0.6, ease: "power1.inOut" });
+    }, []);
 
     return (
         <div
@@ -151,7 +181,61 @@ const Sections: React.FC = () => {
                 ))}
             </div>
 
-            {/* overlay section (fixed, au-dessus) */}
+            {/* 📌 Carte draggable bleue */}
+            <div
+                ref={cardRef}
+                style={{
+                    position: "absolute",
+                    bottom: 20,
+                    right: "45vw",
+                    background: "#007bff",
+                    borderRadius: "16px",
+                    padding: "20px",
+                    color: "#fff",
+                    width: "50vw",
+                    height: "50vh",
+                    cursor: "grab",
+                    boxShadow: "0 6px 12px rgba(0,0,0,0.3)",
+                    userSelect: "none"
+                }}
+            >
+                <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+                    <img
+                        ref={photoRef}
+                        src={myPhoto}
+                        alt="Moi"
+                        style={{
+                            width: "264px",
+                            height: "330px",
+                            objectFit: "cover",
+                            transformOrigin: "center center"
+                        }}
+                    />
+                    <div>
+                        <h1 style={{ margin: 0 }}>Prénom Nom</h1>
+                        <p style={{ margin: 0, fontSize: "2rem", opacity: 0.9, padding: "20px 0px 0px 0px" }}>
+                            Narrative Designer
+                        </p>
+
+                        <div
+                            style={{
+                                marginTop: "20px",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                gap: "6px"
+                            }}
+                        >
+                            <span style={{ fontSize: "0.9rem" }}>Cliquez sur les projets !</span>
+                            <span className="arrow" style={{ fontSize: "1.5rem" }}>⬇️</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            {/* overlay section */}
             {activeSection && (
                 <div
                     ref={sectionRef}
@@ -167,9 +251,7 @@ const Sections: React.FC = () => {
                         overflow: "auto",
                         pointerEvents: "auto",
                     }}
-                    onClick={(e) => {
-                        e.stopPropagation();
-                    }}
+                    onClick={(e) => e.stopPropagation()}
                 >
                     <button
                         type="button"
@@ -194,14 +276,10 @@ const Sections: React.FC = () => {
                     </button>
 
                     <div>{activeSection}</div>
-
-                    {/* Bloc notes affiché en mode "ouvert" dans une section */}
-                    
                     <Notes />
                 </div>
             )}
 
-            {/* Bloc notes affiché en mode bouton flottant sinon */}
             {!activeSection && <Notes forceOpen />}
         </div>
     );

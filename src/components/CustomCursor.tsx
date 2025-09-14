@@ -42,7 +42,7 @@ const CustomCursor: React.FC = () => {
             }}
         >
             <img src={isPointer ? cursorImgPointer : cursorImgNormal} alt="cursor" width={64} style={{
-                transform: isPointer ? "rotate(45deg)" : "rotate(0deg)",
+                transform: isPointer ? "rotate(405deg)" : "rotate(45deg)",
                 transition: "transform 0.1s ease",
             }} />
         </div>

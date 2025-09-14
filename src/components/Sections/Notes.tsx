@@ -68,7 +68,7 @@ const Notes: React.FC<NotesProps> = ({ forceOpen = false }) => {
                 <div
                     ref={noteRef}
                     style={{
-                        width: "300px",
+                        width: "17vw",
                         // height: "400px",
                         background: "#fff8e1",
                         border: "2px solid #ccc",

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import "../styles/home.scss";
 import { gsap } from "gsap";
-import Projets from "./Sections/Sections";
+import Sections from "./Sections/Sections";
 
 const Home: React.FC = () => {
     const middleRef = useRef<HTMLDivElement>(null);
@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     const backgroundRef = useRef<HTMLDivElement>(null);
     const projetsRef = useRef<HTMLDivElement>(null);
     const [isClicked, setIsClicked] = useState(false);
-    const [showProjets, setShowProjets] = useState(false);
+    const [showProjets, setShowProjets] = useState(true);
 
     const handleMouseEnter = () => {
         if (middleRef.current && !isClicked) {
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
 
     return (
         <div className="home-container">
-            <div className="background-layer" ref={backgroundRef}>
+            {/* <div className="background-layer" ref={backgroundRef}>
                 <div className="navbar">
                     <div className="nav-item">Home</div>
                     <div className="nav-item">Dossiers</div>
@@ -70,12 +70,16 @@ const Home: React.FC = () => {
                         <span className="h1-bold">Portfolio 2024</span> <br />
                         Samy Gaci
                     </h1>
+                    <div className="click-instruction">
+                        <p>Cliquer pour entrer Cliquer pour entrer  pour entrer  pour entrer  pour entrer  pour entrer  pour entrer  pour entrer pour entrer  pour entrer  pour entrer  pour entrer  pour entrer </p>
+                        
+                    </div>
                 </div>
-            </div>
+            </div> */}
 
             {showProjets && (
                 <div className="projets-container" ref={projetsRef}>
-                    <Projets />
+                    <Sections />
                 </div>
             )}
         </div>

@@ -8,6 +8,7 @@ import dossiers from "./data/dossiers.json";
 import CustomCursor from "./components/CustomCursor";
 import gsap from "gsap";
 import "./styles/global.scss"; // ← Import global ici
+import Projets from "./components/Projets";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -28,15 +29,6 @@ function App() {
     <div className="app">
       <CustomCursor />
       <Home />
-      {/* <Tabs
-        dossiers={dossiers}
-        activeIndex={activeIndex}
-        onTabClick={setActiveIndex}
-      />
-
-      <div className="dossier-container" ref={dossierRef}>
-        <Dossier dossier={dossiers[activeIndex]} />
-      </div> */}
     </div>
   );
 }

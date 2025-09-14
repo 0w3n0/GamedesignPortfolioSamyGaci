@@ -80,6 +80,7 @@
     text-align: center;
     transform-origin: bottom center; /* pivot en haut */
     transform-style: preserve-3d;
+    flex-direction: column;
 
     h1 {
     font-size: 5rem;
@@ -99,4 +100,20 @@
   width: 100%;
   height: 100vh;
   z-index: 10; // au-dessus du background-layer
+}
+
+.click-instruction{
+    margin-top: 20px;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    p {
+        font-size: 3rem;
+        padding: 10px 200px 10px 200px;
+        color: #555;
+        width: 100%;
+        text-align: center;
+        animation: fadeInOut 3s infinite;
+    }
 }

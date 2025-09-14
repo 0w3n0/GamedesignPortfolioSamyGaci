@@ -45,6 +45,26 @@ const PresentationSection: React.FC = () => {
                             zIndex: 3 - i,
                         }}
                     >
+                        <div style={{
+                            height: "600px",
+                            width: "500px", position: "absolute",
+                            bottom: "40px",
+                            left: `${i * 30}px`, // espace entre les polaroids
+                            backgroundColor: "white", // fond polaroid
+                            padding: "10px 10px 20px 10px",
+                            border: "1px solid #ccc",
+                            boxShadow: "0 5px 15px rgba(0,0,0,0.3)"
+                        }}><div
+                            style={{
+                                width: "500px",
+                                height: "550px",
+                                backgroundColor: photo ? "transparent" : "black",
+                                display: "block",
+                            }}
+                        >
+
+                            </div>
+                        </div>
                         <div
                             style={{
                                 width: "150px",
