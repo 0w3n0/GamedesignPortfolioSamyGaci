@@ -32,52 +32,12 @@ const NotesForm: React.FC = () => {
 
   return (
     <form style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-      <p style={{ color: "black", padding: "0px" }}>
-        Si tu souhaites me laisser un message, une question ou une suggestion, n'hésite pas à utiliser ce petit carnet.
-      </p>
-
-      <label htmlFor="email" style={{ color: "black", paddingBottom: "10px" }}>EMAIL*</label>
-      <input
-        type="email"
-        id="email"
-        placeholder="Email"
-        value={email}
-        onChange={handleChangeEmail}
-        required
-        style={{
-          marginBottom: "10px",
-          padding: "8px",
-          border: "1px solid #aaa",
-          borderRadius: "5px",
-          fontFamily: "inherit",
-        }}
-      />
-
-      <label htmlFor="message" style={{ color: "black", paddingBottom: "10px" }}>Ton message :</label>
-      <textarea
-        id="message"
-        placeholder="Écris ton message..."
-        value={message}
-        onChange={handleChangeMessage}
-        style={{
-          flex: 1,
-          resize: "none",
-          border: "1px solid #aaa",
-          borderRadius: "5px",
-          padding: "8px",
-          marginBottom: "5px",
-          fontFamily: "inherit",
-        }}
-      />
-      <small style={{ alignSelf: "flex-end", marginBottom: "10px", color: "black" }}>
-        {message.length} / 500
-      </small>
       <div
         style={{
           display: "flex",
-          justifyContent: "spacearound",
+          justifyContent: "center",
           gap: "50px",
-          marginTop: "10px",
+          marginTop: "20px",
           paddingBottom: "15px",
         }}
       >
@@ -160,6 +120,48 @@ const NotesForm: React.FC = () => {
           </svg>
         </a>
       </div>
+
+      <p style={{ color: "black", padding: "0px" }}>
+        Si tu souhaites me laisser un message, une question ou une suggestion, n'hésite pas à utiliser ce petit carnet.
+      </p>
+
+      <label htmlFor="email" style={{ color: "black", paddingBottom: "10px" }}>EMAIL*</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Email"
+        value={email}
+        onChange={handleChangeEmail}
+        required
+        style={{
+          marginBottom: "10px",
+          padding: "8px",
+          border: "1px solid #aaa",
+          borderRadius: "5px",
+          fontFamily: "inherit",
+        }}
+      />
+
+      <label htmlFor="message" style={{ color: "black", paddingBottom: "10px" }}>Ton message :</label>
+      <textarea
+        id="message"
+        placeholder="Écris ton message..."
+        value={message}
+        onChange={handleChangeMessage}
+        style={{
+          flex: 1,
+          resize: "none",
+          border: "1px solid #aaa",
+          borderRadius: "5px",
+          padding: "8px",
+          marginBottom: "5px",
+          fontFamily: "inherit",
+        }}
+      />
+      <small style={{ alignSelf: "flex-end", marginBottom: "10px", color: "black" }}>
+        {message.length} / 500
+      </small>
+
 
       <button
         ref={buttonRef}

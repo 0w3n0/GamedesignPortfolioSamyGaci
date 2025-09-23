@@ -27,7 +27,6 @@ function App() {
 
   return (
     <div className="app">
-      <CustomCursor />
       <Home />
     </div>
   );

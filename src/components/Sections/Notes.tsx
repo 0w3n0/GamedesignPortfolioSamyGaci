@@ -62,14 +62,36 @@ const Notes: React.FC<NotesProps> = ({ forceOpen = false }) => {
                 bottom: "20px",
                 right: "20px",
                 zIndex: 1000,
+                display: "flex",
+                flexDirection: "column-reverse", // bouton en bas, note au-dessus
+                alignItems: "flex-end",
             }}
         >
-            {opened ? (
+            <button
+                onClick={toggleOpen}
+                disabled={opened && forceOpen}
+                style={{
+                    width: "60px",
+                    height: "60px",
+                    borderRadius: "50%",
+                    background: "#ff6b6b",
+                    color: "#fff",
+                    border: "none",
+                    cursor: opened && forceOpen ? "not-allowed" : "pointer",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+                    fontSize: "24px",
+                    marginTop: "10px",
+                    opacity: opened && forceOpen ? 0.5 : 1,
+                    pointerEvents: opened && forceOpen ? "none" : "auto",
+                }}
+            >
+                📒
+            </button>
+            {opened && (
                 <div
                     ref={noteRef}
                     style={{
                         width: "17vw",
-                        // height: "400px",
                         background: "#fff8e1",
                         border: "2px solid #ccc",
                         borderRadius: "10px",
@@ -79,6 +101,7 @@ const Notes: React.FC<NotesProps> = ({ forceOpen = false }) => {
                         flexDirection: "column",
                         justifyContent: "space-between",
                         position: "relative",
+                        marginBottom: "10px",
                     }}
                 >
                     <h3 style={{ margin: 0, color: "black", textAlign: "center" }}>Me contacter</h3>
@@ -102,23 +125,6 @@ const Notes: React.FC<NotesProps> = ({ forceOpen = false }) => {
                         </button>
                     )}
                 </div>
-            ) : (
-                <button
-                    onClick={toggleOpen}
-                    style={{
-                        width: "60px",
-                        height: "60px",
-                        borderRadius: "50%",
-                        background: "#ff6b6b",
-                        color: "#fff",
-                        border: "none",
-                        cursor: "pointer",
-                        boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
-                        fontSize: "24px",
-                    }}
-                >
-                    📒
-                </button>
             )}
         </div>
     );

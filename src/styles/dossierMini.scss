@@ -1,6 +1,11 @@
 .mini-dossier {
-  width: 200px;
-  height: 150px;
+  // Par défaut : 1920x1080 (Full HD)
+  width: 9vw;
+  min-width: 160px;
+  max-width: 200px;
+  height: 7vw;
+  min-height: 120px;
+  max-height: 150px;
   cursor: grab;
   position: relative;
 
@@ -59,12 +64,22 @@
     text-align: center;
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: #222;
       font-weight: 100;
 
       .h1-bold {
         font-weight: bold;
+      }
+
+      @media (max-width: 900px) {
+        font-size: 1.1rem;
+      }
+      @media (max-width: 600px) {
+        font-size: 0.95rem;
+      }
+      @media (min-width: 1921px) and (min-height: 1081px) {
+        font-size: 2.1rem;
       }
     }
   }
@@ -85,5 +100,32 @@
       cursor: pointer;
     }
   }
-}
 
+  // Responsive pour petits écrans
+  @media (max-width: 900px) {
+    width: 40vw;
+    min-width: 100px;
+    max-width: 180px;
+    height: 22vw;
+    min-height: 70px;
+    max-height: 120px;
+  }
+  @media (max-width: 600px) {
+    width: 80vw;
+    min-width: 90px;
+    max-width: 98vw;
+    height: 30vw;
+    min-height: 60px;
+    max-height: 90vw;
+  }
+
+  // Grands écrans (2K et plus)
+  @media (min-width: 1921px) and (min-height: 1081px) {
+    width: 18vw;
+    min-width: 120px;
+    max-width: 260px;
+    height: 14vw;
+    min-height: 90px;
+    max-height: 200px;
+  }
+}

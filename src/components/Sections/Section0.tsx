@@ -4,7 +4,15 @@ import "../../styles/home.scss";
 import { gsap } from "gsap";
 import PresentationSection from "./PresentationSection";
 
-const Section1: React.FC = () => {
+interface Section0Props {
+    colors?: {
+        background?: string;
+        middle?: string;
+        front?: string;
+    };
+}
+
+const Section0: React.FC<Section0Props> = ({ colors }) => {
     const navRefs = useRef<Array<HTMLDivElement | null>>([]);
     const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
     const frontRef = useRef<HTMLDivElement | null>(null);
@@ -80,7 +88,10 @@ const Section1: React.FC = () => {
 
     return (
         <div className="home-container">
-            <div className="background-layer">
+            <div
+                className="background-layer"
+                style={{ backgroundColor: colors?.background }}
+            >
                 <div className="navbar">
                     {Array.from({ length: 1 }).map((_, i) => (
                         <div
@@ -89,22 +100,28 @@ const Section1: React.FC = () => {
                             ref={(el) => { navRefs.current[i] = el; }}
                             onClick={() => {
                                 setActiveDiv(i);
-                                handleOpen(); // <-- ajoute ça pour ouvrir le dossier
+                                handleOpen();
                             }}
                         >
                         </div>
                     ))}
                 </div>
 
-                <div className="middle-layer">
+                <div
+                    className="middle-layer"
+                    style={{ backgroundColor: colors?.middle }}
+                >
                     <PresentationSection />
                 </div>
 
-
-                <div className="front-layer" ref={frontRef} onClick={handleOpen}>
+                <div
+                    className="front-layer"
+                    ref={frontRef}
+                    onClick={handleOpen}
+                    style={{ backgroundColor: colors?.front }}
+                >
                     <h1>
-                        <span className="h1-bold">0. Présentation
-                        </span>
+                        <span className="h1-bold">0. Présentation</span>
                     </h1>
                 </div>
             </div>
@@ -112,4 +129,4 @@ const Section1: React.FC = () => {
     );
 };
 
-export default Section1;
+export default Section0;

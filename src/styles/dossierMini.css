@@ -1,6 +1,10 @@
 .mini-dossier {
-  width: 200px;
-  height: 150px;
+  width: 9vw;
+  min-width: 160px;
+  max-width: 200px;
+  height: 7vw;
+  min-height: 120px;
+  max-height: 150px;
   cursor: grab;
   position: relative;
 }
@@ -55,12 +59,27 @@
   text-align: center;
 }
 .mini-dossier .front-layer h1 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #222;
   font-weight: 100;
 }
 .mini-dossier .front-layer h1 .h1-bold {
   font-weight: bold;
+}
+@media (max-width: 900px) {
+  .mini-dossier .front-layer h1 {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 600px) {
+  .mini-dossier .front-layer h1 {
+    font-size: 0.95rem;
+  }
+}
+@media (min-width: 1921px) and (min-height: 1081px) {
+  .mini-dossier .front-layer h1 {
+    font-size: 2.1rem;
+  }
 }
 .mini-dossier .full-content {
   position: absolute;
@@ -75,4 +94,34 @@
   right: 20px;
   padding: 10px 15px;
   cursor: pointer;
+}
+@media (max-width: 900px) {
+  .mini-dossier {
+    width: 40vw;
+    min-width: 100px;
+    max-width: 180px;
+    height: 22vw;
+    min-height: 70px;
+    max-height: 120px;
+  }
+}
+@media (max-width: 600px) {
+  .mini-dossier {
+    width: 80vw;
+    min-width: 90px;
+    max-width: 98vw;
+    height: 30vw;
+    min-height: 60px;
+    max-height: 90vw;
+  }
+}
+@media (min-width: 1921px) and (min-height: 1081px) {
+  .mini-dossier {
+    width: 18vw;
+    min-width: 120px;
+    max-width: 260px;
+    height: 14vw;
+    min-height: 90px;
+    max-height: 200px;
+  }
 }/*# sourceMappingURL=dossierMini.css.map */

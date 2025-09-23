@@ -10,9 +10,56 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "ArcherMediumPro";
+  src: url("../assets/fonts/ArcherMediumPro.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   margin: 0;
   padding: 0;
   background: #e0e0e0;
-  font-family: "TintinTalking", sans-serif;
+  font-family: "ArcherMediumPro", sans-serif;
+  cursor: url("../assets/images/png/cursor.png") 0 0, auto;
+}
+
+a, button, .clickable {
+  cursor: url("../assets/images/png/cursor-pointer.png") 0 0, pointer !important;
+}
+
+.grabbable, .mini-dossier, .mini-dossier * {
+  cursor: url("../assets/images/png/cursor-grab.png") 8 8, grab !important;
+}
+
+.grabbing, .mini-dossier:active, .mini-dossier.grabbing, .mini-dossier:active * {
+  cursor: url("../assets/images/png/cursor-grab.png") 8 8, grabbing;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  width: 32px;
+  height: 32px;
+  transition: width 0.1s, height 0.1s, transform 0.1s;
+  will-change: transform;
+}
+.custom-cursor img {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: transform 0.1s;
+}
+.custom-cursor.pointer {
+  width: 40px;
+  height: 40px;
+}
+.custom-cursor.pointer img {
+  transform: rotate(405deg);
 }/*# sourceMappingURL=global.css.map */
