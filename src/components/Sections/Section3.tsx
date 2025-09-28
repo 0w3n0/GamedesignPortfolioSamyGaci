@@ -86,6 +86,13 @@ const Section3: React.FC<Section3Props> = ({ colors }) => {
         });
     }, [activeDiv]);
 
+    useEffect(() => {
+            const timer = setTimeout(() => {
+                handleOpen(); // ou setIsOpen(true) selon ta logique
+            }, 500);
+            return () => clearTimeout(timer);
+        }, []);
+
     return (
         <div className="home-container">
             <div

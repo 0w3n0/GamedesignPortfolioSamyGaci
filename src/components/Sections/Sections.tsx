@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import Draggable from "gsap/Draggable";
 import DossierMini from "../DossierMini";
@@ -10,6 +10,7 @@ import Section4 from "./Section4";
 import Notes from "./Notes";
 import crossClose from "../../assets/images/png/cross-close.png";
 import myPhoto from "../../assets/images/png/photo_cv.png";
+import kimz from "../../assets/images/png/kimz.png";
 
 gsap.registerPlugin(Draggable);
 
@@ -17,17 +18,26 @@ const Sections: React.FC = () => {
     const [activeSection, setActiveSection] = useState<React.ReactNode | null>(null);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [cardVisible, setCardVisible] = useState<boolean>(true); // État pour contrôler la visibilité de la carte
+    const [brownCardVisible, setBrownCardVisible] = useState(true);
+    const [footerVisible, setFooterVisible] = useState(true);
+
 
     const wrapperRefs = useRef<(HTMLDivElement | null)[]>([]);
     const sectionRef = useRef<HTMLDivElement | null>(null);
+    const prevArrowRef = useRef<HTMLButtonElement | null>(null);
+    const nextArrowRef = useRef<HTMLButtonElement | null>(null);
 
     const cardRef = useRef<HTMLDivElement | null>(null);
+    const brownCardRef = useRef<HTMLDivElement | null>(null);
     const photoRef = useRef<HTMLImageElement | null>(null);
+    const sectionsWrapperRef = useRef<HTMLDivElement | null>(null);
+    const footerRef = useRef<HTMLDivElement | null>(null);
+
 
     const dossiers = [
         {
             title: "Section 0",
-            bottom: "5vh",
+            bottom: "30vh",
             left: "5vw",
             colors: {
                 background: "#2a3d7c", // bleu foncé
@@ -40,8 +50,8 @@ const Sections: React.FC = () => {
         },
         {
             title: "Section 1",
-            bottom: "5vh",
-            left: "30vw",
+            bottom: "10vh",
+            left: "17vw",
             colors: {
                 background: "#a8325e", // rose foncé
                 middle: "#ffb3d1",     // rose clair
@@ -53,8 +63,8 @@ const Sections: React.FC = () => {
         },
         {
             title: "Section 2",
-            bottom: "25vh",
-            left: "17vw",
+            bottom: "30vh",
+            left: "30vw",
             colors: {
                 background: "#2a7c5b", // vert foncé
                 middle: "#7cffc4",     // vert clair
@@ -66,7 +76,7 @@ const Sections: React.FC = () => {
         },
         {
             title: "Section 3",
-            bottom: "25vh",
+            bottom: "10vh",
             left: "42vw",
             colors: {
                 background: "#7c6a2a", // jaune/moutarde foncé
@@ -79,7 +89,7 @@ const Sections: React.FC = () => {
         },
         {
             title: "Section 4",
-            bottom: "5vh",
+            bottom: "30vh",
             left: "55vw",
             colors: {
                 background: "#6a2a7c", // violet foncé
@@ -124,6 +134,15 @@ const Sections: React.FC = () => {
                 duration: 0.55,
                 ease: "power2.inOut",
                 onComplete: () => setCardVisible(false)
+            });
+        }
+        // Ajoute pour la carte marron :
+        if (brownCardRef.current) {
+            gsap.to(brownCardRef.current, {
+                x: -window.innerWidth - 400,
+                duration: 0.55,
+                ease: "power2.inOut",
+                onComplete: () => setBrownCardVisible(false)
             });
         }
 
@@ -179,6 +198,19 @@ const Sections: React.FC = () => {
                         }
                     }, 10);
 
+                    // Ajoute pour la carte marron :
+                    setBrownCardVisible(true);
+                    setTimeout(() => {
+                        if (brownCardRef.current) {
+                            gsap.set(brownCardRef.current, { opacity: 0, x: 0, y: 0 });
+                            gsap.to(brownCardRef.current, {
+                                opacity: 1,
+                                duration: 0.4,
+                                ease: "power2.out"
+                            });
+                        }
+                    }, 10);
+
                     wrapperRefs.current.forEach((ref, i) => {
                         if (!ref) return;
                         const dossier = dossiers[i];
@@ -211,6 +243,18 @@ const Sections: React.FC = () => {
                     });
                 }
             }, 10);
+            // Ajoute pour la carte marron :
+            setBrownCardVisible(true);
+            setTimeout(() => {
+                if (brownCardRef.current) {
+                    gsap.set(brownCardRef.current, { opacity: 0, x: 0, y: 0 });
+                    gsap.to(brownCardRef.current, {
+                        opacity: 1,
+                        duration: 0.4,
+                        ease: "power2.out"
+                    });
+                }
+            }, 10);
             disableWrappersPointer(false);
         }
     };
@@ -236,6 +280,22 @@ const Sections: React.FC = () => {
             });
         }
     }, [cardVisible]);
+
+    // --- init draggable pour la carte brune
+    useEffect(() => {
+        if (brownCardRef.current) {
+            // Détruit les anciennes instances Draggable
+            Draggable.get(brownCardRef.current)?.kill();
+        }
+        if (brownCardVisible && brownCardRef.current) {
+            gsap.set(brownCardRef.current, { x: 0, y: 0 });
+            Draggable.create(brownCardRef.current, {
+                type: "x,y",
+                inertia: true,
+                bounds: ".sections-wrapper",
+            });
+        }
+    }, [brownCardVisible]);
 
     // --- hover photo
     useEffect(() => {
@@ -274,9 +334,41 @@ const Sections: React.FC = () => {
         return () => window.removeEventListener("resize", resetCardPosition);
     }, []);
 
+    // useLayoutEffect(() => {
+    //     // on veut le positionnement seulement si les deux sont visibles
+    //     if (!cardRef.current || !brownCardRef.current || !sectionsWrapperRef.current) return;
+    //     if (!cardVisible || !brownCardVisible) return;
+
+    //     const blueRect = cardRef.current.getBoundingClientRect();
+    //     const wrapperRect = sectionsWrapperRef.current.getBoundingClientRect();
+
+    //     // coordonnées relatives au wrapper + prise en compte d'un éventuel scroll interne
+    //     const leftPx = blueRect.right - wrapperRect.left + sectionsWrapperRef.current.scrollLeft + 20; // 20px de gap
+    //     const topPx = blueRect.top - wrapperRect.top + sectionsWrapperRef.current.scrollTop;
+
+    //     // applique left/top en px et reset des transforms x/y (Draggable utilisera translate)
+    //     gsap.set(brownCardRef.current, { left: `${leftPx}px`, top: `${topPx}px`, x: 0, y: 0 });
+    // }, [cardVisible, brownCardVisible]);
+
+    useEffect(() => {
+        if (footerRef.current) {
+            Draggable.get(footerRef.current)?.kill();
+        }
+        if (footerVisible && footerRef.current) {
+            gsap.set(footerRef.current, { x: 0, y: 0 });
+            Draggable.create(footerRef.current, {
+                type: "x,y",
+                inertia: true,
+                bounds: ".sections-wrapper",
+            });
+        }
+    }, [footerVisible]);
+
+
     return (
         <div
             className="sections-wrapper"
+            ref={sectionsWrapperRef}
             style={{ position: "relative", width: "100%", height: "100%" }}
         >
             <div
@@ -322,145 +414,316 @@ const Sections: React.FC = () => {
                         borderRadius: "16px",
                         padding: "2vw",
                         color: "#fff",
-                        width: "50vw",
-                        height: "40vh",
+                        width: "35vw",
+                        height: "30vh",
                         boxShadow: "0 6px 12px rgba(0,0,0,0.3)",
                         userSelect: "none"
                     }}
                 >
-                    <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
+                    <div
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            height: "100%",
+                            width: "100%",
+                            gap: "32px",
+                        }}
+                    >
+                        {/* Image à gauche */}
                         <img
                             ref={photoRef}
                             src={myPhoto}
                             alt="Moi"
                             style={{
-                                minHeight: "120px",
-                                minWidth: "90px",
-                                width: "(264px)* 80%",
-                                height: "(330px) * 80%",
+                                width: "35%",
+                                height: "100%",
                                 objectFit: "cover",
-                                transformOrigin: "center center"
+                                borderRadius: "8px",
+                                boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                                flexShrink: 0
                             }}
                         />
-                        <div>
-                            <h1 style={{ margin: 0 }}>Prénom Nom</h1>
-                            <p style={{ margin: 0, fontSize: "2rem", opacity: 0.9, padding: "20px 0px 0px 0px" }}>
-                                Narrative Designer
-                            </p>
 
-                            <div
+                        {/* Texte à droite */}
+                        <div style={{ flex: 1, display: "flex", flexDirection: "column", height: "100%" }}>
+                            {/* Bloc centré */}
+                            <div style={{ textAlign: "center" }}>
+                                <h1
+                                    style={{
+                                        margin: 0,
+                                        fontSize: "clamp(1.5rem, 3vw, 2.8rem)",
+                                        fontWeight: 700,
+                                    }}
+                                >
+                                    Samy Gaci
+                                </h1>
+                                <p
+                                    style={{
+                                        margin: 0,
+                                        fontSize: "clamp(1.1rem, 2vw, 2.1rem)",
+                                        opacity: 0.9,
+                                        fontWeight: "bold",
+                                        padding: "0px 18px 0px 0px",
+                                    }}
+                                >
+                                    Narrative Designer
+                                </p>
+                            </div>
+                            {/* Texte lorem ipsum aligné à gauche */}
+                            <p
                                 style={{
-                                    marginTop: "20px",
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "center",
-                                    gap: "6px"
+                                    margin: 0,
+                                    fontSize: "clamp(0.9rem, 1vw, 1.8rem)",
+                                    opacity: 0.9,
+                                    textAlign: "left",
+                                    paddingTop: "10px",
                                 }}
                             >
-                                <span style={{ fontSize: "0.9rem" }}>Cliquez sur les projets !</span>
-                                <span className="arrow" style={{ fontSize: "1.5rem" }}>⬇️</span>
-                            </div>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+                            </p>
                         </div>
                     </div>
                 </div>
             )}
 
-            {/* overlay section */}
-            {activeSection && (
+            {/* 📌 Carte draggable marron */}
+            {brownCardVisible && (
                 <div
-                    ref={sectionRef}
-                    className="section-container"
+                    ref={brownCardRef}
+                    className="grabbable"
                     style={{
-                        position: "fixed",
-                        top: 0,
-                        left: 0,
-                        width: "100vw",
-                        height: "100vh",
-                        background: "none",
-                        zIndex: 9999,
-                        overflow: "auto",
-                        pointerEvents: "auto",
+                        position: "absolute",
+                        background: "#8d6748",
+                        borderRadius: "16px",
+                        top: "3vh",
+                        left: "45vw",
+                        color: "#fff",
+                        width: "30vw",
+                        height: "35vh",
+                        boxShadow: "0 6px 12px rgba(0,0,0,0.3)",
+                        userSelect: "none",
+                        display: "flex",
+                        flexDirection: "column", // footer en bas
+                        overflow: "hidden"
                     }}
-                    onClick={(e) => e.stopPropagation()}
                 >
-                    {/* Flèche gauche */}
-                    {activeIndex !== null && activeIndex > 0 && (
-                        <button
-                            onClick={goToPrev}
-                            style={{
-                                position: "absolute",
-                                top: "50%",
-                                left: "30px",
-                                transform: "translateY(-50%)",
-                                zIndex: 10001,
-                                background: "rgba(255,255,255,0.8)",
-                                border: "none",
-                                borderRadius: "50%",
-                                width: "48px",
-                                height: "48px",
-                                fontSize: "2rem",
-                                cursor: "pointer",
-                                boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
-                            }}
-                            aria-label="Dossier précédent"
-                        >
-                            &#8592;
-                        </button>
-                    )}
-
-                    {/* Flèche droite */}
-                    {activeIndex !== null && activeIndex < dossiers.length - 1 && (
-                        <button
-                            onClick={goToNext}
-                            style={{
-                                position: "absolute",
-                                top: "50%",
-                                right: "30px",
-                                transform: "translateY(-50%)",
-                                zIndex: 10001,
-                                background: "rgba(255,255,255,0.8)",
-                                border: "none",
-                                borderRadius: "50%",
-                                width: "48px",
-                                height: "48px",
-                                fontSize: "2rem",
-                                cursor: "pointer",
-                                boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
-                            }}
-                            aria-label="Dossier suivant"
-                        >
-                            &#8594;
-                        </button>
-                    )}
-
-                    <button
-                        type="button"
-                        className="close-btn clickable"
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            handleCloseSection();
-                        }}
+                    {/* Contenu principal avec polaroids */}
+                    <div
                         style={{
-                            position: "absolute",
-                            bottom: 20,
-                            left: "50%",
-                            transform: "translateX(-50%)",
-                            zIndex: 10000,
-                            background: "transparent",
-                            border: "none",
-                            padding: 0,
+                            flex: 1,
+                            display: "flex",
+                            justifyContent: "space-evenly", // espace égal
+                            alignItems: "center",
+                            gap: "1rem"
                         }}
                     >
-                        <img src={crossClose} alt="Fermer" width={64} />
-                    </button>
+                        {/* Polaroid 1 */}
+                        <div
+                            style={{
+                                background: "#fff",
+                                padding: "8px",
+                                boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                width: "40%",
+                                paddingBottom: "4vh"
+                            }}
+                        >
+                            <img
+                                src={kimz}
+                                alt="kimz"
+                                style={{
+                                    width: "100%",
+                                    height: "20vh",
+                                    backgroundColor: "#eee",
+                                    objectFit: "cover"
+                                }}
+                            />
+                        </div>
 
-                    <div>{activeSection}</div>
-                    <Notes />
+                        {/* Polaroid 2 */}
+                        <div
+                            style={{
+                                background: "#fff",
+                                padding: "8px",
+                                boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                width: "40%",
+                                paddingBottom: "4vh"
+                            }}
+                        >
+                            <img
+                                src={kimz}
+                                alt="kimz"
+                                style={{
+                                    width: "100%",
+                                    height: "20vh",
+                                    backgroundColor: "#eee",
+                                    objectFit: "cover"
+                                }}
+                            />
+                        </div>
+                    </div>
+
+                    {/* 📌 Footer Derniers projets */}
+                    <div
+                        style={{
+                            background: "#5a3f2b",
+                            textAlign: "center",
+                            padding: "12px 0",
+                            fontSize: "clamp(1rem, 2vw, 2rem)",
+                            fontWeight: "bold",
+                            margin: 0
+                        }}
+                    >
+                        Derniers projets
+                    </div>
+                </div>
+            )
+            }
+
+
+
+
+            {/* overlay section */}
+            {
+                activeSection && (
+                    <div
+                        ref={sectionRef}
+                        className="section-container"
+                        style={{
+                            position: "fixed",
+                            top: 0,
+                            left: 0,
+                            width: "100vw",
+                            height: "100vh",
+                            background: "none",
+                            zIndex: 9999,
+                            overflow: "auto",
+                            pointerEvents: "auto",
+                        }}
+                        onClick={(e) => {
+                            // si la cible est à l'intérieur de la sectionRef, on ignore
+                            if (sectionRef.current?.contains(e.target as Node)) return;
+
+                            // si la cible est la flèche gauche ou droite, on ignore
+                            if (prevArrowRef.current?.contains(e.target as Node)) return;
+                            if (nextArrowRef.current?.contains(e.target as Node)) return;
+
+                            // sinon => ferme
+                            handleCloseSection();
+                        }}
+                    >
+                        {/* Flèche gauche */}
+                        {activeIndex !== null && activeIndex > 0 && (
+                            <button
+                                ref={prevArrowRef}
+                                onClick={goToPrev}
+                                style={{
+                                    position: "absolute",
+                                    top: "50%",
+                                    left: "30px",
+                                    transform: "translateY(-50%)",
+                                    zIndex: 10001,
+                                    background: "rgba(255,255,255,0.8)",
+                                    border: "none",
+                                    borderRadius: "50%",
+                                    width: "4.5vw",
+                                    height: "4.5vw",
+                                    fontSize: "2rem",
+                                    cursor: "pointer",
+                                    boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
+                                }}
+                                aria-label="Dossier précédent"
+                            >
+                                &#8592;
+                            </button>
+                        )}
+
+                        {/* Flèche droite */}
+                        {activeIndex !== null && activeIndex < dossiers.length - 1 && (
+                            <button
+                                ref={nextArrowRef}
+                                onClick={goToNext}
+                                style={{
+                                    position: "absolute",
+                                    top: "50%",
+                                    right: "30px",
+                                    transform: "translateY(-50%)",
+                                    zIndex: 10001,
+                                    background: "rgba(255,255,255,0.8)",
+                                    border: "none",
+                                    borderRadius: "50%",
+                                    width: "4.5vw",
+                                    height: "4.5vw",
+                                    fontSize: "2rem",
+                                    cursor: "pointer",
+                                    boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
+                                }}
+                                aria-label="Dossier suivant"
+                            >
+                                &#8594;
+                            </button>
+                        )}
+
+                        <button
+                            type="button"
+                            className="close-btn clickable"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleCloseSection();
+                            }}
+                            style={{
+                                position: "absolute",
+                                bottom: 20,
+                                left: "50%",
+                                transform: "translateX(-50%)",
+                                zIndex: 10000,
+                                background: "transparent",
+                                border: "none",
+                                padding: 0,
+                            }}
+                        >
+                            <img src={crossClose} alt="Fermer" width={64} />
+                        </button>
+
+                        <div>{activeSection}</div>
+                        <Notes />
+                    </div>
+                )
+            }
+
+            {footerVisible && (
+                <div
+                    ref={footerRef}
+                    className="grabbable"
+                    style={{
+                        position: "fixed",
+                        bottom: "20px",       // distance par rapport au bas
+                        left: "50vw",          // centré horizontalement
+                        transform: "translateX(-50%)",
+                        background: "#333",   // fond foncé
+                        color: "#fff",
+                        padding: "12px 24px",
+                        borderRadius: "12px",
+                        fontSize: "clamp(1rem, 1.8vw, 1.6rem)", // texte responsive
+                        fontWeight: "500",
+                        boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                        cursor: "grab",
+                        userSelect: "none",
+                        zIndex: 10000
+                    }}
+                >
+                    Vous pouvez bouger tous les éléments de la page si vous le souhaitez !
                 </div>
             )}
 
+
             {!activeSection && <Notes forceOpen />}
-        </div>
+        </div >
     );
 };
 
