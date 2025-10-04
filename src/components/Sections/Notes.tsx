@@ -68,6 +68,7 @@ const Notes: React.FC<NotesProps> = ({ forceOpen = false }) => {
             }}
         >
             <button
+                className="clickable"
                 onClick={toggleOpen}
                 disabled={opened && forceOpen}
                 style={{
@@ -77,7 +78,6 @@ const Notes: React.FC<NotesProps> = ({ forceOpen = false }) => {
                     background: "#ff6b6b",
                     color: "#fff",
                     border: "none",
-                    cursor: opened && forceOpen ? "not-allowed" : "pointer",
                     boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
                     fontSize: "24px",
                     marginTop: "10px",

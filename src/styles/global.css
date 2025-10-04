@@ -21,7 +21,7 @@ body {
   padding: 0;
   background: #e0e0e0;
   font-family: "ArcherMediumPro", sans-serif;
-  cursor: url("../assets/images/png/cursor.png") 0 0, auto;
+  cursor: url("../assets/images/png/cursor.png") 0 0, auto !important;
 }
 
 a, button, .clickable {
@@ -33,7 +33,7 @@ a, button, .clickable {
 }
 
 .grabbing, .mini-dossier:active, .mini-dossier.grabbing, .mini-dossier:active * {
-  cursor: url("../assets/images/png/cursor-grab.png") 8 8, grabbing;
+  cursor: url("../assets/images/png/cursor-grab.png") 8 8, grabbing !important;
 }
 
 .custom-cursor {

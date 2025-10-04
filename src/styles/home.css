@@ -48,7 +48,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   position: absolute;
   perspective: 1000px; /* IMPORTANT pour 3D */
-  z-index: 1;
+  z-index: 101;
 }
 
 .middle-layer {

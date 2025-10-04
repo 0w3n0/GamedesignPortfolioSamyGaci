@@ -127,7 +127,7 @@ const Sections: React.FC = () => {
             });
         }
 
-        // Ajoute ceci pour la carte bleue :
+        // Carte bleue
         if (cardRef.current) {
             gsap.to(cardRef.current, {
                 x: -window.innerWidth - 400,
@@ -136,13 +136,24 @@ const Sections: React.FC = () => {
                 onComplete: () => setCardVisible(false)
             });
         }
-        // Ajoute pour la carte marron :
+        // Carte marron
         if (brownCardRef.current) {
             gsap.to(brownCardRef.current, {
                 x: -window.innerWidth - 400,
                 duration: 0.55,
                 ease: "power2.inOut",
                 onComplete: () => setBrownCardVisible(false)
+            });
+        }
+
+        // Footer : disparait par le bas
+        if (footerRef.current) {
+            gsap.to(footerRef.current, {
+                y: 200,
+                opacity: 0,
+                duration: 0.45,
+                ease: "power2.inOut",
+                onComplete: () => setFooterVisible(false)
             });
         }
 
@@ -185,7 +196,7 @@ const Sections: React.FC = () => {
                     setActiveSection(null);
                     setActiveIndex(null);
 
-                    // Réaffiche la carte bleue, mais commence hors écran à gauche
+                    // Réaffiche la carte bleue
                     setCardVisible(true);
                     setTimeout(() => {
                         if (cardRef.current) {
@@ -198,12 +209,26 @@ const Sections: React.FC = () => {
                         }
                     }, 10);
 
-                    // Ajoute pour la carte marron :
+                    // Carte marron
                     setBrownCardVisible(true);
                     setTimeout(() => {
                         if (brownCardRef.current) {
                             gsap.set(brownCardRef.current, { opacity: 0, x: 0, y: 0 });
                             gsap.to(brownCardRef.current, {
+                                opacity: 1,
+                                duration: 0.4,
+                                ease: "power2.out"
+                            });
+                        }
+                    }, 10);
+
+                    // Footer : réapparait par le bas
+                    setFooterVisible(true);
+                    setTimeout(() => {
+                        if (footerRef.current) {
+                            gsap.set(footerRef.current, { y: 200, opacity: 0 });
+                            gsap.to(footerRef.current, {
+                                y: 0,
                                 opacity: 1,
                                 duration: 0.4,
                                 ease: "power2.out"
@@ -243,12 +268,24 @@ const Sections: React.FC = () => {
                     });
                 }
             }, 10);
-            // Ajoute pour la carte marron :
             setBrownCardVisible(true);
             setTimeout(() => {
                 if (brownCardRef.current) {
                     gsap.set(brownCardRef.current, { opacity: 0, x: 0, y: 0 });
                     gsap.to(brownCardRef.current, {
+                        opacity: 1,
+                        duration: 0.4,
+                        ease: "power2.out"
+                    });
+                }
+            }, 10);
+            // Footer : réapparait par le bas
+            setFooterVisible(true);
+            setTimeout(() => {
+                if (footerRef.current) {
+                    gsap.set(footerRef.current, { y: 200, opacity: 0 });
+                    gsap.to(footerRef.current, {
+                        y: 0,
                         opacity: 1,
                         duration: 0.4,
                         ease: "power2.out"
@@ -490,7 +527,7 @@ const Sections: React.FC = () => {
             {brownCardVisible && (
                 <div
                     ref={brownCardRef}
-                    className="grabbable"
+                    className="grabbable clickable"
                     style={{
                         position: "absolute",
                         background: "#8d6748",
@@ -503,7 +540,7 @@ const Sections: React.FC = () => {
                         boxShadow: "0 6px 12px rgba(0,0,0,0.3)",
                         userSelect: "none",
                         display: "flex",
-                        flexDirection: "column", // footer en bas
+                        flexDirection: "column",
                         overflow: "hidden"
                     }}
                 >
@@ -512,13 +549,14 @@ const Sections: React.FC = () => {
                         style={{
                             flex: 1,
                             display: "flex",
-                            justifyContent: "space-evenly", // espace égal
+                            justifyContent: "space-evenly",
                             alignItems: "center",
                             gap: "1rem"
                         }}
                     >
                         {/* Polaroid 1 */}
                         <div
+                            className="clickable"
                             style={{
                                 background: "#fff",
                                 padding: "8px",
@@ -527,7 +565,11 @@ const Sections: React.FC = () => {
                                 flexDirection: "column",
                                 alignItems: "center",
                                 width: "40%",
-                                paddingBottom: "4vh"
+                                paddingBottom: "4vh",
+                                cursor: "pointer"
+                            }}
+                            onClick={() => {
+                                handleMiniClick(0, dossiers[0].component(dossiers[0]));
                             }}
                         >
                             <img
@@ -544,6 +586,7 @@ const Sections: React.FC = () => {
 
                         {/* Polaroid 2 */}
                         <div
+                            className="clickable"
                             style={{
                                 background: "#fff",
                                 padding: "8px",
@@ -552,7 +595,11 @@ const Sections: React.FC = () => {
                                 flexDirection: "column",
                                 alignItems: "center",
                                 width: "40%",
-                                paddingBottom: "4vh"
+                                paddingBottom: "4vh",
+                                cursor: "pointer"
+                            }}
+                            onClick={() => {
+                                handleMiniClick(1, dossiers[1].component(dossiers[1]));
                             }}
                         >
                             <img
@@ -568,7 +615,7 @@ const Sections: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* 📌 Footer Derniers projets */}
+                    {/* Footer Derniers projets */}
                     <div
                         style={{
                             background: "#5a3f2b",
@@ -605,23 +652,32 @@ const Sections: React.FC = () => {
                             overflow: "auto",
                             pointerEvents: "auto",
                         }}
-                        onClick={(e) => {
-                            // si la cible est à l'intérieur de la sectionRef, on ignore
-                            if (sectionRef.current?.contains(e.target as Node)) return;
-
-                            // si la cible est la flèche gauche ou droite, on ignore
-                            if (prevArrowRef.current?.contains(e.target as Node)) return;
-                            if (nextArrowRef.current?.contains(e.target as Node)) return;
-
-                            // sinon => ferme
-                            handleCloseSection();
-                        }}
                     >
+                        {/* Bouton géant invisible derrière le contenu */}
+                        <button
+                            onClick={handleCloseSection}
+                            style={{
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                width: "100vw",
+                                height: "100vh",
+                                zIndex: 99, // juste sous le contenu interactif
+                                background: "transparent",
+                                border: "none",
+                                padding: 0,
+                                margin: 0,
+                                opacity: 0,
+                            }}
+                            aria-label="Fermer en cliquant dans le vide"
+                            tabIndex={-1}
+                        />
+
                         {/* Flèche gauche */}
                         {activeIndex !== null && activeIndex > 0 && (
                             <button
                                 ref={prevArrowRef}
-                                onClick={goToPrev}
+                                onClick={e => { e.stopPropagation(); goToPrev(); }}
                                 style={{
                                     position: "absolute",
                                     top: "50%",
@@ -647,7 +703,7 @@ const Sections: React.FC = () => {
                         {activeIndex !== null && activeIndex < dossiers.length - 1 && (
                             <button
                                 ref={nextArrowRef}
-                                onClick={goToNext}
+                                onClick={e => { e.stopPropagation(); goToNext(); }}
                                 style={{
                                     position: "absolute",
                                     top: "50%",
@@ -672,10 +728,7 @@ const Sections: React.FC = () => {
                         <button
                             type="button"
                             className="close-btn clickable"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                handleCloseSection();
-                            }}
+                            onClick={e => { e.stopPropagation(); handleCloseSection(); }}
                             style={{
                                 position: "absolute",
                                 bottom: 20,
@@ -690,8 +743,11 @@ const Sections: React.FC = () => {
                             <img src={crossClose} alt="Fermer" width={64} />
                         </button>
 
-                        <div>{activeSection}</div>
-                        <Notes />
+                        {/* Le contenu du dossier et la note, on empêche la propagation */}
+                        <div onClick={e => e.stopPropagation()}>
+                            {activeSection}
+                            <Notes />
+                        </div>
                     </div>
                 )
             }
