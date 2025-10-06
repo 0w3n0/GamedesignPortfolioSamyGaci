@@ -63,14 +63,14 @@ const DossierMini: React.FC<DossierMiniProps> = ({
     }, []);
 
     return (
-        <div ref={backgroundRef} className="mini-dossier" style={{ cursor: "grab" }}>
+        <div ref={backgroundRef} className="mini-dossier clickable" style={{ cursor: "pointer" }}>
             <div
                 className="background-layer"
                 onClick={onMiniClick}
                 style={{ backgroundColor: colors.background }}
             >
                 <div className="navbar">
-                    <div className="nav-item">Home</div>
+                    <div className="nav-item" style={{ backgroundColor: colors.background }}></div>
                 </div>
                 <div
                     className="middle-layer"

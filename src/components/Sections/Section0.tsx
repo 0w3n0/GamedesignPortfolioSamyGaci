@@ -118,7 +118,7 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                     className="middle-layer"
                     style={{ backgroundColor: colors?.middle }}
                 >
-                    <PresentationSection />
+                    {/* <PresentationSection /> */}
                 </div>
 
                 <div
@@ -128,7 +128,7 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                     style={{ backgroundColor: colors?.front }}
                 >
                     <h1>
-                        <span className="h1-bold">0. Présentation</span>
+                        <span className="h1-bold">Section 0</span>
                     </h1>
                 </div>
             </div>

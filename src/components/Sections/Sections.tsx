@@ -7,6 +7,7 @@ import Section1 from "./Section1";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
 import Section4 from "./Section4";
+import Divers from "./Divers";
 import Notes from "./Notes";
 import crossClose from "../../assets/images/png/cross-close.png";
 import myPhoto from "../../assets/images/png/photo_cv.png";
@@ -88,7 +89,7 @@ const Sections: React.FC = () => {
             },
         },
         {
-            title: "Section 4",
+            title: "Divers",
             bottom: "30vh",
             left: "55vw",
             colors: {
@@ -97,7 +98,7 @@ const Sections: React.FC = () => {
                 front: "#f3e6ff"       // violet très pâle
             },
             component: function (dossier: any) {
-                return <Section4 colors={dossier.colors} />;
+                return <Divers colors={dossier.colors} />;
             },
         },
     ];
@@ -371,22 +372,6 @@ const Sections: React.FC = () => {
         return () => window.removeEventListener("resize", resetCardPosition);
     }, []);
 
-    // useLayoutEffect(() => {
-    //     // on veut le positionnement seulement si les deux sont visibles
-    //     if (!cardRef.current || !brownCardRef.current || !sectionsWrapperRef.current) return;
-    //     if (!cardVisible || !brownCardVisible) return;
-
-    //     const blueRect = cardRef.current.getBoundingClientRect();
-    //     const wrapperRect = sectionsWrapperRef.current.getBoundingClientRect();
-
-    //     // coordonnées relatives au wrapper + prise en compte d'un éventuel scroll interne
-    //     const leftPx = blueRect.right - wrapperRect.left + sectionsWrapperRef.current.scrollLeft + 20; // 20px de gap
-    //     const topPx = blueRect.top - wrapperRect.top + sectionsWrapperRef.current.scrollTop;
-
-    //     // applique left/top en px et reset des transforms x/y (Draggable utilisera translate)
-    //     gsap.set(brownCardRef.current, { left: `${leftPx}px`, top: `${topPx}px`, x: 0, y: 0 });
-    // }, [cardVisible, brownCardVisible]);
-
     useEffect(() => {
         if (footerRef.current) {
             Draggable.get(footerRef.current)?.kill();
@@ -447,7 +432,7 @@ const Sections: React.FC = () => {
                         position: "absolute",
                         top: "3vh",
                         left: "3vw",
-                        background: "#007bff",
+                        background: "#915E5A",
                         borderRadius: "16px",
                         padding: "2vw",
                         color: "#fff",
@@ -530,7 +515,7 @@ const Sections: React.FC = () => {
                     className="grabbable clickable"
                     style={{
                         position: "absolute",
-                        background: "#8d6748",
+                        background: "#5A7891",
                         borderRadius: "16px",
                         top: "3vh",
                         left: "45vw",
@@ -618,7 +603,7 @@ const Sections: React.FC = () => {
                     {/* Footer Derniers projets */}
                     <div
                         style={{
-                            background: "#5a3f2b",
+                            background: "#465B6D",
                             textAlign: "center",
                             padding: "12px 0",
                             fontSize: "clamp(1rem, 2vw, 2rem)",
