@@ -2,7 +2,9 @@ import React, { useRef, useEffect, useState } from "react";
 import "../../styles/sections.scss";
 import "../../styles/home.scss";
 import { gsap } from "gsap";
-import PresentationSection from "./PresentationSection";
+import PresentationSection from "./Template1";
+import PresentationSection2 from "./Template2";
+import PresentationSection3 from "./Template3";
 
 interface Section0Props {
     colors?: {
@@ -16,7 +18,7 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
     const navRefs = useRef<Array<HTMLDivElement | null>>([]);
     const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
     const frontRef = useRef<HTMLDivElement | null>(null);
-    const [activeDiv, setActiveDiv] = useState<number | null>(null); // Child sélectionné
+    const [activeDiv, setActiveDiv] = useState<number>(0); // Child sélectionné
 
     const hoverColors = ["#ff6b6b", "#6bc1ff", "#6bff95", "#ffda6b", "#c56bff", "#ff6bbf"];
     const activeColor = "#9E9593";
@@ -100,13 +102,14 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                 style={{ backgroundColor: colors?.background }}
             >
                 <div className="navbar">
-                    {Array.from({ length: 1 }).map((_, i) => (
+                    {Array.from({ length: 3 }).map((_, i) => (
                         <div
                             key={i}
                             className="nav-item"
                             ref={(el) => { navRefs.current[i] = el; }}
                             onClick={() => {
                                 setActiveDiv(i);
+                                console.log(i);
                                 handleOpen();
                             }}
                         >
@@ -114,11 +117,25 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                     ))}
                 </div>
 
-                <div
-                    className="middle-layer"
-                    style={{ backgroundColor: colors?.middle }}
-                >
-                    {/* <PresentationSection /> */}
+                <div className="middle-layer" style={{ backgroundColor: colors?.middle }}>
+                    {Array.from({ length: 3 }).map((_, i) => (
+                        <div
+                            key={i}
+                            ref={el => { contentRefs.current[i] = el; }}
+                            style={{
+                                display: activeDiv === i ? "block" : "none",
+                                position: "absolute",
+                                width: "100%",
+                                height: "100%",
+                                top: 0,
+                                left: 0,
+                            }}
+                        >
+                            {i === 0 && <PresentationSection />}
+                            {i === 1 && <PresentationSection2 />}
+                            {i === 2 && <PresentationSection3 />}
+                        </div>
+                    ))}
                 </div>
 
                 <div

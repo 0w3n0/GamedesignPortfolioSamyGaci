@@ -2,7 +2,9 @@ import React, { useRef, useEffect, useState } from "react";
 import "../../styles/sections.scss";
 import "../../styles/home.scss";
 import { gsap } from "gsap";
-import PresentationSection from "./PresentationSection";
+import PresentationSection from "./Template1";
+import PresentationSection2 from "./Template2";
+import PresentationSection3 from "./Template3";
 
 interface Section4Props {
     colors?: {
@@ -16,7 +18,7 @@ const Section4: React.FC<Section4Props> = ({ colors }) => {
     const navRefs = useRef<Array<HTMLDivElement | null>>([]);
     const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
     const frontRef = useRef<HTMLDivElement | null>(null);
-    const [activeDiv, setActiveDiv] = useState<number | null>(null); // Child sélectionné
+    const [activeDiv, setActiveDiv] = useState<number>(0); // Child sélectionné
 
     const hoverColors = ["#ff6b6b", "#6bc1ff", "#6bff95", "#ffda6b", "#c56bff", "#ff6bbf"];
     const activeColor = "#9E9593";
@@ -87,11 +89,11 @@ const Section4: React.FC<Section4Props> = ({ colors }) => {
     }, [activeDiv]);
 
     useEffect(() => {
-            const timer = setTimeout(() => {
-                handleOpen(); // ou setIsOpen(true) selon ta logique
-            }, 500);
-            return () => clearTimeout(timer);
-        }, []);
+        const timer = setTimeout(() => {
+            handleOpen(); // ou setIsOpen(true) selon ta logique
+        }, 500);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div className="home-container">
@@ -100,37 +102,50 @@ const Section4: React.FC<Section4Props> = ({ colors }) => {
                 style={{ backgroundColor: colors?.background }}
             >
                 <div className="navbar">
-                    {Array.from({ length: 1 }).map((_, i) => (
+                    {Array.from({ length: 3 }).map((_, i) => (
                         <div
                             key={i}
                             className="nav-item"
                             ref={(el) => { navRefs.current[i] = el; }}
                             onClick={() => {
                                 setActiveDiv(i);
-                                handleOpen(); // <-- ajoute ça pour ouvrir le dossier
+                                console.log(i);
+                                handleOpen();
                             }}
                         >
                         </div>
                     ))}
                 </div>
 
-                <div
-                    className="middle-layer"
-                    style={{ backgroundColor: colors?.middle }}
-                >
-                    <PresentationSection />
+                <div className="middle-layer" style={{ backgroundColor: colors?.middle }}>
+                    {Array.from({ length: 3 }).map((_, i) => (
+                        <div
+                            key={i}
+                            ref={el => { contentRefs.current[i] = el; }}
+                            style={{
+                                display: activeDiv === i ? "block" : "none",
+                                position: "absolute",
+                                width: "100%",
+                                height: "100%",
+                                top: 0,
+                                left: 0,
+                            }}
+                        >
+                            {i === 0 && <PresentationSection />}
+                            {i === 1 && <PresentationSection2 />}
+                            {i === 2 && <PresentationSection3 />}
+                        </div>
+                    ))}
                 </div>
 
-
                 <div
-                        className="front-layer"
-                        ref={frontRef}
-                        onClick={handleOpen}
-                        style={{ backgroundColor: colors?.front }}
-                    >
+                    className="front-layer"
+                    ref={frontRef}
+                    onClick={handleOpen}
+                    style={{ backgroundColor: colors?.front }}
+                >
                     <h1>
-                        <span className="h1-bold">4. SECTION 4
-                        </span>
+                        <span className="h1-bold">Section 0</span>
                     </h1>
                 </div>
             </div>

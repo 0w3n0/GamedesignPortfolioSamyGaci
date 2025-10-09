@@ -3,7 +3,7 @@ import "../../styles/sections.scss";
 import "../../styles/home.scss";
 import { gsap } from "gsap";
 import Draggable from "gsap/Draggable";
-import PresentationSection from "./PresentationSection";
+import PresentationSection from "./Template1";
 import orsay from "../../assets/images/png/Orsay_1.png";
 import velizy from "../../assets/images/png/iut_velizy.png";
 import Uqat from "../../assets/images/png/Uqat.png";
