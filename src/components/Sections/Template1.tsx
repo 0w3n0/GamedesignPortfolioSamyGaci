@@ -44,7 +44,7 @@ const Template1: React.FC = () => {
                         zIndex: 3,
                         transform: "rotate(5deg) scale(0.9)"
                     }}
-                    scotch={true}
+                    scotch={false}
                 />
                 <PolaroidStandard
                     photo={photo2}

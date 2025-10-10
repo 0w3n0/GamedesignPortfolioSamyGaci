@@ -76,7 +76,6 @@ const Divers: React.FC<{ colors?: { background?: string; middle?: string; front?
         }
     }, [shadowBoxOpen]);
 
-    // Responsive : reset position on resize
     useEffect(() => {
         const handleResize = () => {
             imgRefs.current.forEach((ref) => {
@@ -204,7 +203,7 @@ const Divers: React.FC<{ colors?: { background?: string; middle?: string; front?
                     style={{ backgroundColor: colors?.front }}
                 >
                     <h1>
-                        <span className="h1-bold">2. SECTION 2
+                        <span className="h1-bold">Divers
                         </span>
                     </h1>
                 </div>

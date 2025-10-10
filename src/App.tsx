@@ -1,14 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./App.scss";
-import Tabs from "./components/Tabs";
 import Home from "./components/Home";
-import Cube from "./components/ExpandingBox";
 import Section1 from "./components/Sections/Section1";
 import dossiers from "./data/dossiers.json";
 import CustomCursor from "./components/CustomCursor";
 import gsap from "gsap";
-import "./styles/global.scss"; // ← Import global ici
-import Projets from "./components/Projets";
+import "./styles/global.scss";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);

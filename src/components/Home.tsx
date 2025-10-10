@@ -52,31 +52,6 @@ const Home: React.FC = () => {
 
     return (
         <div className="home-container">
-            {/* <div className="background-layer" ref={backgroundRef}>
-                <div className="navbar">
-                    <div className="nav-item">Home</div>
-                    <div className="nav-item">Dossiers</div>
-                    <div className="nav-item">Contact</div>
-                </div>
-                <div className="middle-layer" ref={middleRef}></div>
-                <div
-                    className="front-layer"
-                    ref={frontRef}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    onClick={handleClick}
-                >
-                    <h1>
-                        <span className="h1-bold">Portfolio 2024</span> <br />
-                        Samy Gaci
-                    </h1>
-                    <div className="click-instruction">
-                        <p>Cliquer pour entrer Cliquer pour entrer  pour entrer  pour entrer  pour entrer  pour entrer  pour entrer  pour entrer pour entrer  pour entrer  pour entrer  pour entrer  pour entrer </p>
-                        
-                    </div>
-                </div>
-            </div> */}
-
             {showProjets && (
                 <div className="projets-container" ref={projetsRef}>
                     <Sections />
