@@ -5,8 +5,9 @@ import photo3 from "../../assets/images/png/Uqat.png";
 import PolaroidStandard from "./PolaroidStandard";
 import PolaroidHorizontal from "./PolaroidHorizontal";
 import PolaroidVertical from "./PolaroidVertical";
+import itchLogo from "../../assets/images/png/itchio-logo.png"; // Ajoute ton logo ici
 
-const Template2: React.FC = () => {
+const Template2: React.FC<{ disableItch?: boolean }> = ({ disableItch = false }) => {
     const photos = [photo1, photo2, photo3]; // remplace null par photoX quand tu as les images
     
     return (
@@ -31,7 +32,7 @@ const Template2: React.FC = () => {
                     height: "clamp(300px, 40vw, 500px)",
                 }}
             >
-                <h1 className="h1-bold" style={{ marginBottom: "20px", width: "100%" }}>
+                <h1 className="h1-bold-title" style={{ marginBottom: "20px", width: "100%" }}>
                     1. Présentation
                 </h1>
                 {/* Affichage séparé des polaroids */}
@@ -119,6 +120,45 @@ const Template2: React.FC = () => {
                     scotch={true}
                 />
             </div>
+            {!disableItch && (
+                    <a
+                        href="https://itch.io/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                            position: "absolute",
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            bottom: "24px",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            textDecoration: "none",
+                            zIndex: 10
+                        }}
+                    >
+                        <img
+                            src={itchLogo}
+                            alt="Itch.io"
+                            style={{
+                                width: "48px",
+                                height: "48px",
+                                marginBottom: "4px",
+                                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.15))"
+                            }}
+                        />
+                        <span
+                            style={{
+                                fontWeight: "bold",
+                                color: "#fa5c5c",
+                                fontSize: "1.1rem",
+                                letterSpacing: "2px"
+                            }}
+                        >
+                          
+                        </span>
+                    </a>
+                )}
         </div>
     );
 };

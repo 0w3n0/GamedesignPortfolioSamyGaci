@@ -584,7 +584,7 @@ const Sections: React.FC = () => {
                                 cursor: "pointer"
                             }}
                             onClick={() => {
-                                handleMiniClick(1, dossiers[1].component(dossiers[0]));
+                                handleMiniClick(1, dossiers[1].component(dossiers[1]));
                             }}
                         >
                             <img

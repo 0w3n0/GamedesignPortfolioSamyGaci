@@ -5,20 +5,20 @@ import photo3 from "../../assets/images/png/Uqat.png";
 import PolaroidStandard from "./PolaroidStandard";
 import PolaroidHorizontal from "./PolaroidHorizontal";
 import PolaroidVertical from "./PolaroidVertical";
+import itchLogo from "../../assets/images/png/itchio-logo.png"; // Ajoute ton logo ici
 
-const Template1: React.FC = () => {
-    const photos = [photo1, photo2, photo3]; // remplace null par photoX quand tu as les images
-    
+const Template1: React.FC<{ disableItch?: boolean }> = ({ disableItch = false }) => {
+    const photos = [photo1, photo2, photo3];
+
     return (
         <div
             style={{
                 display: "flex",
                 gap: "20px",
                 padding: "0 30px",
+                position: "relative"
             }}
         >
-
-
             {/* Colonne gauche */}
             <div
                 style={{
@@ -31,10 +31,9 @@ const Template1: React.FC = () => {
                     height: "clamp(300px, 40vw, 500px)",
                 }}
             >
-                <h1 className="h1-bold" style={{ marginBottom: "20px", width: "100%" }}>
+                <h1 className="h1-bold-title" style={{ marginBottom: "20px", width: "100%" }}>
                     0. Présentation
                 </h1>
-                {/* Affichage séparé des polaroids */}
                 <PolaroidHorizontal
                     photo={photo1}
                     style={{
@@ -52,7 +51,7 @@ const Template1: React.FC = () => {
                         position: "absolute",
                         top: "clamp(60px, 18vw, 30vw)",
                         left: "clamp(80px, 10vw, 18vw)",
-                        zIndex: 5, 
+                        zIndex: 5,
                         transform: "rotate(5deg) scale(0.6)"
                     }}
                     scotch={true}
@@ -71,42 +70,53 @@ const Template1: React.FC = () => {
             </div>
 
             {/* Colonne droite */}
-            <div style={{ width: "50%", lineHeight: 1.6, textAlign: "justify" }}>
-                {/* <p>
-                    <span className="span-important">Nom :</span> Samy Gaci
-                    <br />
-                    <span className="span-important">Lieu d’études actuel :</span>{" "}
-                    <span className="important">UQAT - Canada</span> (échange universitaire)
-                    <br />
-                    <span className="span-important">Diplôme en cours d’obtention :</span>{" "}
-                    Bachelor Universitaire de Technologie en Métiers du Multimédia et de
-                    l’Internet (BUT MMI)
-                    <br />
-                    <span className="span-important">Spécialisation :</span>{" "}
-                    <span className="important">Création numérique</span>
-                    <br />
-                    <span className="span-important">Motivations :</span> La cible a
-                    toujours voulu prendre de nouvelles directions dans sa démarche{" "}
-                    <span className="important">créative</span> pour se réinventer et
-                    proposer des <span className="important">projets</span> qui apportent
-                    tous quelque chose de différent. Il est passionné par la conception de{" "}
-                    <span className="important">projets communicationnels impactant</span>,
-                    et par ce qu’ils peuvent procurer au public. C'est pour ces raisons
-                    qu'il souhaite s'orienter vers l'
-                    <span className="important">
-                        École de la Création Visuelle en publicité
-                    </span>
-                    , qui lui permettrait d'acquérir de nouvelles compétences en{" "}
-                    <span className="important">communication</span>.
-                </p> */}
+            <div style={{ width: "50%", lineHeight: 1.6, textAlign: "justify", position: "relative" }}>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et hendrerit arcu, in aliquam est. Fusce accumsan consectetur eros ac congue. Nulla nec viverra massa. Mauris sed sapien scelerisque, porta nulla ut, venenatis urna. Curabitur sed metus vitae sem pretium ornare sed dictum lectus. Aenean egestas nec elit sed suscipit. Ut vitae quam neque. Vestibulum vel leo vitae nulla rutrum volutpat. Curabitur luctus arcu ligula, sit amet vulputate tortor sollicitudin non.
 
                     Nam molestie risus a ex tincidunt condimentum. Donec eget enim gravida, semper purus et, faucibus nibh. Etiam ut nisi at purus blandit posuere et accumsan eros. Proin molestie ultrices nunc quis elementum. Aenean eget ultrices leo. Phasellus ut enim a purus posuere tristique. Aenean interdum felis nisl, vulputate sodales nunc egestas a. Cras imperdiet vehicula libero vel egestas. Vivamus a tincidunt enim. Mauris non sollicitudin erat. Curabitur vel est vitae ligula finibus accumsan. Duis ac sem et nunc malesuada faucibus nec ac lorem.
 
-                    Quisque eu orci eu justo congue cursus. Donec aliquam nisl vel consequat pretium. Cras cursus vulputate nunc non eleifend. Nam lacinia turpis ac eleifend faucibus. In egestas, nisl non pretium rutrum, eros magna hendrerit urna, eget gravida lorem nisi ut mauris. Proin et sollicitudin purus. Pellentesque et volutpat felis. Cras vel erat hendrerit, ullamcorper mauris nec, porta enim. Mauris at pellentesque dui. Integer molestie odio a magna dictum lacinia. Suspendisse pretium nulla in nisl ornare, vel dignissim risus pellentesque. Praesent euismod sagittis enim, id mollis mi dapibus vel.
-
                 </p>
+                {/* Logo Itch.io + redirection */}
+                {!disableItch && (
+                    <a
+                        href="https://itch.io/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                            position: "absolute",
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            bottom: "-20px",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            textDecoration: "none",
+                            zIndex: 10
+                        }}
+                    >
+                        <img
+                            src={itchLogo}
+                            alt="Itch.io"
+                            style={{
+                                width: "48px",
+                                height: "48px",
+                                marginBottom: "4px",
+                                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.15))"
+                            }}
+                        />
+                        <span
+                            style={{
+                                fontWeight: "bold",
+                                color: "#fa5c5c",
+                                fontSize: "1.1rem",
+                                letterSpacing: "2px"
+                            }}
+                        >
+                            
+                        </span>
+                    </a>
+                )}
             </div>
         </div>
     );

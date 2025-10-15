@@ -8,6 +8,7 @@ import orsay from "../../assets/images/png/Orsay_1.png";
 import velizy from "../../assets/images/png/iut_velizy.png";
 import Uqat from "../../assets/images/png/Uqat.png";
 import Brouillon from "../../assets/images/png/IMG_20250907_135639.png";
+import Sasuke from "../../assets/images/gif/sasuke-sasuke-uchiha.gif";
 
 const Divers: React.FC<{ colors?: { background?: string; middle?: string; front?: string } }> = ({ colors }) => {
     const backgroundRef = useRef<HTMLDivElement>(null);
@@ -39,6 +40,16 @@ const Divers: React.FC<{ colors?: { background?: string; middle?: string; front?
         velizy,
         Brouillon,
         Uqat,
+    ];
+
+    const medias = [
+        { type: "image", src: orsay },
+        { type: "image", src: velizy },
+        { type: "image", src: Brouillon },
+        { type: "image", src: Uqat },
+        { type: "gif", src: Sasuke },
+        { type: "video", src: "" },
+        { type: "youtube", youtubeId: "dQw4w9WgXcQ" },
     ];
 
     const handleOpen = () => {
@@ -87,8 +98,8 @@ const Divers: React.FC<{ colors?: { background?: string; middle?: string; front?
     }, []);
 
     // Shadow box navigation
-    const goPrev = () => setCurrentImg((i) => (i > 0 ? i - 1 : images.length - 1));
-    const goNext = () => setCurrentImg((i) => (i < images.length - 1 ? i + 1 : 0));
+    const goPrev = () => setCurrentImg((i) => (i > 0 ? i - 1 : medias.length - 1));
+    const goNext = () => setCurrentImg((i) => (i < medias.length - 1 ? i + 1 : 0));
 
     // Animation d'entrée créative
     useEffect(() => {
@@ -157,7 +168,7 @@ const Divers: React.FC<{ colors?: { background?: string; middle?: string; front?
                             justifyItems: "center",
                         }}
                     >
-                        {images.map((src, i) => (
+                        {medias.map((media, i) => (
                             <div
                                 key={i}
                                 ref={el => { imgRefs.current[i] = el; }}
@@ -181,16 +192,66 @@ const Divers: React.FC<{ colors?: { background?: string; middle?: string; front?
                                     setShadowBoxOpen(true);
                                 }}
                             >
-                                <img
-                                    src={src}
-                                    alt={`img${i + 1}`}
-                                    style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        objectFit: "cover",
-                                        objectPosition: "center"
-                                    }}
-                                />
+                                {media.type === "image" ? (
+                                    <img
+                                        src={media.src}
+                                        alt={`image${i + 1}`}
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            objectFit: "cover",
+                                            objectPosition: "center"
+                                        }}
+                                    />
+                                ) : media.type === "gif" ? (
+                                    <img
+                                        src={media.src}
+                                        alt={`gif${i + 1}`}
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            objectFit: "cover",
+                                            objectPosition: "center"
+                                        }}
+                                    />
+                                ) : media.type === "youtube" ? (
+                                    <div
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            position: "relative",
+                                            background: "#000",
+                                        }}
+                                    >
+                                        <iframe
+                                            src={`https://www.youtube.com/embed/${media.youtubeId}?autoplay=1&mute=1&controls=0`}
+                                            style={{
+                                                width: "100%",
+                                                height: "100%",
+                                                border: "none",
+                                                borderRadius: "8px",
+                                                pointerEvents: "none", // ⛔ empêche l’iframe de capturer les clics pour Draggable
+                                            }}
+                                            allow="autoplay"
+                                            allowFullScreen
+                                            title={`youtube${i + 1}`}
+                                        />
+                                    </div>
+                                ) : (
+                                    <video
+                                        src={media.src}
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            objectFit: "cover",
+                                            objectPosition: "center"
+                                        }}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                    />
+                                )}
                             </div>
                         ))}
                     </div>
@@ -249,21 +310,75 @@ const Divers: React.FC<{ colors?: { background?: string; middle?: string; front?
                     >
                         &#8592;
                     </button>
-                    {/* Image agrandie */}
-                    <img
-                        src={images[currentImg]}
-                        alt={`img${currentImg + 1}`}
-                        style={{
-                            maxWidth: "70vw",
-                            maxHeight: "80vh",
-                            borderRadius: "16px",
-                            boxShadow: "0 8px 32px rgba(0,0,0,0.45)",
-                            objectFit: "contain",
-                            background: "#fff",
-                            animation: "zoomIn 0.5s cubic-bezier(.68,-0.55,.27,1.55)"
-                        }}
-                        onClick={e => e.stopPropagation()}
-                    />
+                    {/* Média agrandi */}
+                    {medias[currentImg].type === "image" ? (
+                        <img
+                            src={medias[currentImg].src}
+                            alt={`image${currentImg + 1}`}
+                            style={{
+                                maxWidth: "70vw",
+                                maxHeight: "80vh",
+                                borderRadius: "16px",
+                                boxShadow: "0 8px 32px rgba(0,0,0,0.45)",
+                                objectFit: "contain",
+                                background: "#fff",
+                                animation: "zoomIn 0.5s cubic-bezier(.68,-0.55,.27,1.55)"
+                            }}
+                            onClick={e => e.stopPropagation()}
+                        />
+                    ) : medias[currentImg].type === "gif" ? (
+                        <img
+                            src={medias[currentImg].src}
+                            alt={`gif${currentImg + 1}`}
+                            style={{
+                                maxWidth: "70vw",
+                                maxHeight: "80vh",
+                                borderRadius: "16px",
+                                boxShadow: "0 8px 32px rgba(0,0,0,0.45)",
+                                objectFit: "contain",
+                                background: "#fff",
+                                animation: "zoomIn 0.5s cubic-bezier(.68,-0.55,.27,1.55)"
+                            }}
+                            onClick={e => e.stopPropagation()}
+                        />
+                    ) : medias[currentImg].type === "youtube" ? (
+                        <iframe
+                            src={`https://www.youtube.com/embed/${medias[currentImg].youtubeId}?autoplay=1&controls=1`}
+                            style={{
+                                maxWidth: "70vw",
+                                maxHeight: "80vh",
+                                width: "70vw",
+                                height: "80vh",
+                                border: "none",
+                                borderRadius: "16px",
+                                background: "#000"
+                            }}
+                            allow="autoplay"
+                            allowFullScreen
+                            title={`youtube${currentImg + 1}`}
+                            onClick={e => e.stopPropagation()}
+                        />
+                    ) : (
+                        <video
+                            src={medias[currentImg].src}
+                            style={{
+                                maxWidth: "70vw",
+                                maxHeight: "80vh",
+                                borderRadius: "16px",
+                                boxShadow: "0 8px 32px rgba(0,0,0,0.45)",
+                                objectFit: "contain",
+                                background: "#fff",
+                                animation: "zoomIn 0.5s cubic-bezier(.68,-0.55,.27,1.55)"
+                            }}
+                            autoPlay
+                            loop
+                            controls
+                            muted={false}
+                            playsInline={false}
+                            onClick={e => e.stopPropagation()}
+                        />
+                    )}
+
                     {/* Flèche droite */}
                     <button
                         onClick={(e) => { e.stopPropagation(); goNext(); }}

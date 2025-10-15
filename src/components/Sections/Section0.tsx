@@ -131,9 +131,9 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                                 left: 0,
                             }}
                         >
-                            {i === 0 && <PresentationSection />}
-                            {i === 1 && <PresentationSection2 />}
-                            {i === 2 && <PresentationSection3 />}
+                            {i === 0 && <PresentationSection disableItch={false} />}
+                            {i === 1 && <PresentationSection2 disableItch={false} />}
+                            {i === 2 && <PresentationSection3 disableItch={false} />}
                         </div>
                     ))}
                 </div>
