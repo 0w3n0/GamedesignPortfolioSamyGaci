@@ -37,7 +37,7 @@ const Sections: React.FC = () => {
 
     const dossiers = [
         {
-            title: "Narrative Design",
+            title: "I can Write",
             bottom: "30vh",
             left: "5vw",
             colors: {
@@ -50,7 +50,7 @@ const Sections: React.FC = () => {
             },
         },
         {
-            title: "System Design",
+            title: "I can Systemize",
             bottom: "10vh",
             left: "17vw",
             colors: {
@@ -63,7 +63,7 @@ const Sections: React.FC = () => {
             },
         },
         {
-            title: "Other stuff",
+            title: "I can do other stuff",
             bottom: "30vh",
             left: "30vw",
             colors: {

@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import PresentationSection from "./Template1";
 import PresentationSection2 from "./Template2";
 import PresentationSection3 from "./Template3";
+import PresentationSection2_Zap_System from "./Template2_Zap_System";
 
 interface Section1Props {
     colors?: {
@@ -131,7 +132,7 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                                 left: 0,
                             }}
                         >
-                            {i === 0 && <PresentationSection />}
+                            {i === 0 && <PresentationSection2_Zap_System />}
                             {i === 1 && <PresentationSection2 />}
                             {i === 2 && <PresentationSection3 />}
                             {i === 3 && <PresentationSection3 />}
