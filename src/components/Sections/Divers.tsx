@@ -264,7 +264,7 @@ const Divers: React.FC<{ colors?: { background?: string; middle?: string; front?
                     style={{ backgroundColor: colors?.front }}
                 >
                     <h1>
-                        <span className="h1-bold">Divers
+                        <span className="h1-bold">Gallery
                         </span>
                     </h1>
                 </div>

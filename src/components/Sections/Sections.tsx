@@ -12,7 +12,7 @@ import Notes from "./Notes";
 import crossClose from "../../assets/images/png/cross-close.png";
 import myPhoto from "../../assets/images/png/photo_cv.png";
 import kimz from "../../assets/images/png/kimz.png";
-
+import zap from "../../assets/images/png/zap.png";
 gsap.registerPlugin(Draggable);
 
 const Sections: React.FC = () => {
@@ -37,7 +37,7 @@ const Sections: React.FC = () => {
 
     const dossiers = [
         {
-            title: "Section 0",
+            title: "Narrative Design",
             bottom: "30vh",
             left: "5vw",
             colors: {
@@ -50,7 +50,7 @@ const Sections: React.FC = () => {
             },
         },
         {
-            title: "Section 1",
+            title: "System Design",
             bottom: "10vh",
             left: "17vw",
             colors: {
@@ -63,7 +63,7 @@ const Sections: React.FC = () => {
             },
         },
         {
-            title: "Section 2",
+            title: "Other stuff",
             bottom: "30vh",
             left: "30vw",
             colors: {
@@ -75,23 +75,11 @@ const Sections: React.FC = () => {
                 return <Section2 colors={dossier.colors} />;
             },
         },
+        
         {
-            title: "Section 3",
+            title: "Gallery",
             bottom: "10vh",
             left: "42vw",
-            colors: {
-                background: "#7c6a2a", // jaune/moutarde foncé
-                middle: "#ffe97e",     // jaune clair
-                front: "#fffbe6"       // jaune très pâle
-            },
-            component: function (dossier: any) {
-                return <Section3 colors={dossier.colors} />;
-            },
-        },
-        {
-            title: "Divers",
-            bottom: "30vh",
-            left: "55vw",
             colors: {
                 background: "#6a2a7c", // violet foncé
                 middle: "#d17eff",     // violet clair
@@ -488,7 +476,7 @@ const Sections: React.FC = () => {
                                         padding: "0px 18px 0px 0px",
                                     }}
                                 >
-                                    Narrative Designer
+                                    Narrative & System Designer
                                 </p>
                             </div>
                             {/* Texte lorem ipsum aligné à gauche */}
@@ -501,7 +489,7 @@ const Sections: React.FC = () => {
                                     paddingTop: "10px",
                                 }}
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+                                As a Narrative & System Designer, I bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written; they’re played.
                             </p>
                         </div>
                     </div>
@@ -588,8 +576,8 @@ const Sections: React.FC = () => {
                             }}
                         >
                             <img
-                                src={kimz}
-                                alt="kimz"
+                                src={zap}
+                                alt="zap"
                                 style={{
                                     width: "100%",
                                     height: "20vh",
@@ -611,7 +599,7 @@ const Sections: React.FC = () => {
                             margin: 0
                         }}
                     >
-                        Derniers projets
+                        Last Projects
                     </div>
                 </div>
             )
@@ -758,7 +746,7 @@ const Sections: React.FC = () => {
                         zIndex: 10000
                     }}
                 >
-                    Vous pouvez bouger tous les éléments de la page si vous le souhaitez !
+                    Nothing’s fixed here. Move things, have fun!
                 </div>
             )}
 

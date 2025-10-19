@@ -122,7 +122,7 @@ const NotesForm: React.FC = () => {
       </div>
 
       <p style={{ color: "black", padding: "0px" }}>
-        Si tu souhaites me laisser un message, une question ou une suggestion, n'hésite pas à utiliser ce petit carnet.
+        Wanna leave a note, a question, or an idea? Go ahead, this tiny notebook loves attention!
       </p>
 
       <label htmlFor="email" style={{ color: "black", paddingBottom: "10px" }}>EMAIL*</label>
@@ -142,10 +142,10 @@ const NotesForm: React.FC = () => {
         }}
       />
 
-      <label htmlFor="message" style={{ color: "black", paddingBottom: "10px" }}>Ton message :</label>
+      <label htmlFor="message" style={{ color: "black", paddingBottom: "10px" }}>Your Message :</label>
       <textarea
         id="message"
-        placeholder="Écris ton message..."
+        placeholder="Write your message..."
         value={message}
         onChange={handleChangeMessage}
         style={{
@@ -176,7 +176,7 @@ const NotesForm: React.FC = () => {
           cursor: isEmailValid ? "pointer" : "not-allowed",
         }}
       >
-        Envoyer
+        Send
       </button>
     </form>
   );

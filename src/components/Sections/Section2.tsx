@@ -145,7 +145,7 @@ const Section2: React.FC<Section2Props> = ({ colors }) => {
                     style={{ backgroundColor: colors?.front }}
                 >
                     <h1>
-                        <span className="h1-bold">Section 0</span>
+                        <span className="h1-bold">Other Stuff</span>
                     </h1>
                 </div>
             </div>

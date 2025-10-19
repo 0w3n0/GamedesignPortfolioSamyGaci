@@ -102,7 +102,7 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                 style={{ backgroundColor: colors?.background }}
             >
                 <div className="navbar">
-                    {Array.from({ length: 3 }).map((_, i) => (
+                    {Array.from({ length: 9 }).map((_, i) => (
                         <div
                             key={i}
                             className="nav-item"
@@ -118,7 +118,7 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                 </div>
 
                 <div className="middle-layer" style={{ backgroundColor: colors?.middle }}>
-                    {Array.from({ length: 3 }).map((_, i) => (
+                    {Array.from({ length: 9 }).map((_, i) => (
                         <div
                             key={i}
                             ref={el => { contentRefs.current[i] = el; }}
@@ -134,6 +134,13 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                             {i === 0 && <PresentationSection />}
                             {i === 1 && <PresentationSection2 />}
                             {i === 2 && <PresentationSection3 />}
+                            {i === 3 && <PresentationSection3 />}
+                            {i === 4 && <PresentationSection3 />}
+                            {i === 5 && <PresentationSection3 />}
+                            {i === 6 && <PresentationSection3 />}
+                            {i === 7 && <PresentationSection3 />}
+                            {i === 8 && <PresentationSection3 />}
+                            {i === 9 && <PresentationSection3 />}
                         </div>
                     ))}
                 </div>
@@ -145,7 +152,7 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                     style={{ backgroundColor: colors?.front }}
                 >
                     <h1>
-                        <span className="h1-bold">Section 0</span>
+                        <span className="h1-bold">System Design</span>
                     </h1>
                 </div>
             </div>
