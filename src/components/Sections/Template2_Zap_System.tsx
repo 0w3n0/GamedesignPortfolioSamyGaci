@@ -1,7 +1,7 @@
 import React from "react";
 import photo1 from "../../assets/images/png/Zap_From_Beyond/Affiche.png";
 import photo2 from "../../assets/images/png/Zap_From_Beyond/Gameplay.png";
-import photo3 from "../../assets/images/png/Zap_From_Beyond/TimelineUnity.png";
+import photo3 from "../../assets/images/png/Zap_From_Beyond/TimelineSerre.png";
 import PolaroidStandard from "./PolaroidStandard";
 import PolaroidHorizontal from "./PolaroidHorizontal";
 import PolaroidVertical from "./PolaroidVertical";
@@ -115,7 +115,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         bottom: "clamp(-1vw, -5vw, -20vw)",
                         right: "clamp(20px, 15vw, 20vw)",
                         zIndex: 3,
-                        transform: "rotate(5deg) scale(0.5)"
+                        transform: "rotate(5deg) scale(0.8)"
                     }}
                     scotch={true}
                 />
