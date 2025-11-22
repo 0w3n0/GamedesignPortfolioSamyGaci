@@ -6,6 +6,9 @@ import PresentationSection from "./Template1";
 import PresentationSection2 from "./Template2";
 import PresentationSection3 from "./Template3";
 import PresentationSection2_Zap_System from "./Template2_Zap_System";
+import PresentationSection2_Trapped_System from "./Template3_Trapped_System";
+import PresentationSection2_Yurei_System from "./Template4_Yurei_System";
+import PresentationSection2_Quaalud_System from "./Template5_Quaalud_System";
 
 interface Section1Props {
     colors?: {
@@ -133,9 +136,9 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                             }}
                         >
                             {i === 0 && <PresentationSection2_Zap_System />}
-                            {i === 1 && <PresentationSection2 />}
-                            {i === 2 && <PresentationSection3 />}
-                            {i === 3 && <PresentationSection3 />}
+                            {i === 1 && <PresentationSection2_Trapped_System/>}
+                            {i === 2 && <PresentationSection2_Yurei_System />}
+                            {i === 3 && <PresentationSection2_Quaalud_System />}
                             {i === 4 && <PresentationSection3 />}
                             {i === 5 && <PresentationSection3 />}
                             {i === 6 && <PresentationSection3 />}

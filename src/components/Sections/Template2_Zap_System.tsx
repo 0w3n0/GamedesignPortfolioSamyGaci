@@ -2,7 +2,7 @@ import React from "react";
 import photo1 from "../../assets/images/png/Zap_From_Beyond/Affiche.png";
 import photo2 from "../../assets/images/png/Zap_From_Beyond/OnePager.png";
 import photo3 from "../../assets/images/png/Zap_From_Beyond/TimelineSerre.png";
-import photo4 from "../../assets/images/png/Zap_From_Beyond/Prototype.png";
+import photo4 from "../../assets/images/png/Zap_From_Beyond/IRL.jpg";
 import PolaroidStandard from "./PolaroidStandard";
 import PolaroidHorizontal from "./PolaroidHorizontal";
 import PolaroidVertical from "./PolaroidVertical";
@@ -14,7 +14,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
     return (
         <div>
             <h1 className="h1-bold-title" style={{ marginBottom: "20px", width: "100%", marginLeft: "30px" }}>
-                ZAP FROM BEYOND - System Design (3 months project)
+                ZAP FROM BEYOND - System & Level Design 
             </h1>
             <div
                 style={{
@@ -44,7 +44,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         style={{
                             position: "absolute",
                             top: "clamp(1vw, 4vw, 12vw)",
-                            left: "clamp(-5vw, -5vw, 14vw)",
+                            left: "clamp(-10vw, -6vw, 14vw)",
                             zIndex: 6,
                             transform: "rotate(-8deg) scale(1.3)"
                         }}
@@ -82,7 +82,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     <span className="important">communication</span>.
                 </p> */}
                     <p style={{ padding: "10px 40px 20px 20px" }}>
-                        <i>A short, cryptic interactive story about a mysterious TV that hides more than it shows.</i><br /> <br />
+                        <i>"A short, cryptic interactive story about a mysterious TV that hides more than it shows." - Team of 5 people (1 Game Designer), 2025</i><br /> <br />
 
                         As the sole Game Designer on the project, I handled both <b>narrative and system design</b>. My goal was to build an experience that felt <b>immersive</b>, <b>replayable</b>, and explored the theme of <b>FOMO</b> — the Fear of Missing Out — through ever-changing TV channels and hidden layers of meaning.
 
@@ -138,11 +138,11 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             }}
                             aria-label="Open on itch.io"
                         >
-                            <img src={itchLogo} alt="Itch.io" style={{ width: 36, height: "auto" }} />
+                            
                             ITCH.IO
                         </a>
                         <a
-                            href="https://example.com"
+                            href="https://drive.google.com/drive/folders/1oCsTsfb1ZJG3Y5JN68szgszRUE0b46-i?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -169,7 +169,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             position: "absolute",
                             bottom: "clamp(5vw, 15vw, 30vw)",
                             right: "clamp(0px, 32vw, 50vw)",
-                            zIndex: 3,
+                            zIndex: 6,
                             transform: "rotate(5deg) scale(0.9)"
                         }}
                         scotch={false}

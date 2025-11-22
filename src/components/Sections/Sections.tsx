@@ -10,7 +10,7 @@ import Section4 from "./Section4";
 import Divers from "./Divers";
 import Notes from "./Notes";
 import crossClose from "../../assets/images/png/cross-close.png";
-import myPhoto from "../../assets/images/png/photo_cv.png";
+import myPhoto from "../../assets/images/png/photoo_cv.png";
 import kimz from "../../assets/images/png/kimz.png";
 import zap from "../../assets/images/png/zap.png";
 gsap.registerPlugin(Draggable);
@@ -37,7 +37,7 @@ const Sections: React.FC = () => {
 
     const dossiers = [
         {
-            title: "I can Write",
+            title: "Narrative Design",
             bottom: "30vh",
             left: "5vw",
             colors: {
@@ -50,7 +50,7 @@ const Sections: React.FC = () => {
             },
         },
         {
-            title: "I can Systemize",
+            title: "System & Level Design",
             bottom: "10vh",
             left: "17vw",
             colors: {
@@ -63,7 +63,7 @@ const Sections: React.FC = () => {
             },
         },
         {
-            title: "I can do other stuff",
+            title: "Other Stuff",
             bottom: "30vh",
             left: "30vw",
             colors: {
@@ -420,7 +420,7 @@ const Sections: React.FC = () => {
                         position: "absolute",
                         top: "3vh",
                         left: "3vw",
-                        background: "#915E5A",
+                        background: "#fff9e5",
                         borderRadius: "16px",
                         padding: "2vw",
                         color: "#fff",
@@ -462,7 +462,8 @@ const Sections: React.FC = () => {
                                     style={{
                                         margin: 0,
                                         fontSize: "clamp(1.5rem, 3vw, 2.8rem)",
-                                        fontWeight: 700,
+                                        color:"black",
+                                        fontWeight: 900,
                                     }}
                                 >
                                     Samy Gaci
@@ -473,6 +474,7 @@ const Sections: React.FC = () => {
                                         fontSize: "clamp(1.1rem, 2vw, 2.1rem)",
                                         opacity: 0.9,
                                         fontWeight: "bold",
+                                        color:"#d82639",
                                         padding: "0px 18px 0px 0px",
                                     }}
                                 >
@@ -489,7 +491,7 @@ const Sections: React.FC = () => {
                                     paddingTop: "10px",
                                 }}
                             >
-                                As a Narrative & System Designer, I bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written; they’re played.
+                                As a Narrative & System Designer, I bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written, they are played.
                             </p>
                         </div>
                     </div>
