@@ -6,6 +6,9 @@ import PresentationSection from "./Template1";
 import PresentationSection2 from "./Template2";
 import PresentationSection3 from "./Template3";
 import PresentationSection1_Kimz_Narrative from "./Template8_Kimz_Narrative";
+import PresentationSection1_Storytail_Narrative from "./Template9_Storytail_Narrative";
+import PresentationSection1_Zap_Narrative from "./Template10_Zap_Narrative";
+import PresentationSection1_Yurei_Narrative from "./Template11_Yurei_Narrative";
 
 interface Section0Props {
     colors?: {
@@ -103,7 +106,7 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                 style={{ backgroundColor: colors?.background }}
             >
                 <div className="navbar">
-                    {Array.from({ length: 5 }).map((_, i) => (
+                    {Array.from({ length: 4 }).map((_, i) => (
                         <div
                             key={i}
                             className="nav-item"
@@ -119,7 +122,7 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                 </div>
 
                 <div className="middle-layer" style={{ backgroundColor: colors?.middle }}>
-                    {Array.from({ length: 5 }).map((_, i) => (
+                    {Array.from({ length: 4 }).map((_, i) => (
                         <div
                             key={i}
                             ref={el => { contentRefs.current[i] = el; }}
@@ -133,10 +136,10 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                             }}
                         >
                             {i === 0 && <PresentationSection1_Kimz_Narrative />}
-                            {i === 1 && <PresentationSection1_Kimz_Narrative />}
-                            {i === 2 && <PresentationSection1_Kimz_Narrative  />}
-                            {i === 3 && <PresentationSection1_Kimz_Narrative  />}
-                            {i === 4 && <PresentationSection1_Kimz_Narrative  />}
+                            {i === 1 && <PresentationSection1_Zap_Narrative  />}
+                            {i === 2 && <PresentationSection1_Storytail_Narrative />}
+                            {i === 3 && <PresentationSection1_Yurei_Narrative  />}
+                            
                         </div>
                     ))}
                 </div>

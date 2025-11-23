@@ -1,8 +1,9 @@
 import React from "react";
-import photo1 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_affiche.png";
-import photo2 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_gameplay3.png";
-import photo3 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_gameplay2.png";
-import photo4 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_gameplay.png";
+import photo1 from "../../assets/images/png/Zap_From_Beyond/Affiche.png";
+import photo2 from "../../assets/images/png/Zap_From_Beyond/Gameplay.png";
+import photo3 from "../../assets/images/png/Zap_From_Beyond/Zap_Video1.png";
+import photo4 from "../../assets/images/png/Zap_From_Beyond/Zap_Video2.png";
+import photo5 from "../../assets/images/png/Zap_From_Beyond/Zap_Video3.png";
 import PolaroidStandard from "./PolaroidStandard";
 import PolaroidHorizontal from "./PolaroidHorizontal";
 import PolaroidVertical from "./PolaroidVertical";
@@ -14,7 +15,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
     return (
         <div>
             <h1 className="h1-bold-title" style={{ marginBottom: "20px", width: "100%", marginLeft: "30px" }}>
-                KIMZ VS LES RAGOGO - Cameras & Writing
+                ZAP FROM BEYOND - Directing & Writing
             </h1>
             <div
                 style={{
@@ -44,9 +45,9 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         style={{
                             position: "absolute",
                             top: "clamp(1vw, 4vw, 12vw)",
-                            left: "clamp(-10vw, -10vw, 14vw)",
+                            left: "clamp(-10vw, 13vw, 14vw)",
                             zIndex: 6,
-                            transform: "rotate(-4deg) scale(1.3)"
+                            transform: "rotate(2deg) scale(1.3)"
                         }}
                         scotch={false}
                     />
@@ -82,10 +83,10 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     <span className="important">communication</span>.
                 </p> */}
                     <p style={{ padding: "10px 40px 20px 20px" }}>
-                        <i>"Embodies KIMZ, a rapper in search of revenge in a rap battle game. Will you be able to overthrow your brother RAGO and claim the title of king of rap in the city?" - Team of 7 people (2 Game Designers), 2025</i><br /> <br />
+                        <i>"A short, cryptic interactive story about a mysterious TV that hides more than it shows." - Team of 5 people (1 Game Designer), 2025</i><br /> <br />
 
-                        This project was the opportunity for me to be able to create and establish a whole universe as well as the characters who live there. I had to write the game’s dialogue as well as the punchlines cards that the player could choose for their deck. One of the main challenges was having to write fun, impactful lyrics without them being too degrading for any type of audience. I also took care of the integration of the different dynamic camera plans during the battles, via the Unity engine.<br /> <br />
-                        <b><i>How to make the rap battle world accessible while allowing players a sense of power and customization?</i></b> <br /> <br />
+                        My role as Narrative Designer on this project was to have to direct the entire content of the channels, as well as write them. The system of the game was quite complex to set up, especially because of the 3 types of channels: channels with only streaming videos, channels with changing videos according to the player’s behavior, and real-time channels directly generated with the Unity engine. So I had to coordinate all these channels and ensure that each one tells something both different and similar in order to make the player always ask himself the question of what is hidden behind the program. There are 3 possible endings in the game according to the player’s behaviors, which was a challenge because they had to make you want to play again to get the others.<br /> <br />
+                        <b><i>How can someone shift from being a passive observer to an active participant in the story?</i></b> <br /> <br />
                     </p>
                     <div
                         style={{
@@ -99,7 +100,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         }}
                     >
                         <a
-                            href="https://youtu.be/3r231Xeodh0?si=8SdBsfd_jNxwMDap"
+                            href="https://youtu.be/oCg3Oa-JeHo"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -119,7 +120,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             ▶ TRAILER
                         </a>
                         <a
-                            href="https://albatar-studio.itch.io/kimz-vs-les-ragogo"
+                            href="https://reglisaille.itch.io/zap-from-beyond"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -140,7 +141,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             ITCH.IO
                         </a>
                         <a
-                            href="https://drive.google.com/drive/folders/1MhisT5G64r7kxnt56QT_PqLqXKW51iZ3?usp=sharing"
+                            href="https://drive.google.com/drive/folders/1oCsTsfb1ZJG3Y5JN68szgszRUE0b46-i?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -165,10 +166,10 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         photo={photo4}
                         style={{
                             position: "absolute",
-                            bottom: "clamp(5vw, 15vw, 30vw)",
-                            right: "clamp(0px, 32vw, 50vw)",
+                            bottom: "clamp(5vw, 20vw, 30vw)",
+                            right: "clamp(0px, 50vw, 80vw)",
                             zIndex: 10,
-                            transform: "rotate(5deg) scale(0.9)"
+                            transform: "rotate(-2deg) scale(0.9)"
                         }}
                         scotch={false}
                     />
@@ -178,9 +179,9 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         photo={photo3}
                         style={{
                             position: "absolute",
-                            bottom: "clamp(2vw, 5vw, -20vw)",
-                            right: "clamp(20px, 32vw, 40vw)",
-                            zIndex: 9,
+                            bottom: "clamp(2vw, 8vw, 30vw)",
+                            right: "clamp(20px, 50vw, 80vw)",
+                            zIndex: 11,
                             transform: "rotate(-5deg) scale(0.9)"
                         }}
                         scotch={false}
@@ -190,10 +191,22 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         photo={photo2}
                         style={{
                             position: "absolute",
-                            bottom: "clamp(-20vw, 0vw, 20vw)",
+                            bottom: "clamp(-20vw, -4vw, 20vw)",
                             right: "clamp(20px, 50vw, 50vw)",
-                            zIndex: 6,
+                            zIndex: 12,
                             transform: "rotate(3deg) scale(0.8)"
+                        }}
+                        scotch={false}
+                    />
+
+                    <PolaroidHorizontal
+                        photo={photo5}
+                        style={{
+                            position: "absolute",
+                            bottom: "clamp(-20vw, -4vw, 20vw)",
+                            right: "clamp(20px, 30vw, 50vw)",
+                            zIndex: 12,
+                            transform: "rotate(-2deg) scale(0.8)"
                         }}
                         scotch={false}
                     />

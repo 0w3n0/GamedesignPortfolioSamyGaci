@@ -45,8 +45,8 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             position: "absolute",
                             top: "clamp(1vw, 4vw, 12vw)",
                             left: "clamp(-10vw, -6vw, 14vw)",
-                            zIndex: 6,
-                            transform: "rotate(-8deg) scale(1.3)"
+                            zIndex: 10,
+                            transform: "rotate(-5deg) scale(1.3)"
                         }}
                         scotch={false}
                     />

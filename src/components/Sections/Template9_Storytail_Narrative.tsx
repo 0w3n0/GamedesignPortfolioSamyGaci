@@ -1,8 +1,8 @@
 import React from "react";
-import photo1 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_affiche.png";
-import photo2 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_gameplay3.png";
-import photo3 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_gameplay2.png";
-import photo4 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_gameplay.png";
+import photo1 from "../../assets/images/png/Storytail/Storytail_Affiche.png";
+import photo2 from "../../assets/images/png/Storytail/storytail_storyboard.jpg";
+import photo3 from "../../assets/images/png/Storytail/storytail_behind2.jpg";
+import photo4 from "../../assets/images/png/Storytail/Storytail_Menu.png";
 import PolaroidStandard from "./PolaroidStandard";
 import PolaroidHorizontal from "./PolaroidHorizontal";
 import PolaroidVertical from "./PolaroidVertical";
@@ -14,7 +14,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
     return (
         <div>
             <h1 className="h1-bold-title" style={{ marginBottom: "20px", width: "100%", marginLeft: "30px" }}>
-                KIMZ VS LES RAGOGO - Cameras & Writing
+                STORYTAIL - Cutscenes & Writing
             </h1>
             <div
                 style={{
@@ -44,9 +44,21 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         style={{
                             position: "absolute",
                             top: "clamp(1vw, 4vw, 12vw)",
-                            left: "clamp(-10vw, -10vw, 14vw)",
+                            left: "clamp(-20vw, -9vw, 14vw)",
                             zIndex: 6,
                             transform: "rotate(-4deg) scale(1.3)"
+                        }}
+                        scotch={false}
+                    />
+
+                    <PolaroidVertical
+                        photo={photo2}
+                        style={{
+                            position: "absolute",
+                            top: "clamp(1vw, 4vw, 12vw)",
+                            left: "clamp(-10vw, 10vw, 14vw)",
+                            zIndex: 6,
+                            transform: "rotate(4deg) scale(1.3)"
                         }}
                         scotch={false}
                     />
@@ -82,10 +94,10 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     <span className="important">communication</span>.
                 </p> */}
                     <p style={{ padding: "10px 40px 20px 20px" }}>
-                        <i>"Embodies KIMZ, a rapper in search of revenge in a rap battle game. Will you be able to overthrow your brother RAGO and claim the title of king of rap in the city?" - Team of 7 people (2 Game Designers), 2025</i><br /> <br />
+                        <i>"An immersive cooperative experience composed of 4 giant screens where children are part of a tale in a dreamlike world..." - Team of 6 people (2 Game Designers), 2023/2024</i><br /> <br />
 
-                        This project was the opportunity for me to be able to create and establish a whole universe as well as the characters who live there. I had to write the game’s dialogue as well as the punchlines cards that the player could choose for their deck. One of the main challenges was having to write fun, impactful lyrics without them being too degrading for any type of audience. I also took care of the integration of the different dynamic camera plans during the battles, via the Unity engine.<br /> <br />
-                        <b><i>How to make the rap battle world accessible while allowing players a sense of power and customization?</i></b> <br /> <br />
+                        On Storytail, I took care of all the cutscenes of the experience, from their design to their integration on the Unity engine. One of the biggest challenges for me was having to create a narration enhanced by the device put in place on the experience: I had to make sure to use as much as possible the 4 available screens to make them all interesting and immersive. The writing and directing of actors was a major challenge, as the experience was intended for the general audience, children and adults had to find the experience interesting. <br /> <br />
+                        <b><i>How to tell a story at several levels of readings and link them to interaction design?</i></b> <br /> <br />
                     </p>
                     <div
                         style={{
@@ -99,7 +111,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         }}
                     >
                         <a
-                            href="https://youtu.be/3r231Xeodh0?si=8SdBsfd_jNxwMDap"
+                            href="https://youtu.be/NMjPYXWXWzA?si=qyGc9Ursxin5dNJ1"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -116,31 +128,11 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             }}
                             aria-label="Watch trailer"
                         >
-                            ▶ TRAILER
+                            ▶ DEMO
                         </a>
+                        
                         <a
-                            href="https://albatar-studio.itch.io/kimz-vs-les-ragogo"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                                display: "inline-flex",
-                                alignItems: "center",
-                                gap: "10px",
-                                padding: "8px 12px",
-                                background: "rgba(255,255,255,0.95)",
-                                borderRadius: 10,
-                                textDecoration: "none",
-                                color: "#111",
-                                boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
-                                fontWeight: 700
-                            }}
-                            aria-label="Open on itch.io"
-                        >
-                            
-                            ITCH.IO
-                        </a>
-                        <a
-                            href="https://drive.google.com/drive/folders/1MhisT5G64r7kxnt56QT_PqLqXKW51iZ3?usp=sharing"
+                            href="https://drive.google.com/drive/folders/1ldFIjVmxqqrqzvbP7dwuzXECXQwCRFlQ?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -165,8 +157,8 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         photo={photo4}
                         style={{
                             position: "absolute",
-                            bottom: "clamp(5vw, 15vw, 30vw)",
-                            right: "clamp(0px, 32vw, 50vw)",
+                            bottom: "clamp(-15vw, 0vw, 30vw)",
+                            right: "clamp(0px, 30vw, 50vw)",
                             zIndex: 10,
                             transform: "rotate(5deg) scale(0.9)"
                         }}
@@ -178,25 +170,15 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         photo={photo3}
                         style={{
                             position: "absolute",
-                            bottom: "clamp(2vw, 5vw, -20vw)",
-                            right: "clamp(20px, 32vw, 40vw)",
+                            bottom: "clamp(-10vw, 0vw, 20vw)",
+                            right: "clamp(20px, 50vw, 80vw)",
                             zIndex: 9,
                             transform: "rotate(-5deg) scale(0.9)"
                         }}
                         scotch={false}
                     />
 
-                    <PolaroidHorizontal
-                        photo={photo2}
-                        style={{
-                            position: "absolute",
-                            bottom: "clamp(-20vw, 0vw, 20vw)",
-                            right: "clamp(20px, 50vw, 50vw)",
-                            zIndex: 6,
-                            transform: "rotate(3deg) scale(0.8)"
-                        }}
-                        scotch={false}
-                    />
+                    
                 </div>
             </div>
         </div>

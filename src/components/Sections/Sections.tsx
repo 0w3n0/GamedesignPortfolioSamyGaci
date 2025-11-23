@@ -39,7 +39,7 @@ const Sections: React.FC = () => {
         {
             title: "Narrative Design",
             bottom: "30vh",
-            left: "5vw",
+            left: "35vw",
             colors: {
                 background: "#2a3d7c", // bleu foncé
                 middle: "#7ec4ff",     // bleu clair
@@ -51,8 +51,8 @@ const Sections: React.FC = () => {
         },
         {
             title: "System & Level Design",
-            bottom: "10vh",
-            left: "17vw",
+            bottom: "30vh",
+            left: "50vw",
             colors: {
                 background: "#a8325e", // rose foncé
                 middle: "#ffb3d1",     // rose clair
@@ -62,33 +62,33 @@ const Sections: React.FC = () => {
                 return <Section1 colors={dossier.colors} />;
             },
         },
-        {
-            title: "Other Stuff",
-            bottom: "30vh",
-            left: "30vw",
-            colors: {
-                background: "#2a7c5b", // vert foncé
-                middle: "#7cffc4",     // vert clair
-                front: "#e6fff7"       // vert très pâle
-            },
-            component: function (dossier: any) {
-                return <Section2 colors={dossier.colors} />;
-            },
-        },
+        // {
+        //     title: "Other Stuff",
+        //     bottom: "30vh",
+        //     left: "30vw",
+        //     colors: {
+        //         background: "#2a7c5b", // vert foncé
+        //         middle: "#7cffc4",     // vert clair
+        //         front: "#e6fff7"       // vert très pâle
+        //     },
+        //     component: function (dossier: any) {
+        //         return <Section2 colors={dossier.colors} />;
+        //     },
+        // },
         
-        {
-            title: "Gallery",
-            bottom: "10vh",
-            left: "42vw",
-            colors: {
-                background: "#6a2a7c", // violet foncé
-                middle: "#d17eff",     // violet clair
-                front: "#f3e6ff"       // violet très pâle
-            },
-            component: function (dossier: any) {
-                return <Divers colors={dossier.colors} />;
-            },
-        },
+        // {
+        //     title: "Gallery",
+        //     bottom: "10vh",
+        //     left: "42vw",
+        //     colors: {
+        //         background: "#6a2a7c", // violet foncé
+        //         middle: "#d17eff",     // violet clair
+        //         front: "#f3e6ff"       // violet très pâle
+        //     },
+        //     component: function (dossier: any) {
+        //         return <Divers colors={dossier.colors} />;
+        //     },
+        // },
     ];
 
     // bottom: "5vh", left: "5vw" },
@@ -491,7 +491,7 @@ const Sections: React.FC = () => {
                                     paddingTop: "10px",
                                 }}
                             >
-                                As a Narrative & System Designer, I bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written, they are played.
+                                As a Narrative & System Designer, I bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written, they are played. 
                             </p>
                         </div>
                     </div>

@@ -70,7 +70,7 @@ const NotesForm: React.FC = () => {
 
         {/* Itch.io */}
         <a
-          href="https://itch.io/tonprofil"
+          href="https://reglisaille.itch.io/"
           target="_blank"
           rel="noopener noreferrer"
           className="clickable"
@@ -96,7 +96,7 @@ const NotesForm: React.FC = () => {
 
         {/* LinkedIn */}
         <a
-          href="https://linkedin.com/in/tonprofil"
+          href="https://www.linkedin.com/in/samygaci/"
           target="_blank"
           rel="noopener noreferrer"
           className="clickable"

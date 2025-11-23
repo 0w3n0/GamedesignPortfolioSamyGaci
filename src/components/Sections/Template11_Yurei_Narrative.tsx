@@ -1,8 +1,8 @@
 import React from "react";
-import photo1 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_affiche.png";
-import photo2 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_gameplay3.png";
-import photo3 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_gameplay2.png";
-import photo4 from "../../assets/images/png/KimzVSRagogo/KimzVsRagogo_gameplay.png";
+import photo1 from "../../assets/images/png/Yurei/Yurei_LevelDesign_UnityVertical.png";
+import photo2 from "../../assets/images/png/Zap_From_Beyond/OnePager.png";
+import photo3 from "../../assets/images/png/Yurei/Yurei_LevelDesign_Unity.png";
+import photo4 from "../../assets/images/png/Yurei/Yurei_LevelDesign_Menu.png";
 import PolaroidStandard from "./PolaroidStandard";
 import PolaroidHorizontal from "./PolaroidHorizontal";
 import PolaroidVertical from "./PolaroidVertical";
@@ -14,7 +14,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
     return (
         <div>
             <h1 className="h1-bold-title" style={{ marginBottom: "20px", width: "100%", marginLeft: "30px" }}>
-                KIMZ VS LES RAGOGO - Cameras & Writing
+                YUREI - Writing
             </h1>
             <div
                 style={{
@@ -44,9 +44,9 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         style={{
                             position: "absolute",
                             top: "clamp(1vw, 4vw, 12vw)",
-                            left: "clamp(-10vw, -10vw, 14vw)",
+                            left: "clamp(-5vw, 15vw, 14vw)",
                             zIndex: 6,
-                            transform: "rotate(-4deg) scale(1.3)"
+                            transform: "rotate(2deg) scale(1.2)"
                         }}
                         scotch={false}
                     />
@@ -82,10 +82,10 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     <span className="important">communication</span>.
                 </p> */}
                     <p style={{ padding: "10px 40px 20px 20px" }}>
-                        <i>"Embodies KIMZ, a rapper in search of revenge in a rap battle game. Will you be able to overthrow your brother RAGO and claim the title of king of rap in the city?" - Team of 7 people (2 Game Designers), 2025</i><br /> <br />
+                        <i>"A psychological & Survival horror game set in a manga's haunted pages." - Team of 12 people (3 Game Designer), 2025/2026</i><br /> <br />
 
-                        This project was the opportunity for me to be able to create and establish a whole universe as well as the characters who live there. I had to write the game’s dialogue as well as the punchlines cards that the player could choose for their deck. One of the main challenges was having to write fun, impactful lyrics without them being too degrading for any type of audience. I also took care of the integration of the different dynamic camera plans during the battles, via the Unity engine.<br /> <br />
-                        <b><i>How to make the rap battle world accessible while allowing players a sense of power and customization?</i></b> <br /> <br />
+                        For the story of Yurei, I wanted to explore themes related to the creative process and the relationship an artist can have with their work. That’s why all the symbols found in the game, mixed with the imagination of horror, echo the very fact of creating something. The biggest challenge with this project is to be able to successfully make players understand the multiple layers of reading offered: The narrative of the manga itself, as well as the story of the one who wrote it.<br /> <br /> 
+                        <b><i>How to provoke feelings of unease and horror by mixing the different codes of both manga and video games?</i></b> <br /> <br />
                     </p>
                     <div
                         style={{
@@ -99,7 +99,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         }}
                     >
                         <a
-                            href="https://youtu.be/3r231Xeodh0?si=8SdBsfd_jNxwMDap"
+                            href="https://youtu.be/B3GkEsEAW2E"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -116,31 +116,11 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             }}
                             aria-label="Watch trailer"
                         >
-                            ▶ TRAILER
+                            ▶ PROTOTYPE
                         </a>
+                        
                         <a
-                            href="https://albatar-studio.itch.io/kimz-vs-les-ragogo"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                                display: "inline-flex",
-                                alignItems: "center",
-                                gap: "10px",
-                                padding: "8px 12px",
-                                background: "rgba(255,255,255,0.95)",
-                                borderRadius: 10,
-                                textDecoration: "none",
-                                color: "#111",
-                                boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
-                                fontWeight: 700
-                            }}
-                            aria-label="Open on itch.io"
-                        >
-                            
-                            ITCH.IO
-                        </a>
-                        <a
-                            href="https://drive.google.com/drive/folders/1MhisT5G64r7kxnt56QT_PqLqXKW51iZ3?usp=sharing"
+                            href="https://drive.google.com/drive/folders/1gGuD4fj-wDLN1JVY-cxPPv12CUeQh5ll?usp=drive_link"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
@@ -166,34 +146,20 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         style={{
                             position: "absolute",
                             bottom: "clamp(5vw, 15vw, 30vw)",
-                            right: "clamp(0px, 32vw, 50vw)",
-                            zIndex: 10,
-                            transform: "rotate(5deg) scale(0.9)"
+                            right: "clamp(0px, 47vw, 50vw)",
+                            zIndex: 3,
+                            transform: "rotate(-5deg) scale(1.1)"
                         }}
                         scotch={false}
                     />
-
-                    
                     <PolaroidHorizontal
                         photo={photo3}
                         style={{
                             position: "absolute",
-                            bottom: "clamp(2vw, 5vw, -20vw)",
-                            right: "clamp(20px, 32vw, 40vw)",
-                            zIndex: 9,
-                            transform: "rotate(-5deg) scale(0.9)"
-                        }}
-                        scotch={false}
-                    />
-
-                    <PolaroidHorizontal
-                        photo={photo2}
-                        style={{
-                            position: "absolute",
-                            bottom: "clamp(-20vw, 0vw, 20vw)",
-                            right: "clamp(20px, 50vw, 50vw)",
-                            zIndex: 6,
-                            transform: "rotate(3deg) scale(0.8)"
+                            bottom: "clamp(-5vw, 0vw, 50vw)",
+                            right: "clamp(20px, 50vw, 90vw)",
+                            zIndex: 5,
+                            transform: "rotate(5deg) scale(1)"
                         }}
                         scotch={false}
                     />
