@@ -9,6 +9,8 @@ import PresentationSection2_Zap_System from "./Template2_Zap_System";
 import PresentationSection2_Trapped_System from "./Template3_Trapped_System";
 import PresentationSection2_Yurei_System from "./Template4_Yurei_System";
 import PresentationSection2_Quaalud_System from "./Template5_Quaalud_System";
+import PresentationSection2_BringMeRed_System from "./Template6_BringMeRed_System";
+import PresentationSection2_NoTimeForCreeps from "./Template7_NotimeForCreeps";
 
 interface Section1Props {
     colors?: {
@@ -106,7 +108,7 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                 style={{ backgroundColor: colors?.background }}
             >
                 <div className="navbar">
-                    {Array.from({ length: 9 }).map((_, i) => (
+                    {Array.from({ length: 6 }).map((_, i) => (
                         <div
                             key={i}
                             className="nav-item"
@@ -136,15 +138,13 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                             }}
                         >
                             {i === 0 && <PresentationSection2_Zap_System />}
-                            {i === 1 && <PresentationSection2_Trapped_System/>}
-                            {i === 2 && <PresentationSection2_Yurei_System />}
+                            {i === 1 && <PresentationSection2_Yurei_System/>}
+                            {i === 2 && <PresentationSection2_NoTimeForCreeps />}
                             {i === 3 && <PresentationSection2_Quaalud_System />}
-                            {i === 4 && <PresentationSection3 />}
-                            {i === 5 && <PresentationSection3 />}
-                            {i === 6 && <PresentationSection3 />}
-                            {i === 7 && <PresentationSection3 />}
-                            {i === 8 && <PresentationSection3 />}
-                            {i === 9 && <PresentationSection3 />}
+                            {i === 4 && <PresentationSection2_Trapped_System />}
+                            {i === 5 && <PresentationSection2_BringMeRed_System />}
+                            
+                            
                         </div>
                     ))}
                 </div>

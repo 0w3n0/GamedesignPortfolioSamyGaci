@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import PresentationSection from "./Template1";
 import PresentationSection2 from "./Template2";
 import PresentationSection3 from "./Template3";
+import PresentationSection1_Kimz_Narrative from "./Template8_Kimz_Narrative";
 
 interface Section0Props {
     colors?: {
@@ -131,11 +132,11 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                                 left: 0,
                             }}
                         >
-                            {i === 0 && <PresentationSection disableItch={false} />}
-                            {i === 1 && <PresentationSection2 disableItch={false} />}
-                            {i === 2 && <PresentationSection3 disableItch={false} />}
-                            {i === 3 && <PresentationSection3 disableItch={false} />}
-                            {i === 4 && <PresentationSection3 disableItch={false} />}
+                            {i === 0 && <PresentationSection1_Kimz_Narrative />}
+                            {i === 1 && <PresentationSection1_Kimz_Narrative />}
+                            {i === 2 && <PresentationSection1_Kimz_Narrative  />}
+                            {i === 3 && <PresentationSection1_Kimz_Narrative  />}
+                            {i === 4 && <PresentationSection1_Kimz_Narrative  />}
                         </div>
                     ))}
                 </div>
