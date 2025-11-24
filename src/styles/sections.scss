@@ -1,3 +1,6 @@
+/* global responsive rules without CSS variables */
+
+/* projet container etc. (garde ton code existant si nécessaire) */
 .projets-container {
   position: absolute;
   top: 0;
@@ -7,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateX(-100%); // départ hors écran gauche
+  transform: translateX(-100%); /* départ hors écran gauche */
 }
 
 .h1-bold {
@@ -49,4 +52,180 @@ p {
 
 .animate-slide-up {
   animation: slide-up 0.3s ease-out;
+}
+
+/* -------------------------------
+   Card (blue) : sizing + typographie
+   ------------------------------- */
+
+/* largeur responsive (comme before) */
+.card {
+  width: clamp(280px, 35vw, 520px);
+  min-width: 260px;
+  /* height handled inline via JS layout; keep maxHeight to avoid overflow */
+  max-height: 85vh;
+  padding: 2vw;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  background: #fff9e5;
+  overflow: auto;
+  display: flex;
+  gap: 1.6rem;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+/* Typographie par défaut (petite -> moyenne écrans) */
+.card .card-title {
+  font-size: clamp(1.1rem, 2.4vw, 2rem);
+  margin: 0;
+  font-weight: 900;
+  color: #000;
+}
+
+.card .card-sub {
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  margin: 6px 0 0 0;
+  font-weight: 700;
+  color: #d82639;
+}
+
+.card .card-body {
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  margin-top: 12px;
+  line-height: 1.4;
+  color: #222;
+}
+
+/* Layout mobile: empiler image au-dessus du texte */
+@media (max-width: 640px) {
+  .card {
+    width: 94%;
+    height: auto;
+    flex-direction: column;
+    padding: 14px;
+  }
+  .card img {
+    width: 60%;
+    max-width: 220px;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+}
+
+/* Grands écrans : forcer largeur max exacte et augmenter typographie */
+@media (min-width: 1400px) {
+  .card {
+    width: 40vw; /* même width qu'avant sur gros écrans */
+  }
+  .card .card-title { font-size: 2.2rem; }
+  .card .card-sub { font-size: 1.3rem; }
+  .card .card-body { font-size: 1.12rem; }
+  .p-title-card-presentation {
+    font-size: 1.12rem;
+  }
+  .p-up-title-card-presentation {
+    font-size: 1.3rem;
+  }
+  .h1-title-card-presentation {
+    font-size: 2.2rem;
+  }
+}
+
+/* Très grands écrans : encore plus grand si souhaité */
+@media (min-width: 2000px) {
+  .card {
+    width: 40vw;
+  }
+  .card .card-title { font-size: 2.6rem; }
+  .card .card-sub { font-size: 1.5rem; }
+  .card .card-body { font-size: 1.2rem; }
+
+  .p-title-card-presentation {
+    font-size: 1.2rem;
+  }
+  .p-up-title-card-presentation {
+    font-size: 1.5rem;
+  }
+  .h1-title-card-presentation {
+    font-size: 2.6rem;
+  }
+}
+
+/* -------------------------------
+   Last projects card (brown)
+   ------------------------------- */
+
+.last-projects-card {
+  width: clamp(300px, 30vw, 520px);
+  min-width: 260px;
+  height: clamp(220px, 35vh, 420px);
+  background: #5A7891;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* inner layout */
+.last-projects-content {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem;
+}
+
+/* polaroids inside the card */
+.lp-polaroid {
+  background: #fff;
+  padding: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  padding-bottom: 4vh;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ensure images scale and are not cropped oddly */
+.lp-img {
+  width: 100%;
+  height: auto;
+  max-height: 28vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* footer style with direct clamp */
+.last-projects-footer {
+  background: #465B6D;
+  text-align: center;
+  padding: 12px 0;
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  font-weight: bold;
+  margin: 0;
+}
+
+/* small screens: stack polaroids vertically if needed */
+@media (max-width: 520px) {
+  .last-projects-content {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .lp-polaroid {
+    width: 80%;
+  }
+  .last-projects-card {
+    padding: 12px;
+    height: auto;
+  }
 }
