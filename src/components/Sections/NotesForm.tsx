@@ -31,7 +31,7 @@ const NotesForm: React.FC = () => {
   };
 
   return (
-    <form style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+    <form style={{ flex: 1, display: "none", flexDirection: "column"}}>
       <div
         style={{
           display: "flex",
@@ -122,7 +122,7 @@ const NotesForm: React.FC = () => {
       </div>
 
       <p style={{ color: "black", padding: "0px" }}>
-        Wanna leave a note, a question, or an idea? Go ahead, this tiny notebook loves attention!
+        You can contact me here!
       </p>
 
       <label htmlFor="email" style={{ color: "black", paddingBottom: "10px" }}>EMAIL*</label>

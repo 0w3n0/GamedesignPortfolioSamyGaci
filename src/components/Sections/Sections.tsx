@@ -478,7 +478,7 @@ const Sections: React.FC = () => {
                                         padding: "0px 18px 0px 0px",
                                     }}
                                 >
-                                    Narrative & System Designer
+                                    Game Designer
                                 </p>
                             </div>
                             {/* Texte lorem ipsum aligné à gauche */}
@@ -491,7 +491,7 @@ const Sections: React.FC = () => {
                                     paddingTop: "10px",
                                 }}
                             >
-                                As a Narrative & System Designer, I bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written, they are played. 
+                                I love to bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written, they are played. 
                             </p>
                         </div>
                     </div>
@@ -748,7 +748,7 @@ const Sections: React.FC = () => {
                         zIndex: 10000
                     }}
                 >
-                    Nothing’s fixed here. Move things, have fun!
+                    Websiste still in construction, but you can drag & drop every element in compensation, have fun!
                 </div>
             )}
 

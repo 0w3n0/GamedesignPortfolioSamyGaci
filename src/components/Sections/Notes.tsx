@@ -104,7 +104,7 @@ const Notes: React.FC<NotesProps> = ({ forceOpen = false }) => {
                         marginBottom: "10px",
                     }}
                 >
-                    <h3 style={{ margin: 0, color: "black", textAlign: "center" }}>Contact Me</h3>
+                    <h3 style={{ margin: 0, color: "black", textAlign: "center" }}>The contact form arrives soon!</h3>
                     <hr style={{ border: "solid", height: "2px", width: "60%", backgroundColor: "black", zIndex: 1 }} />
                     <NotesForm />
 

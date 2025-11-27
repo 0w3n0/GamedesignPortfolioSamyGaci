@@ -156,7 +156,7 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                     style={{ backgroundColor: colors?.front }}
                 >
                     <h1>
-                        <span className="h1-bold">System Design</span>
+                        <span className="h1-bold">System & Level Design</span>
                     </h1>
                 </div>
             </div>
