@@ -120,13 +120,13 @@ p {
     width: 40vw; /* même width qu'avant sur gros écrans */
   }
   .card .card-title { font-size: 2.2rem; }
-  .card .card-sub { font-size: 1.3rem; }
+  .card .card-sub { font-size: 2.5rem; }
   .card .card-body { font-size: 1.12rem; }
   .p-title-card-presentation {
     font-size: 1.12rem;
   }
   .p-up-title-card-presentation {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
   }
   .h1-title-card-presentation {
     font-size: 2.2rem;
@@ -439,10 +439,10 @@ p {
 
   /* Polaroid bottom-center-right (photo3) */
   .polaroid-pos--bottom-center-right {
-    right: 300px;
-    bottom: -80px;
+    right: 50px;
+    bottom: -130px;
     z-index: 5;
-    transform: scale(1.6);
+    transform: scale(0.8);
   }
 }
 
