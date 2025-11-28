@@ -82,7 +82,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     , qui lui permettrait d'acquérir de nouvelles compétences en{" "}
                     <span className="important">communication</span>.
                 </p> */}
-                    <p style={{ padding: "10px 40px 20px 20px" }}>
+                    <p style={{ padding: "10px 40px 0px 20px" }}>
                         <i>"A short, cryptic interactive story about a mysterious TV that hides more than it shows." - Team of 5 people (1 Game Designer), 2025</i><br /> <br />
 
                         My role as Narrative Designer on this project was to have to direct the entire content of the channels, as well as write them. The system of the game was quite complex to set up, especially because of the 3 types of channels: channels with only streaming videos, channels with changing videos according to the player’s behavior, and real-time channels directly generated with the Unity engine. So I had to coordinate all these channels and ensure that each one tells something both different and similar in order to make the player always ask himself the question of what is hidden behind the program. There are 3 possible endings in the game according to the player’s behaviors, which was a challenge because they had to make you want to play again to get the others.<br /> <br />

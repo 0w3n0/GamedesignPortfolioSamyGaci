@@ -1,18 +1,20 @@
 import React from "react";
 import scotchImg from "../../assets/images/png/Scotch.png";
+
 const PolaroidVertical: React.FC<{ photo: string; style?: React.CSSProperties; scotch?: boolean }> = ({ photo, style, scotch }) => (
     <div
         className="polaroid"
         style={{
             backgroundColor: "white",
-            padding: "0px clamp(6px, 1vw, 10px) clamp(6px, 2vw, 3vw) clamp(6px, 1vw, 10px)",
+            padding: "8px",
             border: "1px solid #ccc",
             boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
-            width: "clamp(90px, 14vw, 16vw)",
-            height: "clamp(160px, 20vw, 24vw)",
+            width: "clamp(80px, 100px, 130px)",
+            height: "clamp(140px, 180px, 240px)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            position: "relative",
             ...style,
         }}
     >
@@ -22,7 +24,7 @@ const PolaroidVertical: React.FC<{ photo: string; style?: React.CSSProperties; s
                 alt="scotch"
                 style={{
                     position: "absolute",
-                    top: "calc(-1 * clamp(20px, 5.5vh, 7vh))",
+                    top: "-28px",
                     left: "50%",
                     transform: "translateX(-50%) rotate(60deg)",
                     width: "35%",
@@ -33,8 +35,8 @@ const PolaroidVertical: React.FC<{ photo: string; style?: React.CSSProperties; s
         )}
         <div
             style={{
-                width: "clamp(70px, 13vw, 15vw)",
-                height: "clamp(140px, 18vw, 20vw)",
+                width: "95%",
+                height: "95%",
                 backgroundColor: photo ? "transparent" : "black",
                 display: "block",
             }}
@@ -47,7 +49,7 @@ const PolaroidVertical: React.FC<{ photo: string; style?: React.CSSProperties; s
                     height: "100%",
                     objectFit: "cover",
                     display: "block",
-                    borderRadius: "6px"
+                    borderRadius: "4px"
                 }}
             />
         </div>

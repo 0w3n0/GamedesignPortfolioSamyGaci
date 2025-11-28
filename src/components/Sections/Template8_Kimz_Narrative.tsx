@@ -81,7 +81,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     , qui lui permettrait d'acquérir de nouvelles compétences en{" "}
                     <span className="important">communication</span>.
                 </p> */}
-                    <p style={{ padding: "10px 40px 20px 20px" }}>
+                    <p style={{ padding: "10px 40px 0px 20px" }}>
                         <i>"Embodies KIMZ, a rapper in search of revenge in a rap battle game. Will you be able to overthrow your brother RAGO and claim the title of king of rap in the city?" - Team of 7 people (2 Game Designers), 2025</i><br /> <br />
 
                         This project was the opportunity for me to be able to create and establish a whole universe as well as the characters who live there. I had to write the game’s dialogue as well as the punchlines cards that the player could choose for their deck. One of the main challenges was having to write fun, impactful lyrics without them being too degrading for any type of audience. I also took care of the integration of the different dynamic camera plans during the battles, via the Unity engine.<br /> <br />

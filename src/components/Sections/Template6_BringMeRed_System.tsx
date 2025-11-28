@@ -81,7 +81,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     , qui lui permettrait d'acquérir de nouvelles compétences en{" "}
                     <span className="important">communication</span>.
                 </p> */}
-                    <p style={{ padding: "10px 40px 20px 20px" }}>
+                    <p style={{ padding: "10px 40px 0px 20px" }}>
                         <i>"A puzzle game where you have to feed the monster or it would feed on you..." - Team of 4 people (1 Game Designer), 2024</i><br /> <br />
 
                         Bring me Red is a small game in which the player must give food of the right color to the creature, except that the light of the room changes regularly, thus distorting those of the present objects. It is therefore up to the player to understand how light affects the perception of what he sees, and thus to bypass his own vision to win the game. The whole challenge of this project was to succeed in creating a simple system that would allow for rational game design, and therefore use all variable micro to generate games different from each other. I also had to prototype the color change system in blueprint on Unreal Engine, and create adaptable and customizable functions.<br /> <br />

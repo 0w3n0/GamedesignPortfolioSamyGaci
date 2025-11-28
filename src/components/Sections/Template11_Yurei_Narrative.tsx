@@ -81,7 +81,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     , qui lui permettrait d'acquérir de nouvelles compétences en{" "}
                     <span className="important">communication</span>.
                 </p> */}
-                    <p style={{ padding: "10px 40px 20px 20px" }}>
+                    <p style={{ padding: "10px 40px 0px 20px" }}>
                         <i>"A psychological & Survival horror game set in a manga's haunted pages." - Team of 12 people (3 Game Designer), 2025/2026</i><br /> <br />
 
                         For the story of Yurei, I wanted to explore themes related to the creative process and the relationship an artist can have with their work. That’s why all the symbols found in the game, mixed with the imagination of horror, echo the very fact of creating something. The biggest challenge with this project is to be able to successfully make players understand the multiple layers of reading offered: The narrative of the manga itself, as well as the story of the one who wrote it.<br /> <br /> 

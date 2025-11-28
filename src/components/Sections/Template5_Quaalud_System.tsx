@@ -81,7 +81,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     , qui lui permettrait d'acquérir de nouvelles compétences en{" "}
                     <span className="important">communication</span>.
                 </p> */}
-                    <p style={{ padding: "10px 40px 20px 20px" }}>
+                    <p style={{ padding: "10px 40px 0px 20px" }}>
                         <i>"The traveler arrives on a new island that doesn’t look like much at first glance. By succeeding in discovering a trap door, they realized that a community, the Quaaluds, lived underground." - Team of 5 people, 2025</i><br /> <br />
 
                         Quaalud’s Island is a level designed as part of a blockout course. As the lead game designer of the project, I had to coordinate and design the main aspect of this non-linear open-world level. In addition to having to collaborate with a whole team of level designers, it was necessary to ensure that a very precise specification was respected in terms of metrics. The level design also had to tell something beyond simple gameplay, and be coherent with the world created. <br /> <br /> 

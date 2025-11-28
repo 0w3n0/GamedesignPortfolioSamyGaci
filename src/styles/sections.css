@@ -26,8 +26,9 @@
 
 p {
   color: #222;
-  padding: 90px 40px 20px 20px;
-  font-size: clamp(13px, 0.9vw, 1vw);
+  padding: 90px 40px 0px 20px;
+  margin-bottom: 0;
+  font-size: clamp(13px, 0.8vw, 1.5vw);
 }
 
 .important {
@@ -237,5 +238,257 @@ p {
   .last-projects-card {
     padding: 12px;
     height: auto;
+  }
+}
+/* --------------------------------
+   Polaroid positioning (new)
+   ------------------------------- */
+.polaroid-pos {
+  position: absolute;
+  z-index: 5;
+  transform-origin: center;
+  transition: right 0.25s, bottom 0.25s, transform 0.2s;
+}
+
+/* Polaroid bottom-right (photo4) */
+.polaroid-pos--bottom-right {
+  right: 20px;
+  bottom: -150px;
+  z-index: 3;
+}
+
+@media (max-width: 1200px) {
+  .polaroid-pos--bottom-right {
+    right: 15px;
+    bottom: -120px;
+  }
+}
+@media (max-width: 900px) {
+  .polaroid-pos--bottom-right {
+    right: 10px;
+    bottom: -100px;
+  }
+}
+@media (max-width: 600px) {
+  .polaroid-pos--bottom-right {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    transform: none !important;
+  }
+  .polaroid-pos--bottom-right .polaroid {
+    max-width: 320px;
+    width: 90%;
+  }
+}
+/* Polaroid bottom-center-right (photo3) */
+.polaroid-pos--bottom-center-right {
+  right: 240px;
+  bottom: 10px;
+  z-index: 5;
+}
+
+@media (max-width: 1200px) {
+  .polaroid-pos--bottom-center-right {
+    right: 160px;
+    bottom: 20px;
+  }
+}
+@media (max-width: 900px) {
+  .polaroid-pos--bottom-center-right {
+    right: 80px;
+    bottom: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .polaroid-pos--bottom-center-right {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    transform: none !important;
+  }
+  .polaroid-pos--bottom-center-right .polaroid {
+    max-width: 320px;
+    width: 90%;
+  }
+}
+/* Polaroid vertical (left/top) positioning with responsive breakpoints */
+.polaroid-pos--left {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
+/* Large screens (2560px+) */
+@media (min-width: 2560px) {
+  .polaroid-pos--left {
+    left: 250px;
+    top: 250px;
+    transform: scale(2.5);
+    border: none;
+  }
+}
+/* Standard desktop (1920px - 2559px) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .polaroid-pos--left {
+    left: 160px;
+    top: 150px;
+    transform: scale(2);
+  }
+}
+/* Medium desktop (1440px - 1919px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .polaroid-pos--left {
+    left: 120px;
+    top: 100px;
+    transform: scale(1.5);
+  }
+}
+/* Small desktop / tablet landscape (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .polaroid-pos--left {
+    left: -18px;
+    top: 22px;
+    transform: scale(1.05) rotate(2deg);
+  }
+}
+/* Tablet portrait (<=1023px) */
+@media (max-width: 1023px) {
+  .polaroid-pos--left {
+    left: -12px;
+    top: 18px;
+    transform: scale(1) rotate(2deg);
+  }
+}
+/* Small devices (<768px): flow instead of absolute to avoid overflow */
+@media (max-width: 767px) {
+  .polaroid-pos--left {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    transform: none !important;
+    z-index: 1;
+  }
+  .polaroid-pos--left .polaroid {
+    max-width: 320px;
+    width: 90%;
+  }
+}
+/* ============================================
+   BREAKPOINT: Large Screens (2560px+)
+   ============================================ */
+@media (min-width: 2560px) {
+  /* Polaroid bottom-right (photo4) */
+  .polaroid-pos--bottom-right {
+    right: -850px;
+    bottom: -200px;
+    z-index: 3;
+    transform: scale(1.5);
+  }
+  /* Polaroid bottom-center-right (photo3) */
+  .polaroid-pos--bottom-center-right {
+    right: 380px;
+    bottom: -200px;
+    z-index: 5;
+    transform: scale(1.6);
+  }
+}
+/* ============================================
+   BREAKPOINT: Standard Desktop (1920px - 2559px)
+   ============================================ */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  /* Polaroid bottom-right (photo4) */
+  .polaroid-pos--bottom-right {
+    right: -680px;
+    bottom: -150px;
+    z-index: 3;
+    transform: scale(0.9);
+  }
+  /* Polaroid bottom-center-right (photo3) */
+  .polaroid-pos--bottom-center-right {
+    right: 280px;
+    bottom: -150px;
+    z-index: 5;
+  }
+}
+/* ============================================
+   BREAKPOINT: Medium Desktop (1440px - 1919px)
+   ============================================ */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  /* Polaroid bottom-right (photo4) */
+  .polaroid-pos--bottom-right {
+    right: -630px;
+    bottom: -130px;
+    z-index: 3;
+    transform: scale(0.7);
+  }
+  /* Polaroid bottom-center-right (photo3) */
+  .polaroid-pos--bottom-center-right {
+    right: 300px;
+    bottom: -80px;
+    z-index: 5;
+    transform: scale(1.6);
+  }
+}
+/* ============================================
+   BREAKPOINT: Small Desktop / Tablet Landscape (1024px - 1439px)
+   ============================================ */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Polaroid bottom-right (photo4) */
+  .polaroid-pos--bottom-right {
+    right: 20px;
+    bottom: -100px;
+    z-index: 3;
+  }
+  /* Polaroid bottom-center-right (photo3) */
+  .polaroid-pos--bottom-center-right {
+    right: 140px;
+    bottom: 30px;
+    z-index: 5;
+  }
+}
+/* ============================================
+   BREAKPOINT: Tablet Portrait (768px - 1023px)
+   ============================================ */
+@media (max-width: 1023px) {
+  /* Polaroid bottom-right (photo4) */
+  .polaroid-pos--bottom-right {
+    right: 15px;
+    bottom: -80px;
+    z-index: 3;
+  }
+  /* Polaroid bottom-center-right (photo3) */
+  .polaroid-pos--bottom-center-right {
+    right: 100px;
+    bottom: 40px;
+    z-index: 5;
+  }
+}
+/* ============================================
+   BREAKPOINT: Small Devices (< 768px)
+   ============================================ */
+@media (max-width: 767px) {
+  .polaroid-pos {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    transform: none !important;
+    z-index: 1;
+  }
+  .polaroid-pos .polaroid {
+    max-width: 280px;
+    width: 90%;
+  }
+  .polaroid-pos--bottom-right,
+  .polaroid-pos--bottom-center-right {
+    right: auto;
+    bottom: auto;
   }
 }/*# sourceMappingURL=sections.css.map */

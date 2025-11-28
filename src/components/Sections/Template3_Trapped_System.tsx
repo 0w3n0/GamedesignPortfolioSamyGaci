@@ -81,7 +81,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     , qui lui permettrait d'acquérir de nouvelles compétences en{" "}
                     <span className="important">communication</span>.
                 </p> */}
-                    <p style={{ padding: "10px 40px 20px 20px" }}>
+                    <p style={{ padding: "10px 40px 0px 20px" }}>
                         <i>"An immersive sim game that puts you in the position of a child facing his greatest fears." - Team of 7 people (2 Game Designers), 2024</i><br /> <br />
 
                         As a Game and level designer on this project, I took care of designing game spaces that are both <b>consistent</b> with the main character’s metrics, and allow all nested systems to be leveraged to the maximum. I was also responsible for the different puzzles as well as the different ways to solve them. Throughout the creative process, it was important to keep <b>iteration</b> in mind, and I had to first <b>prototype levels on paper</b> before reproducing and testing them through Unreal Engine. <br /> <br />

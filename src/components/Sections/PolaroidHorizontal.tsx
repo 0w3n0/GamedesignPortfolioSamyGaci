@@ -1,19 +1,21 @@
 import React from "react";
 import scotchImg from "../../assets/images/png/Scotch.png";
+
 const PolaroidHorizontal: React.FC<{ photo: string; style?: React.CSSProperties; scotch?: boolean }> = ({ photo, style, scotch }) => (
     <div
         className="polaroid"
         style={{
             position: "relative",
             backgroundColor: "white",
-            padding: "0px 0px clamp(6px, 1vw, 2vw) 0px",
+            padding: "0px 0px clamp(6px, 8px, 12px) 0px",
             border: "1px solid #ccc",
             boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
-            width: "clamp(140px, 26vw, 30vw)",
-            height: "clamp(80px, 30vw, 15vw)",
+            width: "clamp(120px, 100%, 280px)", // responsive sans vw, max 280px
+            height: "clamp(70px, auto, 140px)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            aspectRatio: "16 / 9", // keep aspect ratio
             ...style,
         }}
     >
@@ -23,7 +25,7 @@ const PolaroidHorizontal: React.FC<{ photo: string; style?: React.CSSProperties;
                 alt="scotch"
                 style={{
                     position: "absolute",
-                    top: "calc(-1 * clamp(20px, 10vh, 12vh))",
+                    top: "-35px",
                     left: "50%",
                     transform: "translateX(-50%) rotate(60deg)",
                     width: "35%",
@@ -34,8 +36,8 @@ const PolaroidHorizontal: React.FC<{ photo: string; style?: React.CSSProperties;
         )}
         <div
             style={{
-                width: "clamp(120px, 24vw, 30vw)",
-                height: "clamp(60px, 12vw, 15vw)",
+                width: "95%",
+                height: "95%",
                 backgroundColor: photo ? "transparent" : "black",
                 display: "block",
             }}
@@ -46,7 +48,7 @@ const PolaroidHorizontal: React.FC<{ photo: string; style?: React.CSSProperties;
                 style={{
                     width: "100%",
                     height: "100%",
-                    objectFit: "contain",
+                    objectFit: "cover",
                     display: "block",
                 }}
             />

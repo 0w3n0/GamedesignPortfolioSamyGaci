@@ -93,7 +93,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     , qui lui permettrait d'acquérir de nouvelles compétences en{" "}
                     <span className="important">communication</span>.
                 </p> */}
-                    <p style={{ padding: "10px 40px 20px 20px" }}>
+                    <p style={{ padding: "10px 40px 0px 20px" }}>
                         <i>"An immersive cooperative experience composed of 4 giant screens where children are part of a tale in a dreamlike world..." - Team of 6 people (2 Game Designers), 2023/2024</i><br /> <br />
 
                         On Storytail, I took care of all the cutscenes of the experience, from their design to their integration on the Unity engine. One of the biggest challenges for me was having to create a narration enhanced by the device put in place on the experience: I had to make sure to use as much as possible the 4 available screens to make them all interesting and immersive. The writing and directing of actors was a major challenge, as the experience was intended for the general audience, children and adults had to find the experience interesting. <br /> <br />
