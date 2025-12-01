@@ -22,12 +22,14 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
     const navRefs = useRef<Array<HTMLDivElement | null>>([]);
     const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
     const frontRef = useRef<HTMLDivElement | null>(null);
-    const [activeDiv, setActiveDiv] = useState<number>(0); // Child sélectionné
+    const [activeDiv, setActiveDiv] = useState<number>(0);
+
+    // Tableau des noms d'onglets
+    const navTabs = ["Kimz", "Zap", "Storytail", "Yurei"];
 
     const hoverColors = ["#ff6b6b", "#6bc1ff", "#6bff95", "#ffda6b", "#c56bff", "#ff6bbf"];
     const activeColor = "#9E9593";
-
-    const defaultColor = "#C0AFAC"; // bleu pour le child actif
+    const defaultColor = "#C0AFAC";
 
     const handleOpen = () => {
         if (frontRef.current) {
@@ -106,7 +108,7 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                 style={{ backgroundColor: colors?.background }}
             >
                 <div className="navbar">
-                    {Array.from({ length: 4 }).map((_, i) => (
+                    {navTabs.map((tabName, i) => (
                         <div
                             key={i}
                             className="nav-item"
@@ -116,7 +118,18 @@ const Section0: React.FC<Section0Props> = ({ colors }) => {
                                 console.log(i);
                                 handleOpen();
                             }}
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                cursor: "pointer",
+                                fontSize: "clamp(0.75rem, 1vw, 1rem)",
+                                fontWeight: 600,
+                                color: "black",
+                                userSelect: "none",
+                            }}
                         >
+                            {tabName}
                         </div>
                     ))}
                 </div>

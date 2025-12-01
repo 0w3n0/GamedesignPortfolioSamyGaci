@@ -39,17 +39,35 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                 >
                     {/* Affichage séparé des polaroids */}
 
-                    <PolaroidVertical
-                        photo={photo1}
-                        style={{
-                            position: "absolute",
-                            top: "clamp(1vw, 4vw, 12vw)",
-                            left: "clamp(-5vw, 15vw, 14vw)",
-                            zIndex: 6,
-                            transform: "rotate(2deg) scale(1.2)"
-                        }}
-                        scotch={false}
-                    />
+                    <div className="polaroid-pos polaroid-pos--left--yurei-1" aria-hidden>
+                        <PolaroidVertical
+                            photo={photo1}
+                            style={{ transform: "rotate(2deg) scale(1.2)" }}
+                            scotch={false}
+                        />
+                    </div>
+
+
+                    <div className="polaroid-pos polaroid-pos--left--yurei-2" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo3}
+                            style={{
+                                transform: "rotate(5deg) scale(1)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
+
+
+                    <div className="polaroid-pos polaroid-pos--left--yurei-3" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo4}
+                            style={{
+                                transform: "rotate(-5deg) scale(1.1)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
                 </div>
 
                 {/* Colonne droite */}
@@ -81,7 +99,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     , qui lui permettrait d'acquérir de nouvelles compétences en{" "}
                     <span className="important">communication</span>.
                 </p> */}
-                    <p style={{ padding: "10px 40px 20px 20px" }}>
+                    <p style={{ padding: "10px 40px 0px 20px" }}>
                         <i>"A psychological & Survival horror game set in a manga's haunted pages." - Team of 12 people (3 Game Designer), 2025/2026</i><br /> <br />
 
                         For the story of Yurei, I wanted to explore themes related to the creative process and the relationship an artist can have with their work. That’s why all the symbols found in the game, mixed with the imagination of horror, echo the very fact of creating something. The biggest challenge with this project is to be able to successfully make players understand the multiple layers of reading offered: The narrative of the manga itself, as well as the story of the one who wrote it.<br /> <br /> 
@@ -140,29 +158,6 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             DOC
                         </a>
                     </div>
-
-                    <PolaroidHorizontal
-                        photo={photo4}
-                        style={{
-                            position: "absolute",
-                            bottom: "clamp(5vw, 15vw, 30vw)",
-                            right: "clamp(0px, 47vw, 50vw)",
-                            zIndex: 3,
-                            transform: "rotate(-5deg) scale(1.1)"
-                        }}
-                        scotch={false}
-                    />
-                    <PolaroidHorizontal
-                        photo={photo3}
-                        style={{
-                            position: "absolute",
-                            bottom: "clamp(-5vw, 0vw, 50vw)",
-                            right: "clamp(20px, 50vw, 90vw)",
-                            zIndex: 5,
-                            transform: "rotate(5deg) scale(1)"
-                        }}
-                        scotch={false}
-                    />
                 </div>
             </div>
         </div>

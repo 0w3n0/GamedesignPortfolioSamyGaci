@@ -13,6 +13,8 @@ import crossClose from "../../assets/images/png/cross-close.png";
 import myPhoto from "../../assets/images/png/photoo_cv.png";
 import kimz from "../../assets/images/png/kimz.png";
 import zap from "../../assets/images/png/zap.png";
+import "../../styles/sections.scss";
+
 gsap.registerPlugin(Draggable);
 
 const Sections: React.FC = () => {
@@ -374,7 +376,6 @@ const Sections: React.FC = () => {
         }
     }, [footerVisible]);
 
-
     return (
         <div
             className="sections-wrapper"
@@ -415,18 +416,13 @@ const Sections: React.FC = () => {
             {cardVisible && (
                 <div
                     ref={cardRef}
-                    className="grabbable"
+                    className="grabbable card"  // <-- replaced inline sizing with class
                     style={{
                         position: "absolute",
                         top: "3vh",
                         left: "3vw",
                         background: "#fff9e5",
-                        borderRadius: "16px",
-                        padding: "2vw",
                         color: "#fff",
-                        width: "35vw",
-                        height: "30vh",
-                        boxShadow: "0 6px 12px rgba(0,0,0,0.3)",
                         userSelect: "none"
                     }}
                 >
@@ -436,7 +432,9 @@ const Sections: React.FC = () => {
                             alignItems: "center",
                             height: "100%",
                             width: "100%",
-                            gap: "32px",
+                            gap: "1.6rem",
+                            flexWrap: "wrap",
+                            justifyContent: "center"
                         }}
                     >
                         {/* Image à gauche */}
@@ -445,54 +443,139 @@ const Sections: React.FC = () => {
                             src={myPhoto}
                             alt="Moi"
                             style={{
-                                width: "35%",
-                                height: "100%",
-                                objectFit: "cover",
+                                width: "clamp(80px, 35%, 230px)",
+                                height: "auto",
+                                maxHeight: "40vh",
+                                objectFit: "contain",
                                 borderRadius: "8px",
                                 boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                                flexShrink: 0
+                                flexShrink: 0,
+                                alignSelf: "flex-start"
                             }}
                         />
 
                         {/* Texte à droite */}
-                        <div style={{ flex: 1, display: "flex", flexDirection: "column", height: "100%" }}>
+                        <div style={{ flex: "1 1 200px", display: "flex", flexDirection: "column", height: "100%" }}>
                             {/* Bloc centré */}
                             <div style={{ textAlign: "center" }}>
-                                <h1
+                                <h1 className="h1-title-card-presentation"
                                     style={{
                                         margin: 0,
-                                        fontSize: "clamp(1.5rem, 3vw, 2.8rem)",
-                                        color:"black",
+                                        color: "black",
                                         fontWeight: 900,
                                     }}
                                 >
                                     Samy Gaci
                                 </h1>
-                                <p
+                                <p className="p-up-title-card-presentation"
                                     style={{
-                                        margin: 0,
-                                        fontSize: "clamp(1.1rem, 2vw, 2.1rem)",
+                                        margin: "8px 0 0 0",
                                         opacity: 0.9,
-                                        fontWeight: "bold",
-                                        color:"#d82639",
-                                        padding: "0px 18px 0px 0px",
+                                        fontWeight: "700",
+                                        color: "#d82639",
+                                        padding: "0 8px",
                                     }}
                                 >
-                                    Game Designer
+                                    Narrative & System Designer
                                 </p>
                             </div>
-                            {/* Texte lorem ipsum aligné à gauche */}
-                            <p
+
+                            {/* Texte descriptif */}
+                            <p className="p-title-card-presentation"
                                 style={{
-                                    margin: 0,
-                                    fontSize: "clamp(0.9rem, 1vw, 1.8rem)",
-                                    opacity: 0.9,
+                                    margin: "12px 0 0 0",
+                                    lineHeight: 1.4,
+                                    color: "#222",
                                     textAlign: "left",
                                     paddingTop: "10px",
                                 }}
                             >
-                                I love to bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written, they are played. 
+                                As a Narrative & System Designer, I bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written, they are played.
                             </p>
+
+                            {/* Row of round action buttons (ITCH.IO - LINKEDIN - CV) */}
+                            <div
+                                style={{
+                                    display: "flex",
+                                    gap: "12px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    marginTop: "14px",
+                                    paddingBottom: "6px"
+                                }}
+                            >
+                                {/* Itch.io */}
+                                <a
+                                    href="https://reglisaille.itch.io/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Open on itch.io"
+                                    style={{
+                                        width: 56,
+                                        height: 56,
+                                        borderRadius: "50%",
+                                        background: "#fff",
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        boxShadow: "0 6px 14px rgba(0,0,0,0.12)",
+                                        textDecoration: "none",
+                                        color: "#fa5c5c",
+                                        fontWeight: 800,
+                                        fontSize: "0.85rem"
+                                    }}
+                                >
+                                    ITCH.IO
+                                </a>
+
+                                {/* LinkedIn */}
+                                <a
+                                    href="https://www.linkedin.com/in/samygaci/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Open LinkedIn"
+                                    style={{
+                                        width: 56,
+                                        height: 56,
+                                        borderRadius: "50%",
+                                        background: "#0a66c2",
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        boxShadow: "0 6px 14px rgba(0,0,0,0.12)",
+                                        textDecoration: "none",
+                                        color: "#fff",
+                                        fontWeight: 700,
+                                        fontSize: "0.85rem"
+                                    }}
+                                >
+                                    IN
+                                </a>
+
+                                {/* CV */}
+                                <a
+                                    href="/assets/CV_Samy_Gaci.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Open CV"
+                                    style={{
+                                        width: 56,
+                                        height: 56,
+                                        borderRadius: "50%",
+                                        background: "#222",
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        boxShadow: "0 6px 14px rgba(0,0,0,0.12)",
+                                        textDecoration: "none",
+                                        color: "#fff",
+                                        fontWeight: 700,
+                                        fontSize: "0.85rem"
+                                    }}
+                                >
+                                    CV
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -502,47 +585,18 @@ const Sections: React.FC = () => {
             {brownCardVisible && (
                 <div
                     ref={brownCardRef}
-                    className="grabbable clickable"
+                    className="grabbable clickable last-projects-card"
                     style={{
                         position: "absolute",
-                        background: "#5A7891",
-                        borderRadius: "16px",
                         top: "3vh",
-                        left: "45vw",
-                        color: "#fff",
-                        width: "30vw",
-                        height: "35vh",
-                        boxShadow: "0 6px 12px rgba(0,0,0,0.3)",
-                        userSelect: "none",
-                        display: "flex",
-                        flexDirection: "column",
-                        overflow: "hidden"
+                        left: "45vw"
                     }}
                 >
                     {/* Contenu principal avec polaroids */}
-                    <div
-                        style={{
-                            flex: 1,
-                            display: "flex",
-                            justifyContent: "space-evenly",
-                            alignItems: "center",
-                            gap: "1rem"
-                        }}
-                    >
+                    <div className="last-projects-content">
                         {/* Polaroid 1 */}
                         <div
-                            className="clickable"
-                            style={{
-                                background: "#fff",
-                                padding: "8px",
-                                boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                                width: "40%",
-                                paddingBottom: "4vh",
-                                cursor: "pointer"
-                            }}
+                            className="clickable lp-polaroid"
                             onClick={() => {
                                 handleMiniClick(0, dossiers[0].component(dossiers[0]));
                             }}
@@ -550,29 +604,13 @@ const Sections: React.FC = () => {
                             <img
                                 src={kimz}
                                 alt="kimz"
-                                style={{
-                                    width: "100%",
-                                    height: "20vh",
-                                    backgroundColor: "#eee",
-                                    objectFit: "cover"
-                                }}
+                                className="lp-img"
                             />
                         </div>
 
                         {/* Polaroid 2 */}
                         <div
-                            className="clickable"
-                            style={{
-                                background: "#fff",
-                                padding: "8px",
-                                boxShadow: "0 4px 10px rgba(0,0,0,0.25)",
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                                width: "40%",
-                                paddingBottom: "4vh",
-                                cursor: "pointer"
-                            }}
+                            className="clickable lp-polaroid"
                             onClick={() => {
                                 handleMiniClick(1, dossiers[1].component(dossiers[1]));
                             }}
@@ -580,27 +618,13 @@ const Sections: React.FC = () => {
                             <img
                                 src={zap}
                                 alt="zap"
-                                style={{
-                                    width: "100%",
-                                    height: "20vh",
-                                    backgroundColor: "#eee",
-                                    objectFit: "cover"
-                                }}
+                                className="lp-img"
                             />
                         </div>
                     </div>
 
                     {/* Footer Derniers projets */}
-                    <div
-                        style={{
-                            background: "#465B6D",
-                            textAlign: "center",
-                            padding: "12px 0",
-                            fontSize: "clamp(1rem, 2vw, 2rem)",
-                            fontWeight: "bold",
-                            margin: 0
-                        }}
-                    >
+                    <div className="last-projects-footer">
                         Last Projects
                     </div>
                 </div>
@@ -748,7 +772,7 @@ const Sections: React.FC = () => {
                         zIndex: 10000
                     }}
                 >
-                    Websiste still in construction, but you can drag & drop every element in compensation, have fun!
+                    Nothing’s fixed here. Move things, have fun!
                 </div>
             )}
 

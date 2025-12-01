@@ -1,3 +1,6 @@
+/* global responsive rules without CSS variables */
+
+/* projet container etc. (garde ton code existant si nécessaire) */
 .projets-container {
   position: absolute;
   top: 0;
@@ -7,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateX(-100%); // départ hors écran gauche
+  transform: translateX(-100%); /* départ hors écran gauche */
 }
 
 .h1-bold {
@@ -23,8 +26,9 @@
 
 p {
   color: #222;
-  padding: 90px 40px 20px 20px;
-  font-size: clamp(13px, 0.9vw, 1vw);
+  padding: 90px 40px 0px 20px; 
+  margin-bottom: 0;
+  font-size: clamp(13px, 15px, 1.5vw);
 }
 
 .important {
@@ -49,4 +53,924 @@ p {
 
 .animate-slide-up {
   animation: slide-up 0.3s ease-out;
+}
+
+/* -------------------------------
+   Card (blue) : sizing + typographie
+   ------------------------------- */
+
+/* largeur responsive (comme before) */
+.card {
+  width: clamp(280px, 35vw, 520px);
+  min-width: 260px;
+  /* height handled inline via JS layout; keep maxHeight to avoid overflow */
+  max-height: 85vh;
+  padding: 2vw;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  background: #fff9e5;
+  overflow: auto;
+  display: flex;
+  gap: 1.6rem;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+/* Typographie par défaut (petite -> moyenne écrans) */
+.card .card-title {
+  font-size: clamp(1.1rem, 2.4vw, 2rem);
+  margin: 0;
+  font-weight: 900;
+  color: #000;
+}
+
+.card .card-sub {
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  margin: 6px 0 0 0;
+  font-weight: 700;
+  color: #d82639;
+}
+
+.card .card-body {
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  margin-top: 12px;
+  line-height: 1.4;
+  color: #222;
+}
+
+/* Layout mobile: empiler image au-dessus du texte */
+@media (max-width: 640px) {
+  .card {
+    width: 94%;
+    height: auto;
+    flex-direction: column;
+    padding: 14px;
+  }
+  .card img {
+    width: 60%;
+    max-width: 220px;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+}
+
+/* Grands écrans : forcer largeur max exacte et augmenter typographie */
+@media (min-width: 1200px) {
+  .card {
+    width: 40vw; /* même width qu'avant sur gros écrans */
+  }
+  .card .card-title { font-size: 2.2rem; }
+  .card .card-sub { font-size: 2.5rem; }
+  .card .card-body { font-size: 1.12rem; }
+  .p-title-card-presentation {
+    font-size: 1.12rem;
+  }
+  .p-up-title-card-presentation {
+    font-size: 1.7rem;
+  }
+  .h1-title-card-presentation {
+    font-size: 2.2rem;
+  }
+}
+
+/* Très grands écrans : encore plus grand si souhaité */
+@media (min-width: 1920px) {
+  .card {
+    width: 40vw;
+  }
+  .card .card-title { font-size: 2.6rem; }
+  .card .card-sub { font-size: 1.5rem; }
+  .card .card-body { font-size: 1.2rem; }
+
+  .p-title-card-presentation {
+    font-size: 1.2rem;
+  }
+  .p-up-title-card-presentation {
+    font-size: 1.5rem;
+  }
+  .h1-title-card-presentation {
+    font-size: 2.6rem;
+  }
+}
+
+/* -------------------------------
+   Last projects card (brown)
+   ------------------------------- */
+
+.last-projects-card {
+  width: clamp(300px, 30vw, 520px);
+  min-width: 260px;
+  height: clamp(220px, 35vh, 420px);
+  background: #5A7891;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* inner layout */
+.last-projects-content {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem;
+}
+
+/* polaroids inside the card */
+.lp-polaroid {
+  background: #fff;
+  padding: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  padding-bottom: 4vh;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ensure images scale and are not cropped oddly */
+.lp-img {
+  width: 100%;
+  height: auto;
+  max-height: 17vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* footer style with direct clamp */
+.last-projects-footer {
+  background: #465B6D;
+  text-align: center;
+  padding: 12px 0;
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  font-weight: bold;
+  margin: 0;
+}
+
+/* small screens: stack polaroids vertically if needed */
+@media (max-width: 520px) {
+  .last-projects-content {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .lp-polaroid {
+    width: 80%;
+  }
+  .last-projects-card {
+    padding: 12px;
+    height: auto;
+  }
+}
+
+/* --------------------------------
+   Polaroid positioning (new)
+   ------------------------------- */
+
+.polaroid-pos {
+  position: absolute;
+  z-index: 5;
+  transform-origin: center;
+  transition: right 0.25s, bottom 0.25s, transform 0.2s;
+}
+
+/* Polaroid bottom-right (photo4) */
+.polaroid-pos--bottom-right {
+  right: 20px;
+  bottom: -150px;
+  z-index: 3;
+}
+
+@media (max-width: 1200px) {
+  .polaroid-pos--bottom-right {
+    right: 15px;
+    bottom: -120px;
+  }
+}
+
+@media (max-width: 900px) {
+  .polaroid-pos--bottom-right {
+    right: 10px;
+    bottom: -100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .polaroid-pos--bottom-right {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    transform: none !important;
+  }
+  .polaroid-pos--bottom-right .polaroid {
+    max-width: 320px;
+    width: 90%;
+  }
+}
+
+/* Polaroid bottom-center-right (photo3) */
+.polaroid-pos--bottom-center-right {
+  right: 240px;
+  bottom: 10px;
+  z-index: 5;
+}
+
+@media (max-width: 1200px) {
+  .polaroid-pos--bottom-center-right {
+    right: 160px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .polaroid-pos--bottom-center-right {
+    right: 80px;
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .polaroid-pos--bottom-center-right {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    transform: none !important;
+  }
+  .polaroid-pos--bottom-center-right .polaroid {
+    max-width: 320px;
+    width: 90%;
+  }
+}
+
+/* Polaroid vertical (left/top) positioning with responsive breakpoints */
+.polaroid-pos--left {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
+.polaroid-pos--left--kimz-1 .polaroid-pos--left--kimz-2 .polaroid-pos--left--kimz-3 .polaroid-pos--left--kimz-4 {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
+.polaroid-pos--left--yurei-1 .polaroid-pos--left--yurei-2 .polaroid-pos--left--yurei-3 .polaroid-pos--left--yurei-4 {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
+.polaroid-pos--left--bring-1 .polaroid-pos--left--bring-2 .polaroid-pos--left--bring-3 {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
+.polaroid-pos--left--storytail-1 .polaroid-pos--left--storytail-2 .polaroid-pos--left--storytail-3 .polaroid-pos--left--storytail-4 {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
+.polaroid-pos--left--trapped-1 .polaroid-pos--left--trapped-2 .polaroid-pos--left--trapped-3 {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
+.polaroid-pos--left--quaalud-1 .polaroid-pos--left--quaalud-2 .polaroid-pos--left--quaalud-3 .polaroid-pos--left--quaalud-4 {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
+.polaroid-pos--left--ntfc-1 .polaroid-pos--left--ntfc-2 .polaroid-pos--left--ntfc-3 .polaroid-pos--left--ntfc-4 {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
+.polaroid-pos--left--zapN-1 .polaroid-pos--left--zapN-2 .polaroid-pos--left--zapN-3 .polaroid-pos--left--zapN-4 .polaroid-pos--left--zapS-1 .polaroid-pos--left--zapS-2 .polaroid-pos--left--zapS-3{
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
+/* Large screens (2560px+) */
+@media (min-width: 2560px) {
+  .polaroid-pos--left {
+    left: 250px;
+    top: 250px;
+    transform: scale(2.5);
+    border: none;
+  }
+
+  .polaroid-pos--left--kimz-1 {
+    left: 10px;
+    top: 290px;
+    transform: scale(2.5);
+  }
+  .polaroid-pos--left--kimz-2 {
+    left: 410px;
+    top: 210px;
+    transform: scale(1.8);
+    z-index: 7;
+  }
+  .polaroid-pos--left--kimz-3 {
+    left: 410px;
+    top: 450px;
+    transform: scale(1.8);
+    z-index: 6;
+  }
+  .polaroid-pos--left--kimz-4 {
+    left: 140px;
+    top: 550px;
+    transform: scale(1.8);
+  }
+
+  .polaroid-pos--left--bring-1 {
+    left: -50px;
+    top: 150px;
+    transform: scale(1.7);
+  }
+  .polaroid-pos--left--bring-2 {
+    left: 200px;
+    top: 110px;
+    transform: scale(1.5);
+    z-index: 7;
+  }
+  .polaroid-pos--left--bring-3 {
+    left: 220px;
+    top: 320px;
+    transform: scale(1.4);
+    z-index: 8;
+  }
+
+}
+
+/* Standard desktop (1920px - 2559px) */
+@media (min-width: 1440px) and (max-width: 2559px) {
+  .polaroid-pos--left {
+    left: 60px;
+    top: 150px;
+    transform: scale(2);
+  }
+
+  .polaroid-pos--left--kimz-1 {
+    left: -190px;
+    top: 170px;
+    transform: scale(2);
+  }
+  .polaroid-pos--left--kimz-2 {
+    left: 110px;
+    top: 140px;
+    transform: scale(1.5);
+    z-index: 7;
+  }
+  .polaroid-pos--left--kimz-3 {
+    left: 110px;
+    top: 340px;
+    transform: scale(1.5);
+    z-index: 6;
+  }
+  .polaroid-pos--left--kimz-4 {
+    left: -140px;
+    top: 380px;
+    transform: scale(1.5);
+  }
+
+  .polaroid-pos--left--bring-1 {
+    left: -150px;
+    top: 150px;
+    transform: scale(1.7);
+  }
+  .polaroid-pos--left--bring-2 {
+    left: 100px;
+    top: 110px;
+    transform: scale(1.5);
+    z-index: 7;
+  }
+  .polaroid-pos--left--bring-3 {
+    left: 120px;
+    top: 320px;
+    transform: scale(1.4);
+    z-index: 8;
+  }
+
+  .polaroid-pos--left--yurei-1 {
+    left: 250px;
+    top: 150px;
+    transform: scale(1.8);
+    z-index: 8;
+  }
+  .polaroid-pos--left--yurei-2 {
+    left: -110px;
+    top: 320px;
+    transform: scale(1.5);
+    z-index: 7;
+  }
+  .polaroid-pos--left--yurei-3 {
+    left: -90px;
+    top: 110px;
+    transform: scale(1.4);
+    z-index: 4;
+  }
+
+  .polaroid-pos--left--storytail-1 {
+    left: -90px;
+    top: 120px;
+    transform: scale(1.5);
+  }
+  .polaroid-pos--left--storytail-2 {
+    left: 220px;
+    top: 120px;
+    transform: scale(1.5);
+    z-index: 5;
+  }
+  .polaroid-pos--left--storytail-3 {
+    left: 160px;
+    top: 350px;
+    transform: scale(1.4);
+    z-index: 6;
+  }
+  .polaroid-pos--left--storytail-4 {
+    left: -90px;
+    top: 350px;
+    transform: scale(1.4);
+  }
+
+  .polaroid-pos--left--trapped-1 {
+    left: 260px;
+    top: 130px;
+    transform: scale(1.7);
+    z-index: 7;
+  }
+  .polaroid-pos--left--trapped-2 {
+    left: -90px;
+    top: 90px;
+    transform: scale(1.3);
+    z-index: 8;
+  }
+  .polaroid-pos--left--trapped-3 {
+    left: -80px;
+    top: 300px;
+    transform: scale(1.1);
+    z-index: 6;
+  }
+
+  .polaroid-pos--left--quaalud-1 {
+    left: -110px;
+    top: 110px;
+    transform: scale(1.3);
+    z-index: 7;
+  }
+  .polaroid-pos--left--quaalud-2 {
+    left: 170px;
+    top: 310px;
+    transform: scale(1.4);
+    z-index: 9;
+  }
+  .polaroid-pos--left--quaalud-3 {
+    left: -120px;
+    top: 300px;
+    transform: scale(1.3);
+    z-index: 8;
+  }
+  .polaroid-pos--left--quaalud-4 {
+    left: 170px;
+    top: 100px;
+    transform: scale(1.2);
+    z-index: 9;
+  }
+
+  .polaroid-pos--left--ntfc-1 {
+    left: -90px;
+    top: 90px;
+    transform: scale(1.35);
+    z-index: 10;
+  }
+  .polaroid-pos--left--ntfc-2 {
+    left: 180px;
+    top: 300px;
+    transform: scale(1.3);
+    z-index: 9;
+  }
+  .polaroid-pos--left--ntfc-3 {
+    left: -90px;
+    top: 300px;
+    transform: scale(1.3);
+    z-index: 8;
+  }
+  .polaroid-pos--left--ntfc-4 {
+    left: 170px;
+    top: 95px;
+    transform: scale(1.3);
+    z-index: 9;
+  }
+
+  .polaroid-pos--left--zapN-1 {
+    left: -80px;
+    top: 30px;
+    transform: scale(1.3);
+    z-index: 8;
+  }
+  .polaroid-pos--left--zapN-2 {
+    left: -100px;
+    top: 350px;
+    transform: scale(1.3);
+    z-index: 10;
+  }
+  .polaroid-pos--left--zapN-3 {
+    left: -70px;
+    top: 200px;
+    transform: scale(1.5);
+    z-index: 9;
+  }
+  .polaroid-pos--left--zapN-4 {
+    left: 270px;
+    top: 120px;
+    transform: scale(2.3);
+    z-index: 7;
+  }
+
+  .polaroid-pos--left--zapN-5 {
+    left: 180px;
+    top: 360px;
+    transform: scale(1.3);
+    z-index: 12;
+  }
+
+  .polaroid-pos--left--zapS-1 {
+    left: -90px;
+    top: 90px;
+    transform: scale(1.35);
+    z-index: 10;
+  }
+  .polaroid-pos--left--zapS-2 {
+    left: 180px;
+    top: 300px;
+    transform: scale(1.3);
+    z-index: 9;
+  }
+  .polaroid-pos--left--zapS-3 {
+    left: -90px;
+    top: 300px;
+    transform: scale(1.3);
+    z-index: 8;
+  }
+}
+
+/* Medium desktop (1440px - 1919px) */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .polaroid-pos--left {
+    left: 120px;
+    top: 100px;
+    transform: scale(1.5);
+  }
+
+  .polaroid-pos--left--kimz-1 {
+    left: -90px;
+    top: 120px;
+    transform: scale(1.5);
+  }
+  .polaroid-pos--left--kimz-2 {
+    left: 110px;
+    top: 110px;
+    transform: scale(1.2);
+    z-index: 7;
+  }
+  .polaroid-pos--left--kimz-3 {
+    left: 110px;
+    top: 280px;
+    transform: scale(1.2);
+    z-index: 6;
+  }
+  .polaroid-pos--left--kimz-4 {
+    left: -100px;
+    top: 320px;
+    transform: scale(1.2);
+  }
+
+  .polaroid-pos--left--bring-1 {
+    left: -50px;
+    top: 120px;
+    transform: scale(1.5);
+  }
+  .polaroid-pos--left--bring-2 {
+    left: 120px;
+    top: 90px;
+    transform: scale(1.2);
+    z-index: 7;
+  }
+  .polaroid-pos--left--bring-3 {
+    left: 130px;
+    top: 260px;
+    transform: scale(1.2);
+    z-index: 8;
+  }
+
+  .polaroid-pos--left--yurei-1 {
+    left: 230px;
+    top: 100px;
+    transform: scale(1.5);
+    z-index: 8;
+  }
+  .polaroid-pos--left--yurei-2 {
+    left: -100px;
+    top: 270px;
+    transform: scale(1.2);
+    z-index: 7;
+  }
+  .polaroid-pos--left--yurei-3 {
+    left: -70px;
+    top: 70px;
+    transform: scale(1.2);
+    z-index: 4;
+  }
+
+  .polaroid-pos--left--storytail-1 {
+    left: -60px;
+    top: 90px;
+    transform: scale(1.3);
+  }
+  .polaroid-pos--left--storytail-2 {
+    left: 200px;
+    top: 90px;
+    transform: scale(1.3);
+    z-index: 5;
+  }
+  .polaroid-pos--left--storytail-3 {
+    left: 140px;
+    top: 300px;
+    transform: scale(1.2);
+    z-index: 6;
+  }
+  .polaroid-pos--left--storytail-4 {
+    left: -100px;
+    top: 300px;
+    transform: scale(1.2);
+  }
+
+  .polaroid-pos--left--trapped-1 {
+    left: 220px;
+    top: 90px;
+    transform: scale(1.5);
+    z-index: 7;
+  }
+  .polaroid-pos--left--trapped-2 {
+    left: -120px;
+    top: 70px;
+    transform: scale(1.2);
+    z-index: 8;
+  }
+  .polaroid-pos--left--trapped-3 {
+    left: -70px;
+    top: 270px;
+    transform: scale(1);
+    z-index: 6;
+  }
+
+  .polaroid-pos--left--quaalud-1 {
+    left: -100px;
+    top: 100px;
+    transform: scale(1.2);
+    z-index: 7;
+  }
+  .polaroid-pos--left--quaalud-2 {
+    left: 140px;
+    top: 280px;
+    transform: scale(1.1);
+    z-index: 9;
+  }
+  .polaroid-pos--left--quaalud-3 {
+    left: -120px;
+    top: 270px;
+    transform: scale(1.1);
+    z-index: 8;
+  }
+  .polaroid-pos--left--quaalud-4 {
+    left: 130px;
+    top: 100px;
+    transform: scale(1.1);
+    z-index: 9;
+  }
+
+  .polaroid-pos--left--ntfc-1 {
+    left: -110px;
+    top: 70px;
+    transform: scale(1.15);
+    z-index: 10;
+  }
+  .polaroid-pos--left--ntfc-2 {
+    left: 140px;
+    top: 250px;
+    transform: scale(1.1);
+    z-index: 9;
+  }
+  .polaroid-pos--left--ntfc-3 {
+    left: -110px;
+    top: 250px;
+    transform: scale(1.1);
+    z-index: 8;
+  }
+  .polaroid-pos--left--ntfc-4 {
+    left: 140px;
+    top: 70px;
+    transform: scale(1.15);
+    z-index: 9;
+  }
+
+  .polaroid-pos--left--zapN-1 {
+    left: -90px;
+    top: 20px;
+    transform: scale(1.1);
+    z-index: 8;
+  }
+  .polaroid-pos--left--zapN-2 {
+    left: -120px;
+    top: 360px;
+    transform: scale(1.1);
+    z-index: 10;
+  }
+  .polaroid-pos--left--zapN-3 {
+    left: -80px;
+    top: 200px;
+    transform: scale(1.2);
+    z-index: 9;
+  }
+  .polaroid-pos--left--zapN-4 {
+    left: 230px;
+    top: 80px;
+    transform: scale(2);
+    z-index: 7;
+  }
+
+  .polaroid-pos--left--zapN-5 {
+    left: 140px;
+    top: 360px;
+    transform: scale(1.1);
+    z-index: 12;
+  }
+}
+/* --------------------------------
+   BREAKPOINT: Large Screens (2560px+)
+   ------------------------------- */
+@media (min-width: 2560px) {
+  /* Polaroid bottom-right (photo4) */
+  .polaroid-pos--bottom-right {
+    right: -850px;
+    bottom: -200px;
+    z-index: 3;
+    transform: scale(1.5);
+  }
+
+  /* Polaroid bottom-center-right (photo3) */
+  .polaroid-pos--bottom-center-right {
+    right: 380px;
+    bottom: -200px;
+    z-index: 5;
+    transform: scale(1.6);
+  }
+}
+
+/* ============================================
+   BREAKPOINT: Standard Desktop (1920px - 2559px)
+   ============================================ */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  /* Polaroid bottom-right (photo4) */
+  .polaroid-pos--bottom-right {
+    right: -680px;
+    bottom: -150px;
+    z-index: 3;
+    transform: scale(0.9);
+  }
+
+  /* Polaroid bottom-center-right (photo3) */
+  .polaroid-pos--bottom-center-right {
+    right: 280px;
+    bottom: -150px;
+    z-index: 5;
+  }
+}
+
+/* ============================================
+   BREAKPOINT: Medium Desktop (1440px - 1919px)
+   ============================================ */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  /* Polaroid bottom-right (photo4) */
+  .polaroid-pos--bottom-right {
+    right: -630px;
+    bottom: -130px;
+    z-index: 3;
+    transform: scale(0.7);
+  }
+
+  /* Polaroid bottom-center-right (photo3) */
+  .polaroid-pos--bottom-center-right {
+    right: 50px;
+    bottom: -130px;
+    z-index: 5;
+    transform: scale(0.8);
+  }
+}
+
+/* ============================================
+   BREAKPOINT: Small Desktop / Tablet Landscape (1024px - 1439px)
+   ============================================ */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Polaroid bottom-right (photo4) */
+  .polaroid-pos--bottom-right {
+    right: 20px;
+    bottom: -100px;
+    z-index: 3;
+  }
+
+  /* Polaroid bottom-center-right (photo3) */
+  .polaroid-pos--bottom-center-right {
+    right: 140px;
+    bottom: 30px;
+    z-index: 5;
+  }
+}
+
+/* ============================================
+   BREAKPOINT: Tablet Portrait (768px - 1023px)
+   ============================================ */
+@media (max-width: 1023px) {
+  /* Polaroid bottom-right (photo4) */
+  .polaroid-pos--bottom-right {
+    right: 15px;
+    bottom: -80px;
+    z-index: 3;
+  }
+
+  /* Polaroid bottom-center-right (photo3) */
+  .polaroid-pos--bottom-center-right {
+    right: 100px;
+    bottom: 40px;
+    z-index: 5;
+  }
+}
+
+/* ============================================
+   BREAKPOINT: Small Devices (< 768px)
+   ============================================ */
+@media (max-width: 767px) {
+  .polaroid-pos {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    transform: none !important;
+    z-index: 1;
+  }
+
+  .polaroid-pos .polaroid {
+    max-width: 280px;
+    width: 90%;
+  }
+
+  .polaroid-pos--bottom-right,
+  .polaroid-pos--bottom-center-right {
+    right: auto;
+    bottom: auto;
+  }
 }

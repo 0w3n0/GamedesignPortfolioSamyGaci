@@ -6,11 +6,11 @@ const PolaroidStandard: React.FC<{ photo: string; style?: React.CSSProperties; s
         className="polaroid"
         style={{
             backgroundColor: "white",
-            padding: "0px clamp(6px, 1vw,2vw) clamp(12px, 2vw, 2vw) clamp(6px, 1vw, 2vw)",
+            padding: "8px",
             border: "1px solid #ccc",
             boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
-            width: "clamp(100px, 18vw, 20vw)",
-            height: "clamp(100px, 18vw, 20vw)",
+            width: "clamp(100px, 120px, 160px)", // fixed size, responsive
+            height: "clamp(100px, 120px, 160px)", // square aspect ratio
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -24,7 +24,7 @@ const PolaroidStandard: React.FC<{ photo: string; style?: React.CSSProperties; s
                 alt="scotch"
                 style={{
                     position: "absolute",
-                    top: "calc(-1 * clamp(20px, 7vh, 10vh))",
+                    top: "-30px",
                     left: "50%",
                     transform: "translateX(-50%) rotate(60deg)",
                     width: "35%",
@@ -36,9 +36,10 @@ const PolaroidStandard: React.FC<{ photo: string; style?: React.CSSProperties; s
         <div
             style={{
                 width: "100%",
-                height: "clamp(80px, 14vw, 16vw)",
+                height: "100%",
                 backgroundColor: photo ? "transparent" : "black",
                 display: "block",
+                borderRadius: "4px",
             }}
         >
             <img
@@ -49,7 +50,7 @@ const PolaroidStandard: React.FC<{ photo: string; style?: React.CSSProperties; s
                     height: "100%",
                     objectFit: "cover",
                     display: "block",
-                    borderRadius: "6px"
+                    borderRadius: "4px"
                 }}
             />
         </div>

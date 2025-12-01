@@ -26,9 +26,11 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
     const frontRef = useRef<HTMLDivElement | null>(null);
     const [activeDiv, setActiveDiv] = useState<number>(0); // Child sélectionné
 
+    // Tableau des noms d'onglets
+    const navTabs = ["Zap From Beyond", "Yurei", "No Time", "Quaalud", "Trapped", "Bring Me Red"];
+
     const hoverColors = ["#ff6b6b", "#6bc1ff", "#6bff95", "#ffda6b", "#c56bff", "#ff6bbf"];
     const activeColor = "#9E9593";
-
     const defaultColor = "#C0AFAC"; // bleu pour le child actif
 
     const handleOpen = () => {
@@ -108,7 +110,7 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                 style={{ backgroundColor: colors?.background }}
             >
                 <div className="navbar">
-                    {Array.from({ length: 6 }).map((_, i) => (
+                    {navTabs.map((tabName, i) => (
                         <div
                             key={i}
                             className="nav-item"
@@ -118,13 +120,24 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                                 console.log(i);
                                 handleOpen();
                             }}
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                cursor: "pointer",
+                                fontSize: "clamp(0.7rem, 0.9vw, 0.95rem)",
+                                fontWeight: 600,
+                                color: "black",
+                                userSelect: "none",
+                            }}
                         >
+                            {tabName}
                         </div>
                     ))}
                 </div>
 
                 <div className="middle-layer" style={{ backgroundColor: colors?.middle }}>
-                    {Array.from({ length: 9 }).map((_, i) => (
+                    {navTabs.map((_, i) => (
                         <div
                             key={i}
                             ref={el => { contentRefs.current[i] = el; }}
@@ -143,8 +156,6 @@ const Section1: React.FC<Section1Props> = ({ colors }) => {
                             {i === 3 && <PresentationSection2_Quaalud_System />}
                             {i === 4 && <PresentationSection2_Trapped_System />}
                             {i === 5 && <PresentationSection2_BringMeRed_System />}
-                            
-                            
                         </div>
                     ))}
                 </div>
