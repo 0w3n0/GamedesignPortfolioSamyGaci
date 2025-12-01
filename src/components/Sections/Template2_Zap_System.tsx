@@ -1,8 +1,15 @@
 import React from "react";
+// import photo1 from "../../assets/images/png/Zap_From_Beyond/Affiche.png";
+// import photo2 from "../../assets/images/png/Zap_From_Beyond/OnePager.png";
+// import photo3 from "../../assets/images/png/Zap_From_Beyond/TimelineSerre.png";
+// import photo4 from "../../assets/images/png/Zap_From_Beyond/Prototype.png";
+
 import photo1 from "../../assets/images/png/Zap_From_Beyond/Affiche.png";
-import photo2 from "../../assets/images/png/Zap_From_Beyond/OnePager.png";
-import photo3 from "../../assets/images/png/Zap_From_Beyond/TimelineSerre.png";
-import photo4 from "../../assets/images/png/Zap_From_Beyond/Prototype.png";
+import photo2 from "../../assets/images/png/Zap_From_Beyond/Gameplay.png";
+import photo3 from "../../assets/images/png/Zap_From_Beyond/Zap_Video1.png";
+import photo4 from "../../assets/images/png/Zap_From_Beyond/Zap_Video2.png";
+import photo5 from "../../assets/images/png/Zap_From_Beyond/Zap_Video3.png";
+
 import PolaroidStandard from "./PolaroidStandard";
 import PolaroidHorizontal from "./PolaroidHorizontal";
 import PolaroidVertical from "./PolaroidVertical";
@@ -36,10 +43,54 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                     }}
                 >
                     {/* Image verticale en haut à gauche */}
-                    <div className="polaroid-pos polaroid-pos--left" aria-hidden>
+                    <div className="polaroid-pos polaroid-pos--left--zapN-1" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo4}
+                            style={{
+                                transform: "rotate(-2deg) scale(1)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
+
+
+                    <div className="polaroid-pos polaroid-pos--left--zapN-2" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo2}
+                            style={{
+                                transform: "rotate(3deg) scale(0.9)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
+
+                    <div className="polaroid-pos polaroid-pos--left--zapN-3" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo3}
+                            style={{
+                                transform: "rotate(-5deg) scale(0.9)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
+
+
+                    <div className="polaroid-pos polaroid-pos--left--zapN-4" aria-hidden>
                         <PolaroidVertical
                             photo={photo1}
-                            style={{ transform: "rotate(-8deg) scale(1.2)" }}
+                            style={{
+                                transform: "rotate(2deg) scale(0.9)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
+
+                    <div className="polaroid-pos polaroid-pos--left--zapN-5" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo5}
+                            style={{
+                                transform: "rotate(-2deg) scale(0.9)"
+                            }}
                             scotch={false}
                         />
                     </div>
@@ -147,24 +198,6 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                         >
                             DOC
                         </a>
-                    </div>
-
-                    {/* Image horizontale en bas à droite */}
-                    <div className="polaroid-pos polaroid-pos--bottom-right" aria-hidden>
-                        <PolaroidHorizontal
-                            photo={photo4}
-                            style={{ transform: "rotate(5deg) scale(0.9)" }}
-                            scotch={false}
-                        />
-                    </div>
-
-                    {/* Image horizontale en bas au centre-droit */}
-                    <div className="polaroid-pos polaroid-pos--bottom-center-right" aria-hidden>
-                        <PolaroidHorizontal
-                            photo={photo3}
-                            style={{ transform: "rotate(-5deg) scale(0.8)" }}
-                            scotch={false}
-                        />
                     </div>
                 </div>
             </div>
