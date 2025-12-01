@@ -387,6 +387,15 @@ p {
   transition: left 0.25s, top 0.25s, transform 0.2s;
 }
 
+.polaroid-pos--left--zapN-1 .polaroid-pos--left--zapN-2 .polaroid-pos--left--zapN-3 .polaroid-pos--left--zapN-4 .polaroid-pos--left--zapS-1 .polaroid-pos--left--zapS-2 .polaroid-pos--left--zapS-3 {
+  position: absolute;
+  left: -20px;
+  top: 20px;
+  z-index: 6;
+  transform-origin: center;
+  transition: left 0.25s, top 0.25s, transform 0.2s;
+}
+
 /* Large screens (2560px+) */
 @media (min-width: 2560px) {
   .polaroid-pos--left {
@@ -586,6 +595,54 @@ p {
     top: 95px;
     transform: scale(1.3);
     z-index: 9;
+  }
+  .polaroid-pos--left--zapN-1 {
+    left: 10px;
+    top: 90px;
+    transform: scale(1.35);
+    z-index: 10;
+  }
+  .polaroid-pos--left--zapN-2 {
+    left: 280px;
+    top: 300px;
+    transform: scale(1.3);
+    z-index: 9;
+  }
+  .polaroid-pos--left--zapN-3 {
+    left: 10px;
+    top: 300px;
+    transform: scale(1.3);
+    z-index: 8;
+  }
+  .polaroid-pos--left--zapN-4 {
+    left: 270px;
+    top: 95px;
+    transform: scale(1.3);
+    z-index: 9;
+  }
+  .polaroid-pos--left--zapN-5 {
+    left: 270px;
+    top: 95px;
+    transform: scale(1.3);
+    z-index: 9;
+  }
+  .polaroid-pos--left--zapS-1 {
+    left: 10px;
+    top: 90px;
+    transform: scale(1.35);
+    z-index: 10;
+  }
+  .polaroid-pos--left--zapS-2 {
+    left: 280px;
+    top: 300px;
+    transform: scale(1.3);
+    z-index: 9;
+  }
+  .polaroid-pos--left--zapS-3 {
+    left: 10px;
+    top: 300px;
+    transform: scale(1.3);
+    z-index: 8;
   }
 }
 /* Medium desktop (1440px - 1919px) */
