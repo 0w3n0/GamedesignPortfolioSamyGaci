@@ -39,17 +39,46 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                 >
                     {/* Affichage séparé des polaroids */}
 
-                    <PolaroidVertical
-                        photo={photo1}
-                        style={{
-                            position: "absolute",
-                            top: "clamp(1vw, 4vw, 12vw)",
-                            left: "clamp(-10vw, -10vw, 14vw)",
-                            zIndex: 6,
-                            transform: "rotate(-4deg) scale(1.3)"
-                        }}
-                        scotch={false}
-                    />
+                    <div className="polaroid-pos polaroid-pos--left--kimz-1" aria-hidden>
+                        <PolaroidVertical
+                            photo={photo1}
+                            style={{ transform: "rotate(-4deg) scale(1.3)" }}
+                            scotch={false}
+                        />
+                    </div>
+
+
+                    <div className="polaroid-pos polaroid-pos--left--kimz-2" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo4}
+                            style={{
+                                transform: "rotate(5deg) scale(0.9)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
+
+
+                    <div className="polaroid-pos polaroid-pos--left--kimz-3" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo3}
+                            style={{
+                                transform: "rotate(-5deg) scale(0.9)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
+
+                    <div className="polaroid-pos polaroid-pos--left--kimz-4" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo2}
+                            style={{
+                                transform: "rotate(3deg) scale(0.8)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
+
                 </div>
 
                 {/* Colonne droite */}
@@ -136,7 +165,7 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             }}
                             aria-label="Open on itch.io"
                         >
-                            
+
                             ITCH.IO
                         </a>
                         <a
@@ -160,43 +189,6 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             DOC
                         </a>
                     </div>
-
-                    <PolaroidHorizontal
-                        photo={photo4}
-                        style={{
-                            position: "absolute",
-                            bottom: "clamp(5vw, 15vw, 30vw)",
-                            right: "clamp(0px, 32vw, 50vw)",
-                            zIndex: 10,
-                            transform: "rotate(5deg) scale(0.9)"
-                        }}
-                        scotch={false}
-                    />
-
-                    
-                    <PolaroidHorizontal
-                        photo={photo3}
-                        style={{
-                            position: "absolute",
-                            bottom: "clamp(2vw, 5vw, -20vw)",
-                            right: "clamp(20px, 32vw, 40vw)",
-                            zIndex: 9,
-                            transform: "rotate(-5deg) scale(0.9)"
-                        }}
-                        scotch={false}
-                    />
-
-                    <PolaroidHorizontal
-                        photo={photo2}
-                        style={{
-                            position: "absolute",
-                            bottom: "clamp(-20vw, 0vw, 20vw)",
-                            right: "clamp(20px, 50vw, 50vw)",
-                            zIndex: 6,
-                            transform: "rotate(3deg) scale(0.8)"
-                        }}
-                        scotch={false}
-                    />
                 </div>
             </div>
         </div>

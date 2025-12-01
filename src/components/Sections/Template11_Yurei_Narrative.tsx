@@ -39,17 +39,35 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                 >
                     {/* Affichage séparé des polaroids */}
 
-                    <PolaroidVertical
-                        photo={photo1}
-                        style={{
-                            position: "absolute",
-                            top: "clamp(1vw, 4vw, 12vw)",
-                            left: "clamp(-5vw, 15vw, 14vw)",
-                            zIndex: 6,
-                            transform: "rotate(2deg) scale(1.2)"
-                        }}
-                        scotch={false}
-                    />
+                    <div className="polaroid-pos polaroid-pos--left--yurei-1" aria-hidden>
+                        <PolaroidVertical
+                            photo={photo1}
+                            style={{ transform: "rotate(2deg) scale(1.2)" }}
+                            scotch={false}
+                        />
+                    </div>
+
+
+                    <div className="polaroid-pos polaroid-pos--left--yurei-2" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo3}
+                            style={{
+                                transform: "rotate(5deg) scale(1)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
+
+
+                    <div className="polaroid-pos polaroid-pos--left--yurei-3" aria-hidden>
+                        <PolaroidHorizontal
+                            photo={photo4}
+                            style={{
+                                transform: "rotate(-5deg) scale(1.1)"
+                            }}
+                            scotch={false}
+                        />
+                    </div>
                 </div>
 
                 {/* Colonne droite */}
@@ -140,29 +158,6 @@ const Template2_Zap_System: React.FC<{ disableItch?: boolean }> = ({ disableItch
                             DOC
                         </a>
                     </div>
-
-                    <PolaroidHorizontal
-                        photo={photo4}
-                        style={{
-                            position: "absolute",
-                            bottom: "clamp(5vw, 15vw, 30vw)",
-                            right: "clamp(0px, 47vw, 50vw)",
-                            zIndex: 3,
-                            transform: "rotate(-5deg) scale(1.1)"
-                        }}
-                        scotch={false}
-                    />
-                    <PolaroidHorizontal
-                        photo={photo3}
-                        style={{
-                            position: "absolute",
-                            bottom: "clamp(-5vw, 0vw, 50vw)",
-                            right: "clamp(20px, 50vw, 90vw)",
-                            zIndex: 5,
-                            transform: "rotate(5deg) scale(1)"
-                        }}
-                        scotch={false}
-                    />
                 </div>
             </div>
         </div>
