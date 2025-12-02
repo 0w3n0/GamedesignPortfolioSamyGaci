@@ -395,7 +395,12 @@ p {
 }
 
 /* Large screens (2560px+) */
-@media (min-width: 2560px) {
+@media (min-width: 2001px) {
+  
+  p{
+    font-size: 18px;
+  }
+  
   .polaroid-pos--left {
     left: 250px;
     top: 250px;
@@ -404,24 +409,24 @@ p {
   }
 
   .polaroid-pos--left--kimz-1 {
-    left: 10px;
+    left: -90px;
     top: 290px;
     transform: scale(2.5);
   }
   .polaroid-pos--left--kimz-2 {
-    left: 410px;
+    left: 310px;
     top: 210px;
     transform: scale(1.8);
     z-index: 7;
   }
   .polaroid-pos--left--kimz-3 {
-    left: 410px;
+    left: 310px;
     top: 450px;
     transform: scale(1.8);
     z-index: 6;
   }
   .polaroid-pos--left--kimz-4 {
-    left: 140px;
+    left: 40px;
     top: 550px;
     transform: scale(1.8);
   }
@@ -443,11 +448,10 @@ p {
     transform: scale(1.4);
     z-index: 8;
   }
-
 }
 
 /* Standard desktop (1920px - 2559px) */
-@media (min-width: 1440px) and (max-width: 2559px) {
+@media (min-width: 1440px) and (max-width: 2000px) {
   .polaroid-pos--left {
     left: 60px;
     top: 150px;
