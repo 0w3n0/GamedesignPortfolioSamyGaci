@@ -476,7 +476,7 @@ const Sections: React.FC = () => {
                                         padding: "0 8px",
                                     }}
                                 >
-                                    Narrative & System Designer
+                                    Game Designer
                                 </p>
                             </div>
 
@@ -490,7 +490,7 @@ const Sections: React.FC = () => {
                                     paddingTop: "10px",
                                 }}
                             >
-                                As a Narrative & System Designer, I bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written, they are played.
+                                As a Game Designer, I bridge storytelling and game mechanics : designing emotions, meaning, and consequences that live inside the rules of play. I believe the best stories aren’t just written, they are played.
                             </p>
 
                             {/* Row of round action buttons (ITCH.IO - LINKEDIN - CV) */}
