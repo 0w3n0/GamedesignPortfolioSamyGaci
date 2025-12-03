@@ -772,7 +772,7 @@ const Sections: React.FC = () => {
                         zIndex: 10000
                     }}
                 >
-                    Nothing’s fixed here. Move things, have fun!
+                    Websiste still in construction, but you can drag & drop every element in compensation, have fun!
                 </div>
             )}
 
