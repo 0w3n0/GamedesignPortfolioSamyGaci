@@ -14,6 +14,7 @@ import myPhoto from "../../assets/images/png/photoo_cv.png";
 import kimz from "../../assets/images/png/kimz.png";
 import zap from "../../assets/images/png/zap.png";
 import "../../styles/sections.scss";
+import cvPdf from "../../assets/images/CV_NarrativeDesign_ENG.pdf";
 
 gsap.registerPlugin(Draggable);
 
@@ -554,7 +555,7 @@ const Sections: React.FC = () => {
 
                                 {/* CV */}
                                 <a
-                                    href="/assets/images/CV_NarrativeDesign_ENG.pdf"
+                                    href={cvPdf}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Open CV"
