@@ -554,7 +554,7 @@ const Sections: React.FC = () => {
 
                                 {/* CV */}
                                 <a
-                                    href="/assets/CV_Samy_Gaci.pdf"
+                                    href="/assets/images/CV_NarrativeDesign_ENG.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Open CV"
