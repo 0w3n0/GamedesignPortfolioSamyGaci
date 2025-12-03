@@ -554,7 +554,7 @@ const Sections: React.FC = () => {
 
                                 {/* CV */}
                                 <a
-                                    href="/assets/CV_Samy_Gaci.pdf"
+                                    href="/assets/images/CV_NarrativeDesign_ENG.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Open CV"
@@ -772,7 +772,7 @@ const Sections: React.FC = () => {
                         zIndex: 10000
                     }}
                 >
-                    Nothing’s fixed here. Move things, have fun!
+                    Websiste still in construction, but you can drag & drop every element in compensation, have fun!
                 </div>
             )}
 
